@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"name": "ASM_WEB209",
+			"path": "../../../framework2/WD18305/ASM_WEB209"
+		},
+		{
+			"name": "DuAn",
+			"path": "C:/xampp/htdocs/DuAn"
+		},
+		{
+			"name": "DuAn1",
+			"path": "C:/xampp/htdocs/DuAnCaNhan/DuAn1"
+		},
+		{
+			"name": "2023_BTHTCNWeb_",
+			"path": "../../../help/2023_BTHTCNWeb_-20240819T025115Z-001/2023_BTHTCNWeb_"
+		},
+		{
+			"name": "intern",
+			"path": "../../../intern"
+		},
+		{
+			"name": "website",
+			"path": ".."
+		},
+		{
+			"name": "public_html_v2",
+			"path": "C:/xampp/htdocs/public_html_v3/public_html_v2"
+		},
+		{
+			"name": "DuAnShopGiayCaoCapNew",
+			"path": "../../../DuAnShopGiayCaoCapNew"
+		},
+		{
+			"path": "../../Dự án tốt nghiệp"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "intern"
+	}
+}
