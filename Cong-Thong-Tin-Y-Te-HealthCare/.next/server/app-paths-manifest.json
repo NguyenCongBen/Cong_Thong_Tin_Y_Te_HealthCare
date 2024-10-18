@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
   "/admin/Doctors/[id]/page": "app/admin/Doctors/[id]/page.js",
   "/admin/Doctors/page": "app/admin/Doctors/page.js"
+=======
+  "/_not-found/page": "app/_not-found/page.js"
+>>>>>>> daab16bfa774dd875f5623e5607e2aa66573f164
 }
