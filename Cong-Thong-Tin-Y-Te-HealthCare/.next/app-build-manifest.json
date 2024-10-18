@@ -1,15 +1,20 @@
 {
   "pages": {
-    "/(users)/page": [
+    "/admin/Doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
     ],
-    "/(users)/layout": [
+    "/admin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/layout.css",
-      "static/chunks/app/(users)/layout.js"
+      "static/css/app/admin/layout.css",
+      "static/chunks/app/admin/layout.js"
+    ],
+    "/admin/Doctors/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/Doctors/[id]/page.js"
     ]
   }
 }

@@ -1,11 +1,24 @@
-
-
 import localFont from "next/font/local";
 // import "./globals.css";
 import Link from "next/link";
 import Head from "next/head";
-import "../../../public/css/style.css";
-import "../../../public/bootstrap/css/bootstrap.min.css";
+
+import "../../../public/vendor/bootstrap/css/bootstrap.min.css";
+import "../../../public/vendor/font-awesome/css/font-awesome.min.css";
+import "../../../public/vendor/chartist/css/chartist.min.css";
+import "../../../public/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css";
+import "../../../public/vendor/toastr/toastr.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import "../../../public/css/style1.css";
+import "../../../public/css/color_skins.css";
+import "../../../public/css/doctors_all.css";
+import "../../../public/css/inbox.css";
+
+import "../../../public/css/main.css";
+
+import Header from "./components/header";
+import Menu from "./components/menu";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,15 +28,34 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <Head>
-    <Link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-
-    
-    </Head>
-      <body className={` antialiased`}>
-        {children}
-        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-         <script src="https://kit.fontawesome.com/bcd15b30db.js" crossorigin="anonymous"></script>
+      <Head>
+        <Link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <body class="theme-cyan" cz-shortcut-listen="true">
+        <div id="wrapper">
+          <Header></Header>
+          <Menu></Menu>
+          {children}
+        </div>
+        <script src="/js/index.js"></script>
+        <script src="/bundles/libscripts.bundle.js"></script>1
+        <script src="/bundles/vendorscripts.bundle.js"></script>1
+        <script src="/bundles/mainscripts.bundle.js"></script>1
+        <script src="/bundles/chartist.bundle.js"></script>1
+        <script src="/bundles/knob.bundle.js"></script>1
+        <script src="/bundles/flotscripts.bundle.js"></script>1
+        <script src="/bundles/fullcalendarscripts.bundle.js"></script>1
+        <script src="/vendor/toastr/toastr.js"></script>
+        <script src="/vendor/flot-charts/jquery.flot.selection.js"></script>
+        <script src="/vendor/fullcalendar/fullcalendar.js"></script>
+        <script
+          src="https://kit.fontawesome.com/bcd15b30db.js"
+          crossorigin="anonymous"
+        ></script>
+        <script src="/js/pages/calendar.js"></script>
       </body>
     </html>
   );
