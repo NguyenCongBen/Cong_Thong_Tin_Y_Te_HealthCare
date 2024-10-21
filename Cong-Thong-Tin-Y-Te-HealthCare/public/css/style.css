@@ -743,12 +743,6 @@ body {
     margin-top: 3px;
 }
 
-.tt-bread>a {
-    text-decoration: none;
-    font-weight: 700;
-    color: #0076CA;
-}
-
 .tt-item {
     color: #0076CA;
     margin-right: 5px;

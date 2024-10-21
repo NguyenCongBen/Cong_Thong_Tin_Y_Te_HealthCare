@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React from "react";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import Main from "./Components/main";
+import TrangCHu from "./Components/TrangChu";
 export default function Home() {
   return (
     <>
-      <Header/>
-      <Main/>
+      <TrangCHu />
     </>
   );
 }
