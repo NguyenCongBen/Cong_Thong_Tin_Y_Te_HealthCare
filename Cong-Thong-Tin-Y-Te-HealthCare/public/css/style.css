@@ -1653,3 +1653,6 @@ body {
 .title-box {
     color: white;
 }
+.dropdown-container {
+    position: relative; /* Add this to the parent */
+}
