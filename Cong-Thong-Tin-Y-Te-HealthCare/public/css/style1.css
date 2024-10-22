@@ -78,3 +78,8 @@
     background-color: #F29D6E;
     right: 10px;
 }
+.menu_thongbao_header{
+    position: absolute;
+    border: 1px solid black;
+    
+}

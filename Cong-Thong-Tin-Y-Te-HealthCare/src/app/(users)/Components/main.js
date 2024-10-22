@@ -179,14 +179,12 @@ export default function Main() {
             </div>
 
             <div class="container">
-                <div class="row">
+                <div class="row my-3">
 
-                    <div class="col-6">
+                    <div class="col-6 ">
                         <div class="thong-tin-so-so">
-
-
                             <h2>Hệ thống phòng khám và trung tâm của chúng tôi</h2>
-                            <div class="line">.........</div>
+                            <div class="line"></div>
                             <div class="box-descripstion">
                                 Hệ thống phòng khám và trung tâm của chúng tôi
                                 Vinmec là Hệ thống Y tế tư nhân duy nhất tại Việt Nam hoạt động không vì mục tiêu lợi nhuận, có 2 bệnh
@@ -194,20 +192,22 @@ export default function Main() {
                                 khắt khe nhất thế giới, cùng các chứng chỉ quốc tế trong từng lĩnh vực chuyên môn uy tín.
 
                             </div>
-                            <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
-                            <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
-                            <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
+                            <div className="img_phu_information_number">
+                                <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
+                                <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
+                                <img src="https://www.vinmec.com/static/uploads/jci_a2b22cbbfe.png" width="120px" height="93" alt="" />
+                            </div>
 
                         </div>
 
                     </div>
                     <div class="col-6">
-                        <div class="d-flex align-items-center  justify-content-center  ">
+                        <div class="d-flex align-items-center  justify-content-center img_main_information  ">
                             <img src="https://www.vinmec.com/static/uploads/small_5_VMDN_21c250c4c8.jpg" width="510" height="383" alt="" />
                         </div>
                     </div>
 
-                    <div class="col-12 mt30">
+                    <div class="col-12 thong-tin-so-so_btn ">
                         <a href="#" class="bttn-xemthem">xem thêm </a>
                     </div>
                 </div>
@@ -257,13 +257,29 @@ export default function Main() {
 
                 </div>
                 <div class="row">
-                    <div class="col-12 mt30">
+                    <div class="col-12 mt30 title_kienthuc_ykhoa">
                         <h2> kiến thức y khoa </h2>
                     </div>
-                    <div class="col-3">
+                    <div class=" chuyen_khoa_information">
                         <div class="chuyen_khoa">
                             <img src="https://diag.vn/wp-content/uploads/2024/08/8642e429-nam-khoa-42x42--diag-thumb.png" alt="" />
-                            <p>nam khoa</p>
+                            <span>Nam khoa</span>
+                        </div>
+                        <div class="chuyen_khoa">
+                            <img src="https://diag.vn/wp-content/uploads/2024/08/8642e429-nam-khoa-42x42--diag-thumb.png" alt="" />
+                            <span>Nam khoa</span>
+                        </div>
+                        <div class="chuyen_khoa">
+                            <img src="https://diag.vn/wp-content/uploads/2024/08/8642e429-nam-khoa-42x42--diag-thumb.png" alt="" />
+                            <span>Nam khoa</span>
+                        </div>
+                        <div class="chuyen_khoa">
+                            <img src="https://diag.vn/wp-content/uploads/2024/08/8642e429-nam-khoa-42x42--diag-thumb.png" alt="" />
+                            <span>Nam khoa</span>
+                        </div>
+                        <div class="chuyen_khoa">
+                            <img src="https://diag.vn/wp-content/uploads/2024/08/8642e429-nam-khoa-42x42--diag-thumb.png" alt="" />
+                            <span>Nam khoa</span>
                         </div>
                     </div>
                 </div>
