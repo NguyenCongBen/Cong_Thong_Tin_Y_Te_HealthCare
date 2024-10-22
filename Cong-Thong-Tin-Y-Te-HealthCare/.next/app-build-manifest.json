@@ -1,10 +1,9 @@
 {
   "pages": {
-    "/(users)/timbacsi/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/timbacsi/page.css",
-      "static/chunks/app/(users)/timbacsi/page.js"
+      "static/chunks/app/(users)/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -12,94 +11,22 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/datlich/page": [
+    "/(users)/timbacsi/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/datlich/page.css",
-      "static/chunks/app/(users)/datlich/page.js"
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
     ],
-    "/(users)/thongtinbacsi/page": [
+    "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/thongtinbacsi/page.css",
-      "static/chunks/app/(users)/thongtinbacsi/page.js"
+      "static/chunks/app/admin/page.js"
     ],
-    "/(users)/chuyenkhoa/page": [
+    "/admin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/chuyenkhoa/page.css",
-      "static/chunks/app/(users)/chuyenkhoa/page.js"
-    ],
-    "/(users)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
-    ],
-    "/(users)/tamnhinvasumenh/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/tamnhinvasumenh/page.css",
-      "static/chunks/app/(users)/tamnhinvasumenh/page.js"
-    ],
-    "/(users)/thanhtuu/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/thanhtuu/page.css",
-      "static/chunks/app/(users)/thanhtuu/page.js"
-    ],
-    "/(users)/doitac/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/doitac/page.css",
-      "static/chunks/app/(users)/doitac/page.js"
-    ],
-    "/(users)/tintuc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/tintuc/page.css",
-      "static/chunks/app/(users)/tintuc/page.js"
-    ],
-    "/(users)/giaithuong/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/giaithuong/page.css",
-      "static/chunks/app/(users)/giaithuong/page.js"
-    ],
-    "/(users)/hoatdong/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/hoatdong/page.css",
-      "static/chunks/app/(users)/hoatdong/page.js"
-    ],
-    "/(users)/lienhe/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/lienhe/page.css",
-      "static/chunks/app/(users)/lienhe/page.js"
-    ],
-    "/(users)/baohiem/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/baohiem/page.css",
-      "static/chunks/app/(users)/baohiem/page.js"
-    ],
-    "/(users)/tracuubenh/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/tracuubenh/page.css",
-      "static/chunks/app/(users)/tracuubenh/page.js"
-    ],
-    "/(users)/cothenguoi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/cothenguoi/page.css",
-      "static/chunks/app/(users)/cothenguoi/page.js"
-    ],
-    "/(users)/trungtamtimmach/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/trungtamtimmach/page.css",
-      "static/chunks/app/(users)/trungtamtimmach/page.js"
+      "static/css/app/admin/layout.css",
+      "static/chunks/app/admin/layout.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
