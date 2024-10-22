@@ -321,7 +321,7 @@ export default function TrangChu() {
                                         <div class="home-item-desc">
                                             Vinmec cung cấp cơ sở vật chất hạng nhất và dịch vụ 5 sao bằng cách sử dụng các
                                             công nghệ tiên tiến được quản lý bởi các bác sĩ lâm sàng lành nghề để đảm bảo
-                                            dịch vụ chăm sóc sức khỏe toàn diện và hiệu quả cao
+                                            dịch vụ chăm sóc sức khỏe toàn diện và hiệu quả cao haha
                                         </div>
                                     </div>
                                     <div class="home-col-6 item-whyus">

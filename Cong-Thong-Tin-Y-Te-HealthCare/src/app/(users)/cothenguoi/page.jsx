@@ -1,4 +1,4 @@
-import CoTheNguoi from "../Components/Cothenguoi";
+import CoTheNguoi from ".";
 
 export default function ShowCoTheNguoi() {
     return (
