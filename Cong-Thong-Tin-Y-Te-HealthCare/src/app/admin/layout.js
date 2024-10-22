@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
           <Menu></Menu>
           {children}
         </div>
+        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/index.js"></script>
         <script src="/bundles/libscripts.bundle.js"></script>1
         <script src="/bundles/vendorscripts.bundle.js"></script>1
