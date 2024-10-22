@@ -289,7 +289,7 @@ export default function Header() {
                                                     <li class="sub-menu-item"><Link href="/lienhe">Liên hệ với chúng tôi</Link></li>
                                                     <li class="sub-menu-item"><Link href="/hethong">Hệ thống Vinmec</Link></li>
                                                     <li class="sub-menu-item"><Link href="/timbacsi">Tìm bác sĩ</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Bảo hiểm</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/baohiem">Bảo hiểm</Link></li>
                                                     <li class="sub-menu-item"><Link href="/baohiem">Dịch vụ bảo hiểm</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Dịch vụ y tế</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Thông tin hỗ trợ khác</Link></li>

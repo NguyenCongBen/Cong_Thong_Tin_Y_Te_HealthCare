@@ -1,6 +1,9 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/admin/page": "app/admin/page.js",
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js",
   "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
-  "/(users)/page": "app/(users)/page.js"
+  "/(users)/chuyenkhoa/page": "app/(users)/chuyenkhoa/page.js",
+  "/(users)/lienhe/page": "app/(users)/lienhe/page.js",
+  "/(users)/thongtinbacsi/page": "app/(users)/thongtinbacsi/page.js",
+  "/(users)/tracuubenh/page": "app/(users)/tracuubenh/page.js"
 }
