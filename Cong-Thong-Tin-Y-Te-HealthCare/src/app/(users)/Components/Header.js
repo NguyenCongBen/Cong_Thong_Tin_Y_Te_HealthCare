@@ -1,3 +1,4 @@
+import Link from "next/link"
 export default function Header() {
     return(  <>
     <header >
@@ -116,11 +117,8 @@ export default function Header() {
                         <li><a href="#">Thông Tin Dược</a>
                             <div class=" menu_child_nav_right menu_child_nav_right_2">
                                 <ul>
-                                    <li><a href="#">Cấp Cứu</a></li>
-                                    <li><a href="#">Cấp Cứu</a></li>
-                                    <li><a href="#">Cấp Cứu</a></li>
-                                    <li><a href="#">Cấp Cứu</a></li>
-                                    <li><a href="#">Cấp Cứu</a></li>
+                                    <Link href="/Tracuuthuoc">Tra Cứu thuốc </Link>
+                                    <Link href="/Sudungthuocantoan">Su dụng thuốc an toàn </Link>  
                                 </ul>
                             </div>
                         </li>
