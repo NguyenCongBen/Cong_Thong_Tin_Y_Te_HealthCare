@@ -27,11 +27,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/admin/page.js"
     ],
-    "/admin/Add_doctors/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Add_doctors/page.js"
-    ],
     "/admin/Doctors/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
