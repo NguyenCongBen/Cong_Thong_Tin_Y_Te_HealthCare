@@ -1,3 +1,6 @@
 {
-  "/(users)/page": "app/(users)/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/tamnhinvasumenh/page": "app/(users)/tamnhinvasumenh/page.js"
 }
