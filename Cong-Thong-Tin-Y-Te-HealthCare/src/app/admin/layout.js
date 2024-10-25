@@ -42,13 +42,13 @@ export default function RootLayout({ children }) {
         </div>
         <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/index.js"></script>
-        <script src="/bundles/libscripts.bundle.js"></script>1
-        <script src="/bundles/vendorscripts.bundle.js"></script>1
-        <script src="/bundles/mainscripts.bundle.js"></script>1
-        <script src="/bundles/chartist.bundle.js"></script>1
-        <script src="/bundles/knob.bundle.js"></script>1
-        <script src="/bundles/flotscripts.bundle.js"></script>1
-        <script src="/bundles/fullcalendarscripts.bundle.js"></script>1
+        <script src="/bundles/libscripts.bundle.js"></script>
+        <script src="/bundles/vendorscripts.bundle.js"></script>
+        <script src="/bundles/mainscripts.bundle.js"></script>
+        <script src="/bundles/chartist.bundle.js"></script>
+        <script src="/bundles/knob.bundle.js"></script>
+        <script src="/bundles/flotscripts.bundle.js"></script>
+        <script src="/bundles/fullcalendarscripts.bundle.js"></script>
         <script src="/vendor/toastr/toastr.js"></script>
         <script src="/vendor/flot-charts/jquery.flot.selection.js"></script>
         <script src="/vendor/fullcalendar/fullcalendar.js"></script>

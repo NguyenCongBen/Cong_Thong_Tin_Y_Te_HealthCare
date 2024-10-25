@@ -1,6 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/tamnhinvasumenh/page": "app/(users)/tamnhinvasumenh/page.js"
+  "/admin/Doctors/page": "app/admin/Doctors/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/Add_doctors/page": "app/admin/Add_doctors/page.js",
+  "/admin/Doctors/[id]/page": "app/admin/Doctors/[id]/page.js",
+  "/admin/event_doctors/page": "app/admin/event_doctors/page.js"
 }
