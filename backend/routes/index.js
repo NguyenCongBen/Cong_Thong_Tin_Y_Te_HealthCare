@@ -182,18 +182,14 @@ router.delete('/thong-tin-nha-cung-cap-thuoc/:id', (req, res) => {
 //THÔNG TIN THUỐC 
 // 1. Lấy tất cả thông tin dược phẩm
 router.get('/thong-tin-thuoc', (req, res) => {
-  req.db.query(`
-      SELECT 
-          d.*, 
-          n.ten_nha_cung_cap 
-      FROM 
-          ThongTinDuocPham d
-      LEFT JOIN 
-          ThongTinNhaCungCapDuocPham n ON d.id_cua_hang = n.id_nha_cung_cap
-  `, (error, results) => {
+  req.db.query(
+    `SELECT id_duoc_pham, ten_thuoc, thanh_phan_chinh, dang_bao_che, lieu_luong, chi_dinh, chong_chi_dinh, tac_dung_phu, thong_tin_bao_quan, ngay_het_han 
+     FROM thongtinduocpham`, // Giả định bạn có bảng này
+    (error, results) => {
       if (error) return res.status(500).json({ error: error.message });
-      res.json(results);
-  });
+      res.json(results); // Trả về danh sách tất cả thuốc
+    }
+  );
 });
 
 // 2. Thêm thông tin dược phẩm
