@@ -11,26 +11,17 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/admin/layout": [
+    "/(users)/dangnhap/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
+      "static/css/app/(users)/dangnhap/page.css",
+      "static/chunks/app/(users)/dangnhap/page.js"
     ],
-    "/admin/Doctors/page": [
+    "/(users)/dangky/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
-    ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
-    ],
-    "/admin/Doctors/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/[id]/page.js"
+      "static/css/app/(users)/dangky/page.css",
+      "static/chunks/app/(users)/dangky/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
