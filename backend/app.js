@@ -8,6 +8,12 @@ var mysql = require('mysql2');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var chuyenkhoaRouter = require('./routes/chuyenkhoa');
+var BaivietRouter = require('./routes/baiviet');
+var benhvienRouter = require('./routes/benh_vien');
+var thuocRouter = require('./routes/thuoc');
+var dichvuRouter = require('./routes/dichvu');
+var lichhenRouter = require('./routes/lichhen');
 
 var benhnhanRouter = require('./routes/benhnhan');
 var bacsiRouter = require('./routes/bacsi');
@@ -45,10 +51,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
+app.use('/chuyenkhoa', chuyenkhoaRouter);
+app.use('/baiviet', BaivietRouter);
 app.use('/users', usersRouter);
 app.use('/doctor', bacsiRouter);
 app.use('/patient', benhnhanRouter);
-app.use('/benhvien', benhvienRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

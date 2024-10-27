@@ -345,8 +345,8 @@ export default function Header() {
                                             <div class="muinhon"></div>
                                             <div class="drop-down-menu" style={{ right: '0' }}>
                                                 <ul>
-                                                    <li class="sub-menu-item"><Link href="#">Tra cứu thuốc</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Sử dụng thuốc an toàn</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/tracuuthuoc">Tra cứu thuốc</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/sudungthuocantoan">Sử dụng thuốc an toàn</Link></li>
                                                 </ul>
                                             </div>
                                         </li>

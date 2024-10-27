@@ -1,4 +1,8 @@
-// File: D:\FPT polytechnic\Dự án tốt nghiệp\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
+<<<<<<< HEAD
+// File: D:\DA_TT_K\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
+=======
+// File: C:\fpt polytechnic\Duantotnghiep\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
+>>>>>>> origin/main
 import * as entry from '../../../../src/app/(users)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
