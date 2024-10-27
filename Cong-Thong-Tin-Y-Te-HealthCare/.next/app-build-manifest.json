@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/(users)/page": [
+    "/(users)/sudungthuocantoan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
+      "static/chunks/app/(users)/sudungthuocantoan/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -11,17 +11,16 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/dangnhap/page": [
+    "/(users)/tracuuthuoc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/dangnhap/page.css",
-      "static/chunks/app/(users)/dangnhap/page.js"
+      "static/css/app/(users)/tracuuthuoc/page.css",
+      "static/chunks/app/(users)/tracuuthuoc/page.js"
     ],
-    "/(users)/dangky/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/dangky/page.css",
-      "static/chunks/app/(users)/dangky/page.js"
+      "static/chunks/app/(users)/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

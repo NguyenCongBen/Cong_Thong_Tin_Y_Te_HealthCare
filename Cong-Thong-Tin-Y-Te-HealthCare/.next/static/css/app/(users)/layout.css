@@ -748,6 +748,12 @@ body {
     margin-top: 3px;
 }
 
+.tt-bread>a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #0076CA;
+}
+
 .tt-item {
     color: #0076CA;
     margin-right: 5px;
@@ -1550,6 +1556,113 @@ body {
         order: 2;
     }
 }
+
+
+
+.img_main_information {
+    border-radius: 10px;
+}
+.insize_khung_gioithieu{
+    margin-top: 40px;
+}
+
+.img_main_information img {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.thong-tin-so-so{
+   margin-top: 20px;
+}
+.thong-tin-so-so h2 {
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.thong-tin-so-so .line {
+    width: 150px;
+    height: 5px;
+    background-color: #51BE9D;
+}
+
+.box-descripstion {
+    font-size: 15px;
+    margin-top: 10px;
+    color: #313131;
+}
+
+.img_phu_information_number {
+    display: flex;
+    width: 100%;
+}
+
+.img_phu_information_number img {
+    flex: 1;
+}
+
+.chuyen_khoa {
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    height: 80px;
+    transition: .3s ease;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, .05), 0px 0px 7.62px 0px rgba(0, 0, 0, .04), 0px 0px 4.583px 0px rgba(0, 0, 0, .03), 0px 0px 2.617px 0px rgba(0, 0, 0, .03), 0px 0px 1.448px 0px rgba(0, 0, 0, .02), 0px 0px .805px 0px rgba(0, 0, 0, .02), 0px 0px .413px 0px rgba(0, 0, 0, .01);
+}
+.chuyen_khoa:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05), 0px 0px 7.62px 0px rgba(0, 0, 0, .04), 0px 0px 4.583px 0px rgba(0, 0, 0, .03), 0px 0px 2.617px 0px rgba(0, 0, 0, .03), 0px 0px 1.448px 0px rgba(0, 0, 0, .02), 0px 0px .805px 0px rgba(0, 0, 0, .02), 0px 0px .413px 0px rgba(0, 0, 0, .01);
+}
+
+.chuyen_khoa span {
+    margin-left: 5px;
+    text-transform: capitalize;
+}
+
+.chuyen_khoa img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+.chuyen_khoa_information{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.title_kienthuc_ykhoa h2{
+    font-size: 30px;
+    margin: 30px 0;
+    text-transform: capitalize;
+}
+.thong-tin-so-so_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thong-tin-so-so_btn a{
+    padding: 10px 30px;
+    margin-top: 20px;
+    background-color: #51BE9D;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.slide-img{
+    display: flex;
+    justify-content: space-around;
+
+}
+.title-box {
+    color: white;
+}
+.doctors_main{
+    border: 1px solid black;
+}
+
 /*!************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./public/bootstrap/css/bootstrap.min.css ***!
   \************************************************************************************************************************************************************************************************************************************************************************************/
