@@ -53,15 +53,11 @@ export default function Doctors() {
                           />
                         </span>
                       </div>
+                      <small class="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small>
+
                       <h6 className="mb-0 name_doctors_admin">
                         <a href="#" title="">{doctor.ten}</a>
                       </h6>
-<<<<<<< HEAD
-                      <small>{doctor.chuyen_khoa}</small>< br />
-                      
-                      <span>{doctor.dia_chi}</span>
-=======
-                      <small class="chuyen_khoa_admin_doctor"> Khoa : {doctor.chuyen_khoa}</small>
 
                       <span class="adress_admin_doctors">{doctor.dia_chi}</span>
                       <div class="icon_ngoisao_admin_doctors">
@@ -77,7 +73,6 @@ export default function Doctors() {
                         <button class="delete_doctors">Xóa</button>
                       </div>
 
->>>>>>> 1e9ca17f88bd1e19a948de4918f8d764bfc5743e
                     </div>
                   </div>
                 </Link>

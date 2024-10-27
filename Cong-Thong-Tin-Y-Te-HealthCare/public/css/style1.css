@@ -1,10 +1,11 @@
-.bg_title_1{
+.bg_title_1 {
     background-color: #00D1C3;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_1::after{
+
+.bg_title_1::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -14,7 +15,8 @@
     background-color: #21D8CC;
     right: -10px;
 }
-.bg_title_1::before{
+
+.bg_title_1::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -25,13 +27,15 @@
     background-color: #44DDD3;
     right: 10px;
 }
-.bg_title_2{
+
+.bg_title_2 {
     background-color: #4B72F0;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_2::after{
+
+.bg_title_2::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -41,7 +45,8 @@
     background-color: #5E80F1;
     right: -10px;
 }
-.bg_title_2::before{
+
+.bg_title_2::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -51,13 +56,16 @@
     z-index: 3;
     background-color: #6E8DF2;
     right: 10px;
-}.bg_title_3{
+}
+
+.bg_title_3 {
     background-color: #F0864B;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_3::after{
+
+.bg_title_3::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -67,7 +75,8 @@
     background-color: #F1925E;
     right: -10px;
 }
-.bg_title_3::before{
+
+.bg_title_3::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -78,60 +87,67 @@
     background-color: #F29D6E;
     right: 10px;
 }
-.menu_thongbao_header{
+
+.menu_thongbao_header {
     position: absolute;
     left: -450px;
-    display: none;  
+    display: none;
     padding: 20px;
     border-radius: 20px;
 }
-.menu_thongbao_header_2{
+
+.menu_thongbao_header_2 {
     position: absolute;
     left: -150px;
-    display: none;  
+    display: none;
     padding: 20px;
     border-radius: 20px;
 }
-.menu_thongbao_header_2 li{
+
+.menu_thongbao_header_2 li {
     list-style: none;
 }
-.hover_information_bell:hover .menu_thongbao_header{
+
+.hover_information_bell:hover .menu_thongbao_header {
     display: block;
 }
 
-.hover_information_bell:hover .menu_thongbao_header_2{
+.hover_information_bell:hover .menu_thongbao_header_2 {
     display: block;
 }
-.doctors_main{
-<<<<<<< HEAD
-    border: 1px solid black;
-}
-=======
+
+.doctors_main {
     overflow: hidden;
     position: relative;
     transition: .5s ease;
 }
-.name_doctors_admin{
+
+.name_doctors_admin {
     font-size: 22px;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
-.name_doctors_admin a{
+
+.name_doctors_admin a {
     color: black;
     text-decoration: none;
 }
-.clearfix:hover a{
+
+.clearfix:hover a {
     text-decoration: none;
 }
-.doctors_main:hover{
+
+.doctors_main:hover {
     transform: translateY(-10px);
     box-shadow: 1px 1px 10px #fff;
 }
-.all_doctors_btn{
+
+.all_doctors_btn {
     margin-top: 10px;
 }
-.all_doctors_btn button{
-    margin:  0 10px;
+
+.all_doctors_btn button {
+    margin: 0 10px;
     padding: 10px 30px;
     font-size: 15px;
     border: none;
@@ -139,99 +155,121 @@
     color: white;
     cursor: pointer;
 }
-.edit_doctors{
+
+.edit_doctors {
     background-color: #3879FB;
     transition: .3s;
 }
-.edit_doctors:hover{
+
+.edit_doctors:hover {
     background-color: #76a0f3;
 }
-.delete_doctors{
+
+.delete_doctors {
     transition: .3s;
     background-color: #8D4D3F;
 }
-.delete_doctors:hover{
+
+.delete_doctors:hover {
     background-color: #ae7d72;
 }
-.doctors_main:hover .delete_doctors{
+
+.doctors_main:hover .delete_doctors {
     animation: vo_btn_xoa .5s ease;
 }
-.doctors_main:hover .edit_doctors{
+
+.doctors_main:hover .edit_doctors {
     animation: vo_btn_edit .5s ease;
 }
-.doctors_main:not(:hover) .delete_doctors{
+
+.doctors_main:not(:hover) .delete_doctors {
     animation: ra_btn_delete .5s ease forwards;
 }
-.doctors_main:not(:hover) .edit_doctors{
+
+.doctors_main:not(:hover) .edit_doctors {
     animation: ra_btn_edit .5s ease forwards;
 }
+
 @keyframes vo_btn_edit {
-    from{
+    from {
         opacity: 0;
         transform: translateX(-180px);
-    }to{
+    }
+
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
+
 @keyframes vo_btn_xoa {
-    from{
+    from {
         opacity: 0;
         transform: translateX(180px);
-    }to{
+    }
+
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
+
 @keyframes ra_btn_edit {
-    from{
+    from {
         opacity: 1;
         transform: translateX(0);
-    }to{
+    }
+
+    to {
         opacity: 0;
         transform: translateX(-180px);
     }
 }
+
 @keyframes ra_btn_delete {
-    from{
+    from {
         opacity: 1;
         transform: translateX(0);
-    }to{
+    }
+
+    to {
         opacity: 0;
         transform: translateX(180px);
     }
 }
-.chuyen_khoa_admin_doctor{
-    position: absolute;
-    top: 10px;
-    right: 20px;
+
+.chuyen_khoa_admin_doctor {
+    border: 1px solid black;
     padding: 8px 10px;
-    width: auto;
     border-radius: 5px;
     font-weight: bold;
     transition: .5s ease;
     box-shadow: 0 0 5px 2px rgba(154, 155, 156, 0.3);
 
 }
-.icon_ngoisao_admin_doctors{
+
+.icon_ngoisao_admin_doctors {
     margin-right: 5px;
     font-size: 20px;
     color: yellow;
 }
-.icon_ngoisao_admin_doctors i{
+
+.icon_ngoisao_admin_doctors i {
     margin: 0 3px;
 }
-.adress_admin_doctors{
+
+.adress_admin_doctors {
     margin: 5px 0;
 }
-.chart{
+
+.chart {
     margin-bottom: 20px;
     position: relative;
 }
-.chart span img{
+
+.chart span img {
     width: 100px;
     height: 100px;
     border-radius: 100%;
     box-shadow: 0 0 10px 5px rgba(154, 155, 156, 0.3);
 }
->>>>>>> 1e9ca17f88bd1e19a948de4918f8d764bfc5743e

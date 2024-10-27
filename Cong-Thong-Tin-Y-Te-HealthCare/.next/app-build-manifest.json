@@ -1,17 +1,5 @@
 {
   "pages": {
-    "/(users)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
-    ],
-    "/(users)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/layout.css",
-      "static/chunks/app/(users)/layout.js"
-    ],
-<<<<<<< HEAD
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -22,32 +10,16 @@
       "static/chunks/main-app.js",
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
-=======
-    "/(users)/dangnhap/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/dangnhap/page.css",
-      "static/chunks/app/(users)/dangnhap/page.js"
-    ],
-    "/(users)/dangky/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/dangky/page.css",
-      "static/chunks/app/(users)/dangky/page.js"
->>>>>>> origin/main
     ],
     "/admin/Doctors/page": [
-<<<<<<< Updated upstream
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/Doctors/page.js"
     ],
-    "/admin/Doctors/[id]/page": [
-=======
->>>>>>> Stashed changes
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
