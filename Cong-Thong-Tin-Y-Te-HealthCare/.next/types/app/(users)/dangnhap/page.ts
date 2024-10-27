@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-// File: D:\DA_TT_K\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
-=======
-// File: C:\fpt polytechnic\Duantotnghiep\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
->>>>>>> origin/main
-import * as entry from '../../../../src/app/(users)/page.js'
+// File: C:\fpt polytechnic\Duantotnghiep\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\dangnhap\page.jsx
+import * as entry from '../../../../../src/app/(users)/dangnhap/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../src/app/(users)/page.js')
+type TEntry = typeof import('../../../../../src/app/(users)/dangnhap/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
