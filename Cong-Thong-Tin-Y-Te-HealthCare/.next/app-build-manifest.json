@@ -17,22 +17,11 @@
       "static/css/app/(users)/tracuuthuoc/page.css",
       "static/chunks/app/(users)/tracuuthuoc/page.js"
     ],
-    "/(users)/Acenocoumarol/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/Acenocoumarol/page.css",
-      "static/chunks/app/(users)/Acenocoumarol/page.js"
-    ],
     "/(users)/sudungthuocantoan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/sudungthuocantoan/page.css",
       "static/chunks/app/(users)/sudungthuocantoan/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
