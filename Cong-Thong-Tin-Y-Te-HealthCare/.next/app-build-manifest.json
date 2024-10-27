@@ -17,6 +17,7 @@
       "static/css/app/(users)/tracuuthuoc/page.css",
       "static/chunks/app/(users)/tracuuthuoc/page.js"
     ],
+<<<<<<< HEAD
     "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -26,6 +27,13 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
+=======
+    "/(users)/sudungthuocantoan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/sudungthuocantoan/page.css",
+      "static/chunks/app/(users)/sudungthuocantoan/page.js"
+>>>>>>> 16293da129de4685ecb941e6f60caa483c74be61
     ]
   }
 }
