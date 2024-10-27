@@ -8,6 +8,8 @@ var mysql = require('mysql2');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var chuyenkhoaRouter = require('./routes/chuyenkhoa');
+var BaivietRouter = require('./routes/baiviet');
 
 var benhnhanRouter = require('./routes/benhnhan');
 var bacsiRouter = require('./routes/bacsi');
@@ -19,7 +21,7 @@ const db = mysql.createConnection({
   user: 'root',
   password: '',
   port: 3306,
-  database: 'duan'
+  database: 'data_datn'
 });
 
 db.connect(err => {
@@ -44,6 +46,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
+app.use('/chuyenkhoa', chuyenkhoaRouter);
+app.use('/baiviet', BaivietRouter);
 app.use('/users', usersRouter);
 app.use('/doctor', bacsiRouter);
 app.use('/patient', benhnhanRouter);

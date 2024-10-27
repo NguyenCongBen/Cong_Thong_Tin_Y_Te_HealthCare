@@ -9,7 +9,6 @@ console.log(data);
   // Kiểm tra lỗi
   if (error) return <strong>Error loading Doctors</strong>;
 
-  // Kiểm tra nếu không có dữ liệu
   if (!data || data.length === 0) return <p>No Doctors data available.</p>;
 
   return (
@@ -36,11 +35,11 @@ console.log(data);
             </div>
           </div>
 
-          <div className="row clearfix">
+          <div className="row clearfix ">
             {data.map((doctor) => (
               <div key={doctor.id_bac_si} className="col-lg-3 col-md-6 col-sm-12">
                 <Link href={`/admin/Doctors/${doctor.id_bac_si}`}>
-                  <div className="card">
+                  <div className="card doctors_main">
                     <div className="body text-center">
                       <div className="chart easy-pie-chart-1" data-percent="75"> 
                         <span>
@@ -57,12 +56,8 @@ console.log(data);
                       <h6 className="mb-0">
                         <a href="#" title="">{doctor.ten}</a> 
                       </h6>
-                      <small>{doctor.chuyen_khoa}</small>
-                      <ul className="social-links list-unstyled">
-                        <li><a title="facebook" href="javascript:void(0);"><i className="fa fa-facebook"></i></a></li>
-                        <li><a title="twitter" href="javascript:void(0);"><i className="fa fa-twitter"></i></a></li>
-                        <li><a title="instagram" href="javascript:void(0);"><i className="fa fa-instagram"></i></a></li>
-                      </ul>
+                      <small>{doctor.chuyen_khoa}</small>< br />
+                      
                       <span>{doctor.dia_chi}</span>
                     </div>
                   </div>

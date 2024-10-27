@@ -7825,8 +7825,30 @@ ul.list-connected-app>li:last-child .connected-app {
 }
 .menu_thongbao_header{
     position: absolute;
+    left: -450px;
+    display: none;  
+    padding: 20px;
+    border-radius: 20px;
+}
+.menu_thongbao_header_2{
+    position: absolute;
+    left: -150px;
+    display: none;  
+    padding: 20px;
+    border-radius: 20px;
+}
+.menu_thongbao_header_2 li{
+    list-style: none;
+}
+.hover_information_bell:hover .menu_thongbao_header{
+    display: block;
+}
+
+.hover_information_bell:hover .menu_thongbao_header_2{
+    display: block;
+}
+.doctors_main{
     border: 1px solid black;
-    
 }
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./public/css/color_skins.css ***!

@@ -29,12 +29,12 @@ export default function Header(){
                         <li>
                             <a href="app-inbox.html" class="icon-menu d-none d-sm-block"><i class="fa-regular fa-envelope"></i><span class="notification-dot"></span></a>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown hover_information_bell">
                             <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                             <i class="fa-regular fa-bell"></i>
                                 <span class="notification-dot"></span>
                             </a>
-                            <ul class="dropdown-menu notifications menu_thongbao_header">
+                            <ul class=" notifications menu_thongbao_header">
                                 <li class="header"><strong>Bạn có 4 thông báo mới</strong></li>
                                 <li>
                                     <a href="javascript:void(0);">
@@ -56,7 +56,7 @@ export default function Header(){
                                                 <i class="icon-like text-success"></i>
                                             </div>
                                             <div class="media-body">
-                                                <p class="text">Chuyến dịhc mới của bạn <strong>Giảm giá ngày lễ</strong> được chấp thuận</p>
+                                                <p class="text">Chuyến dịch mới của bạn <strong>Giảm giá ngày lễ</strong> được chấp thuận</p>
                                                 <span class="timestamp">11 giờ 30 phút hôm nay</span>
                                             </div>
                                         </div>
@@ -91,9 +91,9 @@ export default function Header(){
                                 <li class="footer"><a href="javascript:void(0);" class="more">Xem tất cả thông báo</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown hover_information_bell">
                             <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown"><i class="fa-solid fa-sliders"></i></a>
-                            <ul class="dropdown-menu user-menu menu-icon">
+                            <ul class=" user-menu menu-icon menu_thongbao_header_2">
                                 <li class="menu-heading">ACCOUNT SETTINGS</li>
                                 <li><a href="javascript:void(0);"><i class="icon-note"></i> <span>Cơ Bản</span></a></li>
                                 <li><a href="javascript:void(0);"><i class="fa-solid fa-sliders"></i> <span>Tùy chọn </span></a></li>

@@ -80,6 +80,28 @@
 }
 .menu_thongbao_header{
     position: absolute;
+    left: -450px;
+    display: none;  
+    padding: 20px;
+    border-radius: 20px;
+}
+.menu_thongbao_header_2{
+    position: absolute;
+    left: -150px;
+    display: none;  
+    padding: 20px;
+    border-radius: 20px;
+}
+.menu_thongbao_header_2 li{
+    list-style: none;
+}
+.hover_information_bell:hover .menu_thongbao_header{
+    display: block;
+}
+
+.hover_information_bell:hover .menu_thongbao_header_2{
+    display: block;
+}
+.doctors_main{
     border: 1px solid black;
-    
 }
