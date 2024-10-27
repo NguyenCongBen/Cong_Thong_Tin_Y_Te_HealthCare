@@ -1556,6 +1556,7 @@ body {
         order: 2;
     }
 }
+<<<<<<< Updated upstream
 
 
 
@@ -1663,6 +1664,8 @@ body {
     border: 1px solid black;
 }
 
+=======
+>>>>>>> Stashed changes
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./src/app/(users)/globals.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
@@ -2202,9 +2205,32 @@ video {
     max-width: 1536px;
   }
 }
+<<<<<<< Updated upstream
 .fixed {
   position: fixed;
 }
+=======
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.fixed {
+  position: fixed;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+>>>>>>> Stashed changes
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -2212,6 +2238,12 @@ video {
 .mb-0 {
   margin-bottom: 0px;
 }
+<<<<<<< Updated upstream
+=======
+.mt-1 {
+  margin-top: 0.25rem;
+}
+>>>>>>> Stashed changes
 .mt-20 {
   margin-top: 5rem;
 }
@@ -2221,12 +2253,30 @@ video {
 .mt-5 {
   margin-top: 1.25rem;
 }
+<<<<<<< Updated upstream
 .p-5 {
   padding: 1.25rem;
 }
 .text-center {
   text-align: center;
 }
+=======
+.table {
+  display: table;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.pb-0 {
+  padding-bottom: 0px;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+>>>>>>> Stashed changes
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 

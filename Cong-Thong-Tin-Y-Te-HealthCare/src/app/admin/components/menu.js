@@ -56,8 +56,12 @@ export default function Menu(){
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Bác Sĩ</span> </a>
                                 <ul>
                                     <li>  <Link href="/admin/Doctors">Tất Cả Bác Sĩ</Link></li>
+<<<<<<< HEAD
                                     <li><a href="doctor-add.html">Thêm Bác Sĩ</a></li>
                                     <li><a href="doctor-profile.html">Hồ Sơ Bác Sĩ</a></li>
+=======
+                                    <li><Link href="/admin/Add_doctors">Th Bác Sĩ</Link></li>
+>>>>>>> 1e9ca17f88bd1e19a948de4918f8d764bfc5743e
                                     <li><a href="doctor-events.html">Lịch Trình Bác Sĩ</a></li>
                                 </ul>
                             </li>

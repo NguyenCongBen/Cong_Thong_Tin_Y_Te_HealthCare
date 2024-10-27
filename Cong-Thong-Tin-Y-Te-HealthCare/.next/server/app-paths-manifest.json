@@ -1,6 +1,12 @@
 {
+<<<<<<< Updated upstream
   "/admin/page": "app/admin/page.js",
   "/admin/Doctors/page": "app/admin/Doctors/page.js",
   "/admin/Doctors/[id]/page": "app/admin/Doctors/[id]/page.js",
   "/(users)/page": "app/(users)/page.js"
+=======
+  "/(users)/page": "app/(users)/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/Doctors/page": "app/admin/Doctors/page.js"
+>>>>>>> Stashed changes
 }

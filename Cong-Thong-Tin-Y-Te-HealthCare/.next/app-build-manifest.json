@@ -23,14 +23,17 @@
       "static/chunks/app/admin/layout.js"
     ],
     "/admin/Doctors/page": [
+<<<<<<< Updated upstream
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/Doctors/page.js"
     ],
     "/admin/Doctors/[id]/page": [
+=======
+>>>>>>> Stashed changes
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/[id]/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
     ]
   }
 }

@@ -21,7 +21,11 @@ const db = mysql.createConnection({
   user: 'root',
   password: '',
   port: 3306,
+<<<<<<< Updated upstream
   database: 'data_datn'
+=======
+  database: 'tn'
+>>>>>>> Stashed changes
 });
 
 db.connect(err => {
