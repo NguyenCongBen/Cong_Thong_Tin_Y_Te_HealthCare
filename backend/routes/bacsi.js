@@ -122,6 +122,5 @@ router.put('/lich-su-kham/:id', (req, res) => {
     });
 });
 
-
 module.exports = router;
 

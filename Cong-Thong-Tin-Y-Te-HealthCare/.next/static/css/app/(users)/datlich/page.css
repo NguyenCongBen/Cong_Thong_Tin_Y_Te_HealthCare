@@ -403,7 +403,12 @@ body {
     color: #5C5C5C;
 }
 
-#lk-form-select {
+#lk-form-select,
+#username,
+#date,
+#email,
+#mota,
+#phone {
     border-radius: 0;
     border: 1px solid #ddd;
     color: #999;
@@ -413,9 +418,20 @@ body {
     font-family: inter, roboto, Arial, Helvetica, sans-serif;
 }
 
-#lk-form-select:focus {
+#lk-form-select,
+#username,
+#date,
+#email,
+#mota,
+#phone:focus {
     box-shadow: none !important;
     border-color: #ddd;
+}
+
+.lk-fl-colum {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
 }
 
 .lk-flex {
@@ -492,14 +508,30 @@ body {
     align-items: center;
 }
 
+.lk-input-all {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.check-loi-form {
+    width: 100%;
+}
+
 .lk-input-1 {
-    width: 80%;
+    width: 100%;
     outline: none;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+    font-weight: 500;
 }
 
 .lk-input-2 {
     width: 100%;
     outline: none;
+    margin-bottom: 10px;
 }
 
 .lk-input_gender {

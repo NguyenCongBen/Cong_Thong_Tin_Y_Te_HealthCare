@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 //PHẢN HỒI TỪ BỆNH NHÂN 
 // 1. Lấy tất cả phản hồi của bệnh nhân
 router.get('/phan-hoi', (req, res) => {
-    req.db.query(`
+  req.db.query(`
         SELECT 
             p.*, 
             b.ten 
@@ -22,48 +22,48 @@ router.get('/phan-hoi', (req, res) => {
         JOIN 
             ThongTinBenhNhan b ON p.id_benh_nhan = b.id_benh_nhan
     `, (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        res.json(results);
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
+  });
 });
 
 // 2. Thêm phản hồi từ bệnh nhân
 router.post('/phan-hoi', (req, res) => {
-    const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
-    req.db.query(`
+  const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
+  req.db.query(`
         INSERT INTO PhanHoTuBenhNhan (id_benh_nhan, ngay_gui, noi_dung, danh_gia)
         VALUES (?, ?, ?, ?)
     `, [id_benh_nhan, ngay_gui, noi_dung, danh_gia], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        res.status(201).json({ id_phan_ho: results.insertId });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ id_phan_ho: results.insertId });
+  });
 });
 
 // 3. Cập nhật phản hồi của bệnh nhân
 router.put('/phan-hoi/:id', (req, res) => {
-    const { id } = req.params;
-    const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
-    req.db.query(`
+  const { id } = req.params;
+  const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
+  req.db.query(`
         UPDATE PhanHoTuBenhNhan
         SET id_benh_nhan = ?, ngay_gui = ?, noi_dung = ?, danh_gia = ?
         WHERE id_phan_ho = ?
     `, [id_benh_nhan, ngay_gui, noi_dung, danh_gia, id], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        if (results.affectedRows === 0) return res.status(404).json({ error: 'Phản hồi không tìm thấy' });
-        res.json({ message: 'Cập nhật thành công' });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Phản hồi không tìm thấy' });
+    res.json({ message: 'Cập nhật thành công' });
+  });
 });
 
 // 4. Xóa phản hồi của bệnh nhân
 router.delete('/phan-hoi/:id', (req, res) => {
-    const { id } = req.params;
-    req.db.query(`
+  const { id } = req.params;
+  req.db.query(`
         DELETE FROM PhanHoTuBenhNhan WHERE id_phan_ho = ?
     `, [id], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        if (results.affectedRows === 0) return res.status(404).json({ error: 'Phản hồi không tìm thấy' });
-        res.json({ message: 'Xóa thành công' });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Phản hồi không tìm thấy' });
+    res.json({ message: 'Xóa thành công' });
+  });
 });
 
 
@@ -75,8 +75,8 @@ router.get('/dich-vu', (req, res) => {
   req.db.query(`
       SELECT * FROM DichVu
   `, (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.json(results);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
   });
 });
 // Thêm dịch vụ
@@ -87,10 +87,25 @@ router.post('/dich-vu', (req, res) => {
     INSERT INTO DichVu (ten_dich_vu, mo_ta, don_gia)
     VALUES (?, ?, ?)
   `, [ten_dich_vu, mo_ta, don_gia], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ message: 'Dịch vụ đã được thêm thành công', id_dich_vu: results.insertId });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ message: 'Dịch vụ đã được thêm thành công', id_dich_vu: results.insertId });
   });
 });
+
+// Lấy chi tiết dịch vụ
+router.get('/dich-vu/:id', (req, res) => {
+  const { id } = req.params;
+  req.db.query('SELECT * FROM DichVu WHERE id_dich_vu = ?', [id], (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Dịch vụ không tồn tại' });
+    }
+    res.json(results[0]);
+  });
+});
+
 
 // Cập nhật dịch vụ
 router.put('/dich-vu/:id', (req, res) => {
@@ -102,11 +117,11 @@ router.put('/dich-vu/:id', (req, res) => {
     SET ten_dich_vu = ?, mo_ta = ?, don_gia = ?
     WHERE id_dich_vu = ?
   `, [ten_dich_vu, mo_ta, don_gia, id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) {
-          return res.status(404).json({ error: 'Dịch vụ không tìm thấy' });
-      }
-      res.json({ message: 'Cập nhật dịch vụ thành công' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Dịch vụ không tìm thấy' });
+    }
+    res.json({ message: 'Cập nhật dịch vụ thành công' });
   });
 });
 
@@ -118,11 +133,11 @@ router.delete('/dich-vu/:id', (req, res) => {
     DELETE FROM DichVu 
     WHERE id_dich_vu = ?
   `, [id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) {
-          return res.status(404).json({ error: 'Dịch vụ không tìm thấy' });
-      }
-      res.json({ message: 'Xóa dịch vụ thành công' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Dịch vụ không tìm thấy' });
+    }
+    res.json({ message: 'Xóa dịch vụ thành công' });
   });
 });
 
@@ -134,8 +149,8 @@ router.delete('/dich-vu/:id', (req, res) => {
 // Lấy tất cả nhà cung cấp dược phẩm
 router.get('/thong-tin-nha-cung-cap-thuoc', (req, res) => {
   req.db.query(`SELECT * FROM ThongTinNhaCungCapDuocPham`, (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.json(results);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
   });
 });
 
@@ -146,8 +161,8 @@ router.post('/thong-tin-nha-cung-cap-thuoc', (req, res) => {
       INSERT INTO ThongTinNhaCungCapDuocPham (ten_nha_cung_cap, dia_chi, so_dien_thoai, email, website) 
       VALUES (?, ?, ?, ?, ?)
   `, [ten_nha_cung_cap, dia_chi, so_dien_thoai, email, website], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ id_nha_cung_cap: results.insertId, message: 'Nhà cung cấp đã được thêm' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ id_nha_cung_cap: results.insertId, message: 'Nhà cung cấp đã được thêm' });
   });
 });
 
@@ -160,9 +175,9 @@ router.put('/thong-tin-nha-cung-cap-thuoc/:id', (req, res) => {
       SET ten_nha_cung_cap = ?, dia_chi = ?, so_dien_thoai = ?, email = ?, website = ?
       WHERE id_nha_cung_cap = ?
   `, [ten_nha_cung_cap, dia_chi, so_dien_thoai, email, website, id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Nhà cung cấp không tìm thấy' });
-      res.json({ message: 'Thông tin nhà cung cấp đã được cập nhật' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Nhà cung cấp không tìm thấy' });
+    res.json({ message: 'Thông tin nhà cung cấp đã được cập nhật' });
   });
 });
 
@@ -170,9 +185,9 @@ router.put('/thong-tin-nha-cung-cap-thuoc/:id', (req, res) => {
 router.delete('/thong-tin-nha-cung-cap-thuoc/:id', (req, res) => {
   const { id } = req.params;
   req.db.query(`DELETE FROM ThongTinNhaCungCapDuocPham WHERE id_nha_cung_cap = ?`, [id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Nhà cung cấp không tìm thấy' });
-      res.json({ message: 'Nhà cung cấp đã được xóa' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Nhà cung cấp không tìm thấy' });
+    res.json({ message: 'Nhà cung cấp đã được xóa' });
   });
 });
 
@@ -182,18 +197,14 @@ router.delete('/thong-tin-nha-cung-cap-thuoc/:id', (req, res) => {
 //THÔNG TIN THUỐC 
 // 1. Lấy tất cả thông tin dược phẩm
 router.get('/thong-tin-thuoc', (req, res) => {
-  req.db.query(`
-      SELECT 
-          d.*, 
-          n.ten_nha_cung_cap 
-      FROM 
-          ThongTinDuocPham d
-      LEFT JOIN 
-          ThongTinNhaCungCapDuocPham n ON d.id_cua_hang = n.id_nha_cung_cap
-  `, (error, results) => {
+  req.db.query(
+    `SELECT id_duoc_pham, ten_thuoc, thanh_phan_chinh, dang_bao_che, lieu_luong, chi_dinh, chong_chi_dinh, tac_dung_phu, thong_tin_bao_quan, ngay_het_han 
+     FROM thongtinduocpham`,
+    (error, results) => {
       if (error) return res.status(500).json({ error: error.message });
       res.json(results);
-  });
+    }
+  );
 });
 
 // 2. Thêm thông tin dược phẩm
@@ -203,8 +214,8 @@ router.post('/thong-tin-thuoc', (req, res) => {
       INSERT INTO ThongTinDuocPham (id_cua_hang, ten_thuoc, thanh_phan_chinh, dang_bao_che, lieu_luong, chi_dinh, chong_chi_dinh, tac_dung_phu, thong_tin_bao_quan, ngay_het_han)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `, [id_cua_hang, ten_thuoc, thanh_phan_chinh, dang_bao_che, lieu_luong, chi_dinh, chong_chi_dinh, tac_dung_phu, thong_tin_bao_quan, ngay_het_han], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ id_duoc_pham: results.insertId });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ id_duoc_pham: results.insertId });
   });
 });
 
@@ -217,9 +228,9 @@ router.put('/thong-tin-thuoc/:id', (req, res) => {
       SET id_cua_hang = ?, ten_thuoc = ?, thanh_phan_chinh = ?, dang_bao_che = ?, lieu_luong = ?, chi_dinh = ?, chong_chi_dinh = ?, tac_dung_phu = ?, thong_tin_bao_quan = ?, ngay_het_han = ?
       WHERE id_duoc_pham = ?
   `, [id_cua_hang, ten_thuoc, thanh_phan_chinh, dang_bao_che, lieu_luong, chi_dinh, chong_chi_dinh, tac_dung_phu, thong_tin_bao_quan, ngay_het_han, id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Dược phẩm không tìm thấy' });
-      res.json({ message: 'Cập nhật thành công' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Dược phẩm không tìm thấy' });
+    res.json({ message: 'Cập nhật thành công' });
   });
 });
 
@@ -229,9 +240,9 @@ router.delete('/thong-tin-thuoc/:id', (req, res) => {
   req.db.query(`
       DELETE FROM ThongTinDuocPham WHERE id_duoc_pham = ?
   `, [id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Dược phẩm không tìm thấy' });
-      res.json({ message: 'Xóa thành công' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Dược phẩm không tìm thấy' });
+    res.json({ message: 'Xóa thành công' });
   });
 });
 
@@ -240,8 +251,8 @@ router.delete('/thong-tin-thuoc/:id', (req, res) => {
 // Lấy tất cả bệnh viện
 router.get('/hospitals', (req, res) => {
   req.db.query(`SELECT * FROM ThongTinBenhVien`, (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.json(results);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
   });
 });
 
@@ -252,8 +263,8 @@ router.post('/hospitals', (req, res) => {
       INSERT INTO ThongTinBenhVien (ten_benh_vien, mo_ta, dia_chi, so_dien_thoai, email, website) 
       VALUES (?, ?, ?, ?, ?, ?)
   `, [ten_benh_vien, mo_ta, dia_chi, so_dien_thoai, email, website], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ id_benh_vien: results.insertId, message: 'Bệnh viện đã được thêm' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ id_benh_vien: results.insertId, message: 'Bệnh viện đã được thêm' });
   });
 });
 
@@ -266,9 +277,9 @@ router.put('/hospitals/:id', (req, res) => {
       SET ten_benh_vien = ?, mo_ta = ?, dia_chi = ?, so_dien_thoai = ?, email = ?, website = ?
       WHERE id_benh_vien = ?
   `, [ten_benh_vien, mo_ta, dia_chi, so_dien_thoai, email, website, id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Bệnh viện không tìm thấy' });
-      res.json({ message: 'Thông tin bệnh viện đã được cập nhật' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Bệnh viện không tìm thấy' });
+    res.json({ message: 'Thông tin bệnh viện đã được cập nhật' });
   });
 });
 
@@ -276,9 +287,9 @@ router.put('/hospitals/:id', (req, res) => {
 router.delete('/hospitals/:id', (req, res) => {
   const { id } = req.params;
   req.db.query(`DELETE FROM ThongTinBenhVien WHERE id_benh_vien = ?`, [id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ error: 'Bệnh viện không tìm thấy' });
-      res.json({ message: 'Bệnh viện đã được xóa' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Bệnh viện không tìm thấy' });
+    res.json({ message: 'Bệnh viện đã được xóa' });
   });
 });
 
@@ -288,7 +299,7 @@ router.delete('/hospitals/:id', (req, res) => {
 //KẾT QUẢ KIỂM TRA 
 // 1. Lấy tất cả kết quả xét nghiệm
 router.get('/ket-qua-xet-nghiem', (req, res) => {
-    req.db.query(`
+  req.db.query(`
         SELECT 
             k.*, 
             b.ten AS ten_benh_nhan,
@@ -303,48 +314,48 @@ router.get('/ket-qua-xet-nghiem', (req, res) => {
         JOIN 
             ThongTinBacSi bs ON k.id_bac_si = bs.id_bac_si
     `, (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        res.json(results);
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
+  });
 });
 
 // 2. Thêm kết quả xét nghiệm
 router.post('/ket-qua-xet-nghiem', (req, res) => {
-    const { id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu } = req.body;
-    req.db.query(`
+  const { id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu } = req.body;
+  req.db.query(`
         INSERT INTO KetQuaXetNghiem (id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu)
         VALUES (?, ?, ?, ?, ?, ?)
     `, [id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        res.status(201).json({ id_ket_qua: results.insertId });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ id_ket_qua: results.insertId });
+  });
 });
 
 // 3. Cập nhật kết quả xét nghiệm
 router.put('/ket-qua-xet-nghiem/:id', (req, res) => {
-    const { id } = req.params;
-    const { id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu } = req.body;
-    req.db.query(`
+  const { id } = req.params;
+  const { id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu } = req.body;
+  req.db.query(`
         UPDATE KetQuaXetNghiem
         SET id_benh_nhan = ?, id_dich_vu = ?, id_bac_si = ?, ngay_xet_nghiem = ?, ket_qua = ?, ghi_chu = ?
         WHERE id_ket_qua = ?
     `, [id_benh_nhan, id_dich_vu, id_bac_si, ngay_xet_nghiem, ket_qua, ghi_chu, id], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        if (results.affectedRows === 0) return res.status(404).json({ error: 'Kết quả không tìm thấy' });
-        res.json({ message: 'Cập nhật thành công' });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Kết quả không tìm thấy' });
+    res.json({ message: 'Cập nhật thành công' });
+  });
 });
 
 // 4. Xóa kết quả xét nghiệm
 router.delete('/ket-qua-xet-nghiem/:id', (req, res) => {
-    const { id } = req.params;
-    req.db.query(`
+  const { id } = req.params;
+  req.db.query(`
         DELETE FROM KetQuaXetNghiem WHERE id_ket_qua = ?
     `, [id], (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        if (results.affectedRows === 0) return res.status(404).json({ error: 'Kết quả không tìm thấy' });
-        res.json({ message: 'Xóa thành công' });
-    });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ error: 'Kết quả không tìm thấy' });
+    res.json({ message: 'Xóa thành công' });
+  });
 });
 
 
@@ -385,9 +396,9 @@ router.get('/don-thuoc/:id', (req, res) => {
       WHERE 
           h.id_hoa_don = ?
   `, [id], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.length === 0) return res.status(404).json({ error: 'Đơn thuốc không tìm thấy' });
-      res.json(results);
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.length === 0) return res.status(404).json({ error: 'Đơn thuốc không tìm thấy' });
+    res.json(results);
   });
 });
 
@@ -411,17 +422,17 @@ router.get('/ke-hoach-dieu-tri/:id', (req, res) => {
       WHERE 
           kh.id_ke_hoach = ?
   `, [id], (error, results) => {
-      if (error) {
-          return res.status(500).json({ error: error.message });
-      }
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
 
-      // Kiểm tra xem có kế hoạch điều trị nào không
-      if (results.length === 0) {
-          return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
-      }
+    // Kiểm tra xem có kế hoạch điều trị nào không
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
+    }
 
-      // Phản hồi với thông tin kế hoạch điều trị
-      res.json(results[0]);
+    // Phản hồi với thông tin kế hoạch điều trị
+    res.json(results[0]);
   });
 });
 
@@ -431,7 +442,7 @@ router.post('/ke-hoach-dieu-tri', (req, res) => {
 
   // Kiểm tra dữ liệu đầu vào
   if (!id_bac_si || !id_benh_nhan || !ngay_lap_ke_hoach || !chi_tiet_dieu_tri || !trang_thai) {
-      return res.status(400).json({ error: 'Thiếu thông tin cần thiết' });
+    return res.status(400).json({ error: 'Thiếu thông tin cần thiết' });
   }
 
   // Câu truy vấn SQL để thêm kế hoạch điều trị
@@ -439,8 +450,8 @@ router.post('/ke-hoach-dieu-tri', (req, res) => {
       INSERT INTO KeHoachDieuTri (id_bac_si, id_benh_nhan, ngay_lap_ke_hoach, chi_tiet_dieu_tri, trang_thai)
       VALUES (?, ?, ?, ?, ?)
   `, [id_bac_si, id_benh_nhan, ngay_lap_ke_hoach, chi_tiet_dieu_tri, trang_thai], (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ message: 'Kế hoạch điều trị đã được tạo', id_ke_hoach: results.insertId });
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json({ message: 'Kế hoạch điều trị đã được tạo', id_ke_hoach: results.insertId });
   });
 });
 
@@ -461,11 +472,11 @@ router.put('/ke-hoach-dieu-tri/:id', (req, res) => {
 
   // Thực hiện câu truy vấn
   req.db.query(query, params, (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) {
-          return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
-      }
-      res.json({ message: 'Kế hoạch điều trị đã được cập nhật' });
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
+    }
+    res.json({ message: 'Kế hoạch điều trị đã được cập nhật' });
   });
 });
 
@@ -477,17 +488,17 @@ router.delete('/ke-hoach-dieu-tri/:id', (req, res) => {
   req.db.query(`
       DELETE FROM KeHoachDieuTri WHERE id_ke_hoach = ?
   `, [id], (error, results) => {
-      if (error) {
-          return res.status(500).json({ error: error.message });
-      }
-      
-      // Kiểm tra xem có bản ghi nào bị xóa không
-      if (results.affectedRows === 0) {
-          return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
-      }
-      
-      // Phản hồi khi xóa thành công
-      res.json({ message: 'Kế hoạch điều trị đã được xóa thành công' });
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    // Kiểm tra xem có bản ghi nào bị xóa không
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Kế hoạch điều trị không tìm thấy' });
+    }
+
+    // Phản hồi khi xóa thành công
+    res.json({ message: 'Kế hoạch điều trị đã được xóa thành công' });
   });
 });
 
@@ -626,18 +637,18 @@ router.get('/lich-su/:id_benh_nhan', (req, res) => {
 
   // Thực thi truy vấn với tham số id_benh_nhan
   req.db.query(query, [idBenhNhan], (err, results) => {
-      if (err) {
-          console.error('Error executing query:', err);
-          return res.status(500).json({ message: 'Internal Server Error', error: err });
-      }
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).json({ message: 'Internal Server Error', error: err });
+    }
 
-      // Nếu không có kết quả
-      if (results.length === 0) {
-          return res.status(404).json({ message: 'Không tìm thấy lịch sử sử dụng thuốc cho bệnh nhân này' });
-      }
+    // Nếu không có kết quả
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Không tìm thấy lịch sử sử dụng thuốc cho bệnh nhân này' });
+    }
 
-      // Trả kết quả dưới dạng JSON
-      res.json({ message: 'Thành công', data: results });
+    // Trả kết quả dưới dạng JSON
+    res.json({ message: 'Thành công', data: results });
   });
 });
 
@@ -697,7 +708,7 @@ router.put('/lich-su/:id_lich_su', (req, res) => {
       console.error('Error executing query:', err);
       return res.status(500).json({ message: 'Internal Server Error', error: err });
     }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+
     // Kiểm tra xem có bản ghi nào được cập nhật không
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Không tìm thấy lịch sử sử dụng thuốc để cập nhật' });
