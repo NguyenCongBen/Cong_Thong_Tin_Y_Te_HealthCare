@@ -5,7 +5,7 @@ import "../../../../public/css/user/cosobenhvien.css";
 import GoiTongDai from "../Components/Goitongdai";
 export default function CoSoBenhVien() {
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien/thong-tin-benh-vien', fetcher);
+    const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien', fetcher);
     if (error) return <strong>Lỗi...</strong>
     if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
     return (
@@ -53,13 +53,13 @@ export default function CoSoBenhVien() {
                                     {data.map((base) => (
                                         <div class="tt-thanhtich-nhieu-1">
                                             <div class="card card-thanhtich" id="card-boder">
-                                                <Link href={`/hethong/${base.id_benh_vien}`}>
-                                                    <img class="cart-anh card-img-top" src={`http://localhost:3000/images/img/giải thưởng/${base.image}`}
+                                                <Link href={`/hethong/${base.id}`}>
+                                                    <img class="cart-anh card-img-top" src={`http://localhost:3000/images/img/bệnh viện/pro-1.jpg`}
                                                         alt="..." />
                                                 </Link>
                                                 <div class="card-body" id="card-body">
-                                                    <Link href={`/hethong/${base.id_benh_vien}`}>
-                                                        <h5 class="card-title" id="card-title">{base.ten_benh_vien}</h5>
+                                                    <Link href={`/hethong/${base.id}`}>
+                                                        <h5 class="card-title" id="card-title">{base.ten}</h5>
                                                     </Link>
                                                     <p class="card-text" id="card-text">
                                                         <img className="card-text-img" src="/images/img/bác sĩ/icon-address.png" alt="" />
@@ -70,7 +70,7 @@ export default function CoSoBenhVien() {
                                                     <p class="card-text" id="card-text">
                                                         <img className="card-text-img-1" src="/images/img/Trang chủ/call.png" alt="" />
                                                         <p>
-                                                            {base.so_dien_thoai.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')}
+                                                            {base.email}
                                                         </p>
                                                     </p>
                                                     <p className="dk-va-xt">
@@ -78,7 +78,7 @@ export default function CoSoBenhVien() {
                                                             <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
                                                             Đăng ký khám
                                                         </Link>
-                                                        <Link href={`/hethong/${base.id_benh_vien}`} class="btn" id="tt-xemthem">Xem thêm
+                                                        <Link href={`/hethong/${base.id}`} class="btn" id="tt-xemthem">Xem thêm
                                                             <span class="btn-size">
                                                                 <img src="/images/img/thông tin/product/icon-2.png" alt="" />
                                                             </span>

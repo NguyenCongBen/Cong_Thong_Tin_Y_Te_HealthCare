@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// File: D:\DA_TT_K\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\layout.js
-=======
-// File: C:\fpt polytechnic\Duantotnghiep\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\layout.js
->>>>>>> origin/main
+// File: D:\FPT polytechnic\Dự án tốt nghiệp\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\layout.js
 import * as entry from '../../../../src/app/(users)/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

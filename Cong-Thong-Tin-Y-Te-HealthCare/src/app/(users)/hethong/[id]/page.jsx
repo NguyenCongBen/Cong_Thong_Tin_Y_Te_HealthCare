@@ -5,7 +5,7 @@ import "../../../../../public/css/user/chuyenkhoa.css";
 import GoiTongDai from "../../Components/Goitongdai";
 export default function ChuyenKhoa({ params }) {
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data: system, error: errorSystem, isLoading: isLoadingSystem } = useSWR(`http://localhost:3000/benhvien/thong-tin-benh-vien/${params.id}`, fetcher);
+    const { data: system, error: errorSystem, isLoading: isLoadingSystem } = useSWR(`http://localhost:3000/benhvien/${params.id}`, fetcher);
     if (errorSystem) return <strong>Lỗi...</strong>
     if (isLoadingSystem) return <strong>Lỗi load dữ liệu...</strong>
     return (
@@ -15,7 +15,7 @@ export default function ChuyenKhoa({ params }) {
                 <div class="container-all">
                     <div class="cover-list-news">
                         <img src="/images/img/hệ thống/banner.jpg" alt="" />
-                        <div class="name-cate-cover">{system.ten_benh_vien}
+                        <div class="name-cate-cover">{system.ten}
                         </div>
                         <div class="thanhtuu-bar_util">
                             <div class="thanhtuu-col-4 col-4-w color-blue">
@@ -46,26 +46,24 @@ export default function ChuyenKhoa({ params }) {
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <Link href="#" class="tt-item">Hệ thống bệnh viện</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color"> {system.ten_benh_vien}</Link>
+                                <Link href="#" class="tt-item tt-item-1 tt-item-color"> {system.ten}</Link>
                             </div>
                             <div class="ht-hospital-detail">
                                 <div class="ht-hospital-header">
-                                    <h1 class="sm-title_cate_news">{system.ten_benh_vien}</h1>
+                                    <h1 class="sm-title_cate_news">{system.ten}</h1>
                                     <div class="ht-address-hospital ht-mb">
                                         <img class="ht-mr" src="/images/img/bác sĩ/icon-address.png" alt="" />
                                         {system.dia_chi}
                                     </div>
                                     <div class="ht-address-hospital">
                                         <img class="ht-mr" src="/images/img/hệ thống/hotline.png" alt="" />
-                                        {system.so_dien_thoai.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')}
+                                        {system.email}
 
                                     </div>
                                 </div>
                                 <h2 class="ht-hospital-intro">Giới thiệu</h2>
                                 <div class="ht-entry">
-                                    <p>Chẩn đoán hình ảnh là ngành ứng dụng những tiến bộ về tia X, sóng siêu âm và từ trường để
-                                        tạo ra hình ảnh cấu trúc cơ thể nhằm cung cấp những thông tin giải phẫu và bệnh lý cho
-                                        các bác sỹ lâm sàng và đưa ra chẩn đoán bệnh chính xác.</p>
+                                    <p>{system.mo_ta}</p>
                                     <p>Với các trang thiết bị hiện đại, đồng bộ và tiên tiến thế giới, với đội ngũ bác sĩ - kỹ
                                         thuật viên có trình độ chuyên môn cao và nhiều kinh nghiệm, khoa Chẩn đoán hình ảnh Bệnh
                                         viện Đa khoa Quốc tế Vinmec Central Park có thể thực hiện nhiều kỹ thuật đa dạng và

@@ -10,7 +10,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var chuyenkhoaRouter = require('./routes/chuyenkhoa');
 var BaivietRouter = require('./routes/baiviet');
-var benhvienRouter = require('./routes/benh_vien');
 var thuocRouter = require('./routes/thuoc');
 var dichvuRouter = require('./routes/dichvu');
 var lichhenRouter = require('./routes/lichhen');
@@ -56,6 +55,10 @@ app.use('/baiviet', BaivietRouter);
 app.use('/users', usersRouter);
 app.use('/doctor', bacsiRouter);
 app.use('/patient', benhnhanRouter);
+app.use('/benhvien', benhvienRouter);
+app.use('/thuoc', thuocRouter);
+app.use('/dichvu', dichvuRouter);
+app.use('/lichhen', lichhenRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

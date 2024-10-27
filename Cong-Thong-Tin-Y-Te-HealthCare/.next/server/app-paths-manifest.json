@@ -1,4 +1,4 @@
 {
-  "/(users)/hethong/page": "app/(users)/hethong/page.js",
-  "/(users)/page": "app/(users)/page.js"
+  "/(users)/hethong/[id]/page": "app/(users)/hethong/[id]/page.js",
+  "/(users)/hethong/page": "app/(users)/hethong/page.js"
 }
