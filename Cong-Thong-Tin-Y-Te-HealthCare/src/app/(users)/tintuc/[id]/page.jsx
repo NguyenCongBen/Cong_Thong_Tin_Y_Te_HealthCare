@@ -1,6 +1,7 @@
 "use client";
 import useSWR from "swr";
 import "../../../../../public/css/user/giaithuong.css";
+import BaiVietLienQuan from "../../Components/Baivietlienquan";
 import GoiTongDai from "../../Components/Goitongdai";
 export default function GiaiThuong({ params }) {
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -280,147 +281,7 @@ export default function GiaiThuong({ params }) {
                             <div class="gt-related-posts">
                                 <div class="gt-related-title">Bài viết liên quan</div>
                                 <div class="tt-thanhtich-nhieu">
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-7.jpg"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">Sử dụng thuốc điều trị ung thư di căn
-                                                        xương</h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Các loại ung thư chính có xu hướng di căn
-                                                    đến xương bao gồm ung thư đa u tủy, ung thư vú, ung thư tuyến tiền liệt,...
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-8.jpg"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">Hút shisha: Mùi hương của sự chết
-                                                        chóc</h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Hút Shisha là một hoạt động giải trí phổ
-                                                    biến ở nhiều quốc gia trên thế giới, đặc biệt là ở các nước Trung Đông và
-                                                    châu....
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-9.jpg"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">Nuôi cấy tăng sinh EX vivo tế bào
-                                                        diệt tự nhiên và tế bào tê gây độc từ máu ngoại vi các bệnh nhân ung thư
-                                                        phổi
-                                                    </h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Tác giả: Hoàng Thị Mỹ Nhung 1,2*, Bùi Việt
-                                                    Anh 1*, Trương Linh Huyền 1, Đoàn Trung Hiệp 3, Chu Thị Thảo 1, Phùng...
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-10.png"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">Điều trị ung thư di căn xương bằng
-                                                        thuốc
-                                                    </h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Có một số phương pháp điều trị ung thư di
-                                                    căn xương như xạ trị, đốt khối u, sử dụng thuốc hay phẫu thuật. Khi điều
-                                                    trị...
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-12.jpg"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">Healthcare đạt giải thưởng “Bệnh viện
-                                                        Việt Nam tiến bộ nhất” của hiệp hội Quản lý Bệnh viện châu Á
-                                                    </h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Bệnh viện Đa khoa Quốc tế Healthcare Times
-                                                    City
-                                                    được trao danh hiệu “Bệnh viện Việt Nam tiến bộ nhất” trong lĩnh...
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tt-thanhtich-nhieu-1">
-                                        <div class="card card-thanhtich" id="card-boder">
-                                            <a href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-11.png"
-                                                    alt="..." />
-                                            </a>
-                                            <div class="card-body" id="card-body">
-                                                <a href="#">
-                                                    <h5 class="card-title" id="card-title">10 thực phẩm tốt nhất trong phòng
-                                                        ngừa và điều trị ung thư
-                                                    </h5>
-                                                </a>
-                                                <p class="card-text" id="card-text">Trong thời đại hiện nay, ung thư đang là một
-                                                    trong những căn bệnh gây ra nhiều ca tử vong trên toàn thế giới. Tuy
-                                                    nhiên,...
-                                                </p>
-                                                <a href="#" class="btn" id="tt-xemthem">Xem thêm
-                                                    <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <BaiVietLienQuan />
                                 </div>
                             </div>
                             <div class="tt-bottom-main">

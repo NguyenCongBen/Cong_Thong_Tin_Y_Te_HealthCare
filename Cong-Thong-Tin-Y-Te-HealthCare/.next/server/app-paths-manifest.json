@@ -1,6 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/page": "app/(users)/page.js",
   "/(users)/tintuc/[id]/page": "app/(users)/tintuc/[id]/page.js",
+  "/(users)/page": "app/(users)/page.js",
   "/admin/page": "app/admin/page.js"
 }
