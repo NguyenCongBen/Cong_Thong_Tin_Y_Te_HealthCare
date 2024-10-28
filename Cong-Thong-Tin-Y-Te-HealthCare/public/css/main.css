@@ -642,6 +642,11 @@ html.fullscreen-bg #wrapper {
     padding: 8px;
     font-weight: 400
 }
+.card .body_title {
+    color: #444;
+    padding: 20px;
+    font-weight: 400
+}
 
 .navbar-fixed-top {
     background: #fff;

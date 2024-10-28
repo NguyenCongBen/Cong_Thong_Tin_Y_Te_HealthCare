@@ -1,6 +1,8 @@
 {
-  "/admin/Doctors/page": "app/admin/Doctors/page.js",
-  "/(users)/page": "app/(users)/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/admin/page": "app/admin/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js"
+  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
+  "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js",
+  "/admin/dichvu/page": "app/admin/dichvu/page.js",
+  "/admin/Appointment/page": "app/admin/Appointment/page.js"
 }
