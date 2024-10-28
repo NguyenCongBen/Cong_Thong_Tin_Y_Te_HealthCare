@@ -1,186 +1,102 @@
+"use client";
+import React from 'react';
+import { useFormik } from "formik";
+import axios from 'axios';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import * as Yup from 'yup';
 import "../../../../public/css/user/datlich.css";
-export default function DatLichHen() {
+import { registerFailure, registerSuccess } from '../../../../redux/slices/userSlices';
+import GoiTongDai from '../Components/Goitongdai';
+
+const Register = () => {
+    const dispatch = useDispatch();
+    const router = useRouter();
+
+    // Schema xác thực với Yup
+    // const validationSchema = Yup.object({
+    //     username: Yup.string()
+    //         .required('Tên người dùng là bắt buộc'),
+    //     radio: Yup.string()
+    //         .required('Vui lòng chọn giới tính'),
+    //     date: Yup.string()
+    //         .required('Vui lòng chọn ngày tháng năm sinh'),
+    //     mota: Yup.string()
+    //         .required('Vui lòng nhập giới tính của bạn'),
+    //     checkbox: Yup.boolean()
+    //         .oneOf([true], 'Vui lòng xác nhận lại thông tin')
+    //         .required('Vui lòng xác nhận lại thông tin'),
+    //     email: Yup.string()
+    //         .email("Email không hợp lệ")
+    //         .required("Email là bắt buộc")
+    //         .matches(
+    //             /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    //             "Email phải chứa ký tự hợp lệ"
+    //         ),
+    //     password: Yup.string()
+    //         .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
+    //         .required("Mật khẩu là bắt buộc")
+    //         .matches(
+    //             /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{6,}$/,
+    //             "Mật khẩu phải chứa ít nhất một chữ hoa, chữ thường, số và ký tự đặc biệt"
+    //         ),
+    //     phone: Yup.string()
+    //         .required("Số điện thoại bắt buộc")
+    //         .matches(/(\+84|0[3|5|7|8|9])+([0-9]{8,})\b/g, 'Số điện thoại không hợp lệ'),
+    //     address: Yup.string()
+    //         .required('Địa chỉ là bắt buộc'),
+    // });
+    // Sử dụng Formik để quản lý form
+    const formik = useFormik({
+        initialValues: {
+            ten: '',
+            email: '',
+            phone: '',
+            date: '',
+            radio: '',
+            mota: '',
+            checkbox: false,
+            role: "benh_nhan",
+        },
+        // validationSchema: validationSchema,
+        onSubmit: async (values, { setSubmitting }) => {
+            try {
+                const response = await axios.post('http://localhost:3000/users/register', values);
+                dispatch(registerSuccess(response.data));
+            } catch (err) {
+                const errorMessage = err.response?.data?.message || 'Đã xảy ra lỗi. Vui lòng thử lại.';
+                dispatch(registerFailure(errorMessage));
+            } finally {
+                setSubmitting(false);
+                router.push('/');
+                alert('Gửi thông tin thành công');
+            }
+        },
+    });
     return (
         <>
             <main>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header model-goi">
-                                <h3 class="modal-title g-blue" id="exampleModalLabel">Hotline</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="g-content">
-                                    <ul class="g-phone-list">
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="g-button-group">
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/Download_App_8f9cde90f2.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Đặt lịch qua App - MyVinmec</span>
-                                                    <span class="g-item-text">Đặt lịch hẹn chủ động ngay tại nhà với bác sĩ và
-                                                        ngày giờ khám</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Tải ngay
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/CSKH_b6c956f10b.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Cổng dịch vụ CSKH 24/7</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Gửi yêu cầu
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-all">
-                    <div class="cover-list-news">
+                <GoiTongDai />
+                <div className="container-all">
+                    <div className="cover-list-news">
                         <img src="/images/img/thành tựu/banner.jpg" alt="" />
-                        <div class="name-cate-cover">Đăng ký khám</div>
-                        <div class="thanhtuu-bar_util">
-                            <div class="thanhtuu-col-4 col-4-w color-blue">
-                                <button type="button" class="btn btn-primary thanhtuu-col-4 col-4-w color-blue" id="btn-goi"
+                        <div className="name-cate-cover">Đăng ký khám</div>
+                        <div className="thanhtuu-bar_util">
+                            <div className="thanhtuu-col-4 col-4-w color-blue">
+                                <button type="button" className="btn btn-primary thanhtuu-col-4 col-4-w color-blue" id="btn-goi"
                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img src="/images/img/thành tựu/Phone.png" alt="" />
                                     <span>Gọi tổng đài</span>
                                 </button>
                             </div>
-                            <div class="thanhtuu-col-4 col-4-w">
+                            <div className="thanhtuu-col-4 col-4-w">
                                 <Link href="/datlich">
                                     <img src="/images/img/thành tựu/Calendar.png" alt="" />
                                     <span>Đặt lịch hẹn</span>
                                 </Link>
                             </div>
-                            <div class="thanhtuu-col-4 col-4-w">
+                            <div className="thanhtuu-col-4 col-4-w">
                                 <Link href="/timbacsi">
                                     <img src="/images/img/thành tựu/doctor.png" alt="" />
                                     <span>Tìm bác sĩ</span>
@@ -188,26 +104,26 @@ export default function DatLichHen() {
                             </div>
                         </div>
                     </div>
-                    <div class="container-body">
-                        <div class="container-1">
-                            <div class="tt-bread">
-                                <Link href="/trangchu" class="tt-item">Trang chủ</Link>
-                                <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color">Đăng ký khám</Link>
+                    <div className="container-body">
+                        <div className="container-1">
+                            <div className="tt-bread">
+                                <Link href="/trangchu" className="tt-item">Trang chủ</Link>
+                                <i className="fa-solid fa-angle-right tt-item gt-item"></i>
+                                <Link href="#" className="tt-item tt-item-1 tt-item-color">Đăng ký khám</Link>
                             </div>
-                            <div class="lk-content_info_book-1">
-                                <div class="lk-content_info_book">
-                                    <h2 class="sm-title_cate_news">
+                            <div className="lk-content_info_book-1">
+                                <div className="lk-content_info_book">
+                                    <h2 className="sm-title_cate_news">
                                         Nội dung chi tiết đặt hẹn
                                     </h2>
-                                    <div class="lk-list_two_booking">
-                                        <div class="lk-col6 lk-right">
-                                            <div class="lk-mb2">
-                                                <p class="lk-color-blue">
+                                    <div className="lk-list_two_booking">
+                                        <div className="lk-col6 lk-right">
+                                            <div className="lk-mb2">
+                                                <p className="lk-color-blue">
                                                     Bệnh viện/phòng khám Vinmec
-                                                    <span class="lk-color-red">*</span>
+                                                    <span className="lk-color-red">*</span>
                                                 </p>
-                                                <select class="form-select form-select-lg mb-3" id="lk-form-select">
+                                                <select className="form-select form-select-lg mb-3" id="lk-form-select">
                                                     <option selected>Chọn cơ sở khám</option>
                                                     <option value="1">BV ĐKQT Vinmec Times City (Hà Nội)</option>
                                                     <option value="2">BV ĐKQT Vinmec Central Park (Hồ Chí Minh)</option>
@@ -220,150 +136,253 @@ export default function DatLichHen() {
                                                     <option value="9">PK ĐKQT Vinmec Sài Gòn</option>
                                                 </select>
                                             </div>
-                                            <div class="lk-mb2">
-                                                <p class="lk-color-blue">
+                                            <div className="lk-mb2">
+                                                <p className="lk-color-blue">
                                                     Chuyên khoa
-                                                    <span class="lk-color-red">*</span>
+                                                    <span className="lk-color-red">*</span>
                                                 </p>
-                                                <select class="form-select form-select-lg mb-3" id="lk-form-select">
+                                                <select className="form-select form-select-lg mb-3" id="lk-form-select">
                                                     <option selected>Chọn chuyên khoa</option>
                                                     <option value="0">Chưa xác định chuyên khoa</option>
                                                 </select>
                                             </div>
-                                            <div class="lk-mb2">
-                                                <p class="lk-color-blue">
+                                            <div className="lk-mb2">
+                                                <p className="lk-color-blue">
                                                     Bác sĩ
                                                 </p>
-                                                <select class="form-select form-select-lg mb-3" id="lk-form-select">
+                                                <select className="form-select form-select-lg mb-3" id="lk-form-select">
                                                     <option selected>Chọn Bác sĩ muốn khám</option>
                                                     <option value="1">Bác sĩ Noname</option>
                                                 </select>
                                             </div>
                                             <div>
-                                                <label for="#" class="lk-flex">
+                                                <label for="#" className="lk-flex">
                                                     <input type="checkbox" />
                                                     Đặt hẹn cho người nước ngoài
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="lk-col6 lk-left">
-                                            <p class="lk-color-blue color-toi">
+                                        <div className="lk-col6 lk-left">
+                                            <p className="lk-color-blue color-toi">
                                                 Thời gian khám
-                                                <span class="lk-color-red color-toi">*</span>
+                                                <span className="lk-color-red color-toi">*</span>
                                             </p>
-                                            <div class="lk-list_date">
-                                                <div class="lk-item_date active">
-                                                    <p class="lk-f14">04/10</p>
-                                                    <p class="lk-f12">Thứ 6</p>
+                                            <div className="lk-list_date">
+                                                <div className="lk-item_date active">
+                                                    <p className="lk-f14">04/10</p>
+                                                    <p className="lk-f12">Thứ 6</p>
                                                 </div>
-                                                <div class="lk-item_date">
-                                                    <p class="lk-f14 lk-mau">05/10</p>
-                                                    <p class="lk-f12 lk-999">Thứ 7</p>
+                                                <div className="lk-item_date">
+                                                    <p className="lk-f14 lk-mau">05/10</p>
+                                                    <p className="lk-f12 lk-999">Thứ 7</p>
                                                 </div>
-                                                <div class="lk-item_date">
-                                                    <p class="lk-f14 lk-mau">06/10</p>
-                                                    <p class="lk-f12 lk-999">Chủ nhật</p>
+                                                <div className="lk-item_date">
+                                                    <p className="lk-f14 lk-mau">06/10</p>
+                                                    <p className="lk-f12 lk-999">Chủ nhật</p>
                                                 </div>
-                                                <div class="lk-item_date">
-                                                    <p class="lk-f14 lk-mau">
-                                                        <input type="date" class="lk-date-oder" />
+                                                <div className="lk-item_date">
+                                                    <p className="lk-f14 lk-mau">
+                                                        <input type="date" className="lk-date-oder" />
                                                     </p>
-                                                    <p class="lk-f12 lk-999">Ngày khác</p>
+                                                    <p className="lk-f12 lk-999">Ngày khác</p>
                                                 </div>
                                             </div>
-                                            <div class="lk-mt2">
+                                            <div className="lk-mt2">
                                                 *Lưu ý: Thời gian khám trên chỉ là thời gian dự kiến, tổng đài sẽ
                                                 liên hệ xác nhận thời gian khám chính xác tới quý khách sau khi quý
                                                 khách đặt hẹn.
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="lk-mt60">
-                                        <h2 class="sm-title_cate_news">
+                                    <div className="lk-mt60">
+                                        <h2 className="sm-title_cate_news">
                                             Thông tin khách hàng
                                         </h2>
-                                        <div class="lk-list_two_booking lk-mbt-1">
-                                            <div class="lk-col6 lk-right">
-                                                <div class="lk-mb2 lk-mbt">
-                                                    <p class="lk-color-blue">
-                                                        Họ và tên
-                                                        <span class="lk-color-red">*</span>
-                                                    </p>
-                                                    <div class="lk-input">
-                                                        <input class="lk-input-1" id="lk-form-select" type="text"
-                                                            placeholder="Họ và tên" />
-                                                        <div class="lk-input_gender">
-                                                            <label for="#" class="lk-lable">
-                                                                <input type="radio" name="gender" class="lk-gender-picker" />
-                                                                Nam
-                                                            </label>
-                                                            <label for="#" class="lk-lable">
-                                                                <input type="radio" name="gender" class="lk-gender-picker" />
-                                                                Nữ
-                                                            </label>
+                                        <form onSubmit={formik.handleSubmit}>
+                                            <div className="lk-list_two_booking lk-mbt-1">
+                                                <div className="lk-col6 lk-right">
+                                                    <div className="lk-mb2 lk-mbt">
+                                                        <p className="lk-color-blue">
+                                                            Họ và tên
+                                                            <span className="lk-color-red">*</span>
+                                                        </p>
+                                                        <div className="lk-input">
+                                                            <div className="check-loi-form">
+                                                                <input
+                                                                    type="text"
+                                                                    className="lk-input-1"
+                                                                    id="username"
+                                                                    placeholder="Họ và tên"
+                                                                    name="username"
+                                                                    value={formik.values.username}
+                                                                    onChange={formik.handleChange}
+                                                                    onBlur={formik.handleBlur}
+                                                                    required />
+                                                                {formik.touched.username && formik.errors.username ? (
+                                                                    <div className="error">{formik.errors.username}</div>
+                                                                ) : null}
+                                                            </div>
+                                                            <div className="lk-input_gender lk-input-all">
+                                                                <div className="lk-input_gender">
+                                                                    <label htmlFor="radioNam" className="lk-lable">
+                                                                        <input
+                                                                            type="radio"
+                                                                            className="lk-gender-picker"
+                                                                            id="radioNam"
+                                                                            name="radio"
+                                                                            value="Nam"
+                                                                            checked={formik.values.radio === "Nam"}
+                                                                            onChange={formik.handleChange}
+                                                                            onBlur={formik.handleBlur}
+                                                                            required
+                                                                        />
+                                                                        Nam
+                                                                    </label>
+                                                                    <label htmlFor="radioNu" className="lk-lable">
+                                                                        <input
+                                                                            type="radio"
+                                                                            className="lk-gender-picker"
+                                                                            id="radioNu"
+                                                                            name="radio"
+                                                                            value="Nữ"
+                                                                            checked={formik.values.radio === "Nữ"}
+                                                                            onChange={formik.handleChange}
+                                                                            onBlur={formik.handleBlur}
+                                                                            required
+                                                                        />
+                                                                        Nữ
+                                                                    </label>
+                                                                </div>
+                                                                {formik.touched.radio && formik.errors.radio ? (
+                                                                    <div className="error">{formik.errors.radio}</div>
+                                                                ) : null}
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div className="lk-mb2 lk-mbt">
+                                                        <p className="lk-color-blue">
+                                                            Số điện thoại
+                                                            <span className="lk-color-red">*</span>
+                                                        </p>
+                                                        <div className="lk-input lk-input-all">
+                                                            <input
+                                                                type="text"
+                                                                className="lk-input-2"
+                                                                id="phone"
+                                                                placeholder="Nhập số điện thoại"
+                                                                name="phone"
+                                                                value={formik.values.phone}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                                required
+                                                            />
+                                                            {formik.touched.phone && formik.errors.phone ? (
+                                                                <div className="error">{formik.errors.phone}</div>
+                                                            ) : null}
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="lk-mb2 lk-mbt">
-                                                    <p class="lk-color-blue">
-                                                        Số điện thoại
-                                                        <span class="lk-color-red">*</span>
-                                                    </p>
-                                                    <div class="lk-input">
-                                                        <input class="lk-input-2" id="lk-form-select" type="text"
-                                                            placeholder="Nhập số điện thoại" />
+                                                <div className="lk-col6 lk-left">
+                                                    <div className="lk-mb2 lk-mbt">
+                                                        <p className="lk-color-blue">
+                                                            Ngày tháng năm sinh
+                                                            <span className="lk-color-red">*</span>
+                                                        </p>
+                                                        <div className="lk-input lk-input-all">
+                                                            <input
+                                                                type="date"
+                                                                className="lk-input-2"
+                                                                id="date"
+                                                                placeholder="Ngày tháng năm sinh"
+                                                                name="date"
+                                                                value={formik.values.date}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                                required
+                                                            />
+                                                            {formik.touched.date && formik.errors.date ? (
+                                                                <div className="error">{formik.errors.date}</div>
+                                                            ) : null}
+                                                        </div>
+                                                    </div>
+                                                    <div className="lk-mb2 lk-mbt">
+                                                        <p className="lk-color-blue">
+                                                            Email
+                                                            <span className="lk-color-red">*</span>
+                                                        </p>
+                                                        <div className="lk-input lk-input-all">
+                                                            <input
+                                                                type="email"
+                                                                className="lk-input-2"
+                                                                id="email"
+                                                                placeholder="Nhập email"
+                                                                name="email"
+                                                                value={formik.values.email}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                                required
+                                                            />
+                                                            {formik.touched.email && formik.errors.email ? (
+                                                                <div className="error">{formik.errors.email}</div>
+                                                            ) : null}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="lk-col6 lk-left">
-                                                <div class="lk-mb2 lk-mbt">
-                                                    <p class="lk-color-blue">
-                                                        Ngày tháng năm sinh
-                                                        <span class="lk-color-red">*</span>
-                                                    </p>
-                                                    <div class="lk-input">
-                                                        <input class="lk-input-2" id="lk-form-select" type="date"
-                                                            placeholder="Ngày tháng năm sinh" max="10/04/2024" />
+                                                <div className="lk-col12">
+                                                    <div className="lk-mb2 lk-mbt">
+                                                        <p className="lk-color-blue">
+                                                            Lý do khám
+                                                            <span className="lk-color-red">*</span>
+                                                        </p>
+                                                        <div className="lk-input lk-input-all">
+                                                            <textarea
+                                                                className="lk-input-2"
+                                                                name="mota"
+                                                                id="mota"
+                                                                cols="30"
+                                                                rows="10"
+                                                                placeholder="Triệu chứng của bạn"
+                                                                value={formik.values.mota}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                                required
+                                                            ></textarea>
+                                                            {formik.touched.mota && formik.errors.mota ? (
+                                                                <div className="error">{formik.errors.mota}</div>
+                                                            ) : null}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="lk-mb2 lk-mbt">
-                                                    <p class="lk-color-blue">
-                                                        Email
-                                                        <span class="lk-color-red">*</span>
-                                                    </p>
-                                                    <div class="lk-input">
-                                                        <input class="lk-input-2" id="lk-form-select" type="email"
-                                                            placeholder="Nhập email" />
-                                                    </div>
+                                                <div>
+                                                    <label for="#" className="lk-fl-colum">
+                                                        <div className="lk-flex">
+                                                            <input
+                                                                type="checkbox"
+                                                                id="checkbox"
+                                                                name="checkbox"
+                                                                value={formik.values.checkbox}
+                                                                onChange={formik.handleChange}
+                                                                onBlur={formik.handleBlur}
+                                                                required
+                                                            />
+                                                            <div className="lk-thoathuan">
+                                                                Tôi đã đọc và xác nhận <Link className="lk-cl-blue" href="#">Điều khoản dịch
+                                                                    vụ</Link>
+                                                                của bệnh viện.
+                                                                <span className="lk-color-red">*</span>
+                                                            </div>
+                                                        </div>
+                                                        {formik.touched.checkbox && formik.errors.checkbox ? (
+                                                            <div className="error">{formik.errors.checkbox}</div>
+                                                        ) : null}
+                                                    </label>
                                                 </div>
                                             </div>
-                                            <div class="lk-col12">
-                                                <div class="lk-mb2 lk-mbt">
-                                                    <p class="lk-color-blue">
-                                                        Lý do khám
-                                                        <span class="lk-color-red">*</span>
-                                                    </p>
-                                                    <div class="lk-input">
-                                                        <textarea class="lk-input-2" name="#" id="lk-form-select" cols="30"
-                                                            rows="10" placeholder="Triệu chứng của bạn"></textarea>
-                                                    </div>
-                                                </div>
+                                            <div className="lk-text-center">
+                                                <button className="lk-btn_send_book" type="submit" disabled={formik.isSubmitting}>Gửi thông tin</button>
                                             </div>
-                                            <div>
-                                                <label for="#" class="lk-flex">
-                                                    <input type="checkbox" />
-                                                    <div class="lk-thoathuan">
-                                                        Tôi đã đọc và xác nhận <Link class="lk-cl-blue" href="#">Điều khoản dịch
-                                                            vụ</Link>
-                                                        của bệnh viện.
-                                                        <span class="lk-color-red">*</span>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="lk-text-center">
-                                            <button class="lk-btn_send_book">Gửi thông tin</button>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -374,3 +393,4 @@ export default function DatLichHen() {
         </>
     )
 }
+export default Register;

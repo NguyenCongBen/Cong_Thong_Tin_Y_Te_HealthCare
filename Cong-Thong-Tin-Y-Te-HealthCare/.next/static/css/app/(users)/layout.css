@@ -3004,6 +3004,10 @@ body {
     }
 
     /* footer */
+    .footer-2 {
+        height: 230px;
+    }
+
     .tt-footer-1 {
         flex-wrap: wrap;
     }

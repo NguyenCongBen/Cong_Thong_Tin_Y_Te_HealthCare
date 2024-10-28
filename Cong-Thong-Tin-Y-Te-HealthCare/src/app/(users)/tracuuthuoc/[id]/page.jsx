@@ -5,6 +5,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 export default function Chitietthuoc({params }) {
+    const [baiViet, setBaiViet] = useState([]);
     const [drug, setDrug] = useState(null);
     const [error, setError] = useState('');
 
@@ -20,13 +21,28 @@ export default function Chitietthuoc({params }) {
 
         fetchDrug();
     }, []);
+    
+    useEffect(() => {
+        const fetchBaiViet = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/baiviet');
+                setBaiViet(response.data); // Lưu dữ liệu bài viết vào state
+            } catch (err) {
+                setError('Lỗi khi tải bài viết liên quan!');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchBaiViet();
+    }, []);
 
     if (error) {
         return <h2>{error}</h2>;
     }
 
     if (!drug) {
-        return <div>Loading...</div>; // Loading state while fetching data
+        return <div>Đang Tải </div>; 
     }
 
     return (
@@ -122,21 +138,19 @@ export default function Chitietthuoc({params }) {
                             </div>
                         </div>
                         <div className="col-md-4">
-                            <div className="fs-5 fw-bold">Bài viết liên quan</div>
-                            <ul className="list_sick_right mt-3">
-                                <li><a href="" className="text-light">Tiến triển của hẹp van động mạch chủ và cách chẩn đoán</a></li>
-                                <li><a href="" className="text-light">Hở van ba lá và những tác động đến sức khỏe tim mạch</a></li>
-                                <li><a href="" className="text-light">Khó thở ở người già: nguyên nhân do đâu?</a></li>
-                                <li><a href="" className="text-light">Các bệnh lý gây suy tim thường gặp</a></li>
-                                <li><a href="" className="text-light">Bệnh rung nhĩ có di truyền không?</a></li>
-                                <li><a href="" className="text-light">Nguy cơ đột quỵ sau suy tim và biện pháp dự phòng</a></li>
-                                <li><a href="" className="text-light">Vì sao bạn bị phù chân? Làm sao cho hết?</a></li>
-                                <li><a href="" className="text-light">Phương pháp điều trị tim một buồng thất ở trẻ sơ sinh là gì?</a></li>
-                                <li><a href="" className="text-light">Trẻ 7 tháng tuổi bị suy tim nặng có điều trị được không?</a></li>
-                                <li><a href="" className="text-light">Trẻ 5 ngày tuổi chưa đóng van tim có nguy hiểm không?</a></li>
-                            </ul>
-                            <div className="ads_right text-center mt-3"></div>
-                        </div>
+                        <div className="fs-5 fw-bold">Bài viết liên quan</div>
+                        <ul className="list_sick_right mt-3">
+                            {/* Hiển thị tối đa 5 bài viết */}
+                            {baiViet.slice(0, 10).map((article) => (
+                                <li key={article.id}>
+                                    <a href="#" className="text-light">
+                                        {article.ten}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="ads_right text-center mt-3"></div>
+                    </div>
                     </div>
                 </section>
             </div>

@@ -58,6 +58,12 @@ body {
     text-decoration: none;
 }
 
+.cl-black {
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
 .tt-search-all {
     display: flex;
     justify-content: space-around;
@@ -444,6 +450,7 @@ body {
 }
 
 .lh-name_hospital {
+    text-decoration: none;
     min-height: 40px;
     font-size: 16px;
     font-weight: 700;
@@ -452,14 +459,21 @@ body {
 }
 
 .lh-address_hospital {
+    display: flex;
+    align-items: center;
     gap: 13px;
     margin-bottom: 10px;
     display: flex;
     font-size: 14px;
 }
 
+.lh-address_hospital>i {
+    color: #007EA9;
+    padding-right: 5px;
+}
+
 .lh-address_hospital>img {
-    height: 15px;
+    height: 18px;
     margin-top: 3px;
 }
 
@@ -492,7 +506,7 @@ body {
     width: 130px;
     text-align: center;
     color: #fff;
-    padding: 7px 5px;
+    padding: 10px 5px;
     border-radius: 5px;
     margin-right: 5px;
     transition: all 0.5s ease;
