@@ -1,7 +1,1 @@
-{
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
-  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
-  "/(users)/timbacsi/[id]/page": "app/(users)/timbacsi/[id]/page.js",
-  "/(users)/hethong/page": "app/(users)/hethong/page.js"
-}
+{}

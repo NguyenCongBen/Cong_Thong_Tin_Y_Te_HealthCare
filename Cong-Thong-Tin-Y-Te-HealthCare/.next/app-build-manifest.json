@@ -1,35 +1,9 @@
 {
   "pages": {
-    "/(users)/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
-    ],
-    "/(users)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/layout.css",
-      "static/chunks/app/(users)/layout.js"
-    ],
-    "/(users)/tintuc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/tintuc/page.js"
-    ],
-    "/(users)/hethong/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/hethong/page.js"
-    ],
-    "/(users)/timbacsi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/timbacsi/page.js"
-    ],
-    "/(users)/timbacsi/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/timbacsi/[id]/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
