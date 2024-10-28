@@ -17,12 +17,6 @@
       "static/css/app/(users)/datlich/page.css",
       "static/chunks/app/(users)/datlich/page.js"
     ],
-    "/(users)/dltc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/dltc/page.css",
-      "static/chunks/app/(users)/dltc/page.js"
-    ],
     "/(users)/cothenguoi/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -52,6 +46,11 @@
       "static/chunks/main-app.js",
       "static/css/app/(users)/timbacsi/page.css",
       "static/chunks/app/(users)/timbacsi/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
