@@ -5,14 +5,21 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/(users)/page": "app/(users)/page.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js"
 }
 >>>>>>> d810769aa654878a6375afd4e8e14c617274bf54
 =======
+=======
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/(users)/hethong/page": "app/(users)/hethong/page.js",
+  "/(users)/hethong/[id]/page": "app/(users)/hethong/[id]/page.js",
+  "/(users)/baohiem/page": "app/(users)/baohiem/page.js",
+>>>>>>> TrungNhin
   "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
   "/(users)/tintuc/[id]/page": "app/(users)/tintuc/[id]/page.js",
-  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/(users)/lienhe/page": "app/(users)/lienhe/page.js",
   "/(users)/chuyenkhoa/[id]/page": "app/(users)/chuyenkhoa/[id]/page.js"
 }
 >>>>>>> TrungNhin

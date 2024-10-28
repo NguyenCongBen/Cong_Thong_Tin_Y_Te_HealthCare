@@ -39,6 +39,38 @@
       "static/chunks/main-app.js",
       "static/css/app/(users)/chuyenkhoa/[id]/page.css",
       "static/chunks/app/(users)/chuyenkhoa/[id]/page.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/(users)/hethong/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/hethong/page.css",
+      "static/chunks/app/(users)/hethong/page.js"
+    ],
+    "/(users)/hethong/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/hethong/[id]/page.css",
+      "static/chunks/app/(users)/hethong/[id]/page.js"
+    ],
+    "/(users)/baohiem/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/baohiem/page.css",
+      "static/chunks/app/(users)/baohiem/page.js"
+    ],
+    "/(users)/lienhe/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/lienhe/page.css",
+      "static/chunks/app/(users)/lienhe/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+>>>>>>> TrungNhin
     ]
   }
 }
