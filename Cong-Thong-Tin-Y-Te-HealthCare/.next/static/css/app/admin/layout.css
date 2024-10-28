@@ -530,7 +530,7 @@ html.fullscreen-bg #wrapper {
 
 .card .header {
     color: #444;
-    padding: 20px;
+    padding: 5px;
     position: relative;
     box-shadow: none
 }
@@ -630,7 +630,7 @@ html.fullscreen-bg #wrapper {
 
 .card .body {
     color: #444;
-    padding: 20px;
+    padding: 8px;
     font-weight: 400
 }
 
@@ -7864,11 +7864,13 @@ ul.list-connected-app>li:last-child .connected-app {
 .doctors_main {
     overflow: hidden;
     position: relative;
+    height: auto;
     transition: .5s ease;
 }
 
 .name_doctors_admin {
     font-size: 22px;
+    margin: 10px;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
@@ -7984,9 +7986,9 @@ ul.list-connected-app>li:last-child .connected-app {
 }
 
 .chuyen_khoa_admin_doctor {
-    border: 1px solid black;
     padding: 8px 10px;
     border-radius: 5px;
+    text-transform: uppercase;
     font-weight: bold;
     transition: .5s ease;
     box-shadow: 0 0 5px 2px rgba(154, 155, 156, 0.3);
@@ -8018,6 +8020,76 @@ ul.list-connected-app>li:last-child .connected-app {
     border-radius: 100%;
     box-shadow: 0 0 10px 5px rgba(154, 155, 156, 0.3);
 }
+tbody tr td a{
+    color: black;
+    
+}
+.title_thongtin_benhnhan{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail_benhnhan_btn_admin{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CD50B;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .5s ease;
+    text-transform: capitalize;
+}
+.detail_benhnhan_btn_admin:hover{
+    background-color: #58b729;
+}
+.list-name{
+    background-color: rgb(255, 51, 51);
+    color: #ffffff;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+/* Pagination container */
+.pagination {
+    display: flex;
+    justify-content: center; /* Center the pagination */
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+    margin: 20px 0; /* Add margin above and below */
+  }
+  
+  /* Individual page items */
+  .pagination li {
+    margin: 0 5px; /* Space between page items */
+  }
+  
+  .pagination a,
+  .pagination span {
+    display: inline-block; 
+    padding: 10px 15px;
+    color: #000000 !important; 
+    border: 1px solid gray;
+    box-shadow: 0 0 10px 1px rgba(152, 152, 152, 0.4);
+    text-decoration: none; 
+    transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+  }
+  
+  /* Styles for disabled items */
+  .pagination .disabled {
+    opacity: 0.5; /* Fade out disabled items */
+  }
+  .phantrang_asbout_admin{
+    position: relative;
+  }
+  .phantrang_admin_doctors{
+        position:fixed;
+        right: 35%;
+        bottom: 0;
+  }
+  
 /*!************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./public/css/color_skins.css ***!
   \************************************************************************************************************************************************************************************************************************************************************************/
