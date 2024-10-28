@@ -3,12 +3,15 @@ import Link from "next/link"
 import React, { useEffect, useState } from 'react';
 import "../../../../public/css/user/tracuuthuoc.css"
 const PAGE_SIZE = 5;
-
+import axios from "axios";
 
 export default function tracuuthuoc() {
-    const [drugs, setDrugs] = useState([]);
+    const [drugs, setDrugs] = useState([]); // State để lưu danh sách thuốc
+    const [keyword, setKeyword] = useState(''); // State để lưu từ khóa tìm kiếm
     const [filteredDrugs, setFilteredDrugs] = useState([]); // Danh sách thuốc đã lọc
     const [currentPage, setCurrentPage] = useState(1);
+    const [error, setError] = useState(null);
+
 
     useEffect(() => {
         const fetchDrugs = async () => {
@@ -28,12 +31,38 @@ export default function tracuuthuoc() {
     const filterDrugsByLetter = (letter) => {
         // Lọc danh sách thuốc theo chữ cái
         const filtered = drugs.filter(drug =>
-          drug.ten_duoc_pham.toUpperCase().startsWith(letter.toUpperCase())
+            drug.ten_duoc_pham.toUpperCase().startsWith(letter.toUpperCase())
         );
         setFilteredDrugs(filtered); // Cập nhật danh sách thuốc đã lọc
         setCurrentPage(1); // Đặt lại trang về 1 khi lọc
-      };
-    
+    };
+
+      // Định nghĩa hàm handleSearch
+      const handleSearch = async () => {
+        if (!keyword.trim()) {
+            setError('Vui lòng nhập từ khóa tìm kiếm.');
+            setDrugs([]); // Xóa danh sách cũ nếu không có từ khóa
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/thuoc/search', {
+                keyword: keyword.trim(),
+            });
+
+            if (response.data.length > 0) {
+                setDrugs(response.data); // Cập nhật danh sách thuốc tìm được
+                setError(null); // Xóa thông báo lỗi
+            } else {
+                setError('Không tìm thấy thuốc nào.');
+                setDrugs([]); // Xóa danh sách cũ
+            }
+        } catch (error) {
+            console.error('Lỗi khi tìm kiếm thuốc:', error);
+            setError('Có lỗi xảy ra. Vui lòng thử lại.');
+        }
+    };
+
     // Tính toán số trang
     const totalPages = Math.ceil(drugs.length / PAGE_SIZE);
     const indexOfLastDrug = currentPage * PAGE_SIZE;
@@ -209,21 +238,25 @@ export default function tracuuthuoc() {
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <a href="#" class="tt-item tt-item-1 tt-item-color">danh mục thuốc</a>
                             </div>
-                            <div class="tc-bg_white tc-mb3">
-                                <div class="tc-flex tc-align-item-center">
-                                    <div class="tc-f26 tc-bold">
-                                        Tra Cứu Tên Thuốc
-                                    </div>
-                                    <div class="tc-search_drug tc-flex-one">
-                                        <div class="tc-flex tc-align-item-center tc-justify-betwee">
-                                            <input type="text" class="tc-txt_search_drug"
-                                                placeholder="Nhập tên thuốc cần tìm " />
-                                            <button class="tc-btn_search_drug">
-                                                <img src="images/img/tra cứu/search_icon_drug.png" alt="" />
+                            <div className="tc-bg_white tc-mb3">
+                                <div className="tc-flex tc-align-item-center">
+                                    <div className="tc-f26 tc-bold">Tra Cứu Tên Thuốc</div>
+                                    <div className="tc-search_drug tc-flex-one">
+                                        <div className="tc-flex tc-align-item-center tc-justify-betwee">
+                                            <input
+                                                type="text"
+                                                className="tc-txt_search_drug"
+                                                placeholder="Nhập tên thuốc cần tìm"
+                                                value={keyword}
+                                                onChange={(e) => setKeyword(e.target.value)} // Cập nhật từ khóa
+                                            />
+                                            <button className="tc-btn_search_drug" onClick={handleSearch}>
+                                                <img src="images/img/tra cứu/search_icon_drug.png" alt="Search Icon" />
                                             </button>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                             <div className="tc-pb60">
                                 <div className="tc-bg_white tc-mb60">
@@ -257,9 +290,9 @@ export default function tracuuthuoc() {
                                                         {currentDrugs.length > 0 ? (
                                                             currentDrugs.map((drug) => (
                                                                 <li key={drug.id} className="tc-item">
-                                                                    <a href="#" className="tc-name_drug">
+                                                                    <Link href={`/tracuuthuoc/${drug.id}`} className="tc-name_drug">
                                                                         {drug.ten_duoc_pham}
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             ))
                                                         ) : (
@@ -267,22 +300,23 @@ export default function tracuuthuoc() {
                                                         )}
                                                     </ul>
                                                 </div>
+                                                
                                                 <div className="col-md-6">
                                                     <ul className="tc-list_drug">
                                                         {drugs
                                                             .filter((_, index) => index % 2 !== 0) // Hiển thị thuốc ở cột thứ hai (nếu cần)
                                                             .map((drug) => (
                                                                 <li key={drug.id} className="tc-item">
-                                                                    <a href="#" className="tc-name_drug">
+                                                                    <Link href={`/tracuuthuoc/${drug.id}`} className="tc-name_drug">
                                                                         {drug.ten_duoc_pham}
-                                                                    </a>
+                                                                    </Link>
                                                                 </li>
                                                             ))}
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* Phân trang */}
+                                        {/* Phân trang */   }
                                         <div className="tt-phantrang">
                                             {Array.from({ length: totalPages }, (_, index) => (
                                                 <a
