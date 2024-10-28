@@ -3,9 +3,13 @@
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-<<<<<<< HEAD
-=======
-      "static/chunks/app/(users)/page.js"
+      "static/chunks/app/_not-found/page.js"
+    ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -13,23 +17,28 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/tracuuthuoc/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/tracuuthuoc/page.css",
-      "static/chunks/app/(users)/tracuuthuoc/page.js"
+      "static/chunks/app/(users)/page.js"
     ],
-    "/(users)/sudungthuocantoan/page": [
+    "/(users)/tintuc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/sudungthuocantoan/page.css",
-      "static/chunks/app/(users)/sudungthuocantoan/page.js"
+      "static/css/app/(users)/tintuc/page.css",
+      "static/chunks/app/(users)/tintuc/page.js"
     ],
-    "/_not-found/page": [
+    "/(users)/tintuc/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
->>>>>>> d810769aa654878a6375afd4e8e14c617274bf54
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/(users)/tintuc/[id]/page.css",
+      "static/chunks/app/(users)/tintuc/[id]/page.js"
+    ],
+    "/(users)/chuyenkhoa/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/chuyenkhoa/[id]/page.css",
+      "static/chunks/app/(users)/chuyenkhoa/[id]/page.js"
     ]
   }
 }

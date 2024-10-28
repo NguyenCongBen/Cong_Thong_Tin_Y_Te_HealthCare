@@ -4,7 +4,15 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/(users)/page": "app/(users)/page.js",
+<<<<<<< HEAD
   "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js"
 }
 >>>>>>> d810769aa654878a6375afd4e8e14c617274bf54
+=======
+  "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
+  "/(users)/tintuc/[id]/page": "app/(users)/tintuc/[id]/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/(users)/chuyenkhoa/[id]/page": "app/(users)/chuyenkhoa/[id]/page.js"
+}
+>>>>>>> TrungNhin
