@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import useSWR from "swr";
-import "../../../../public/css/user/cosobenhvien.css";
+import "../../../../public/css/user/hethong.css";
 import GoiTongDai from "../Components/Goitongdai";
-export default function CoSoBenhVien() {
+
+export default function HeThong() {
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
     const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien', fetcher);
     if (error) return <strong>Lỗi...</strong>
@@ -14,25 +15,25 @@ export default function CoSoBenhVien() {
                 <GoiTongDai />
                 <div class="container-all">
                     <div class="cover-list-news">
-                        <img src="/images/img/cơ sở y tế/banner.png" alt="" />
+                        <img src="images/img/bệnh viện/banner.png" alt="" />
                         <div class="name-cate-cover">Danh sách cơ sở y tế</div>
                         <div class="thanhtuu-bar_util">
                             <div class="thanhtuu-col-4 col-4-w color-blue">
                                 <button type="button" class="btn btn-primary thanhtuu-col-4 col-4-w color-blue" id="btn-goi"
                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <img src="/images/img/thành tựu/Phone.png" alt="" />
+                                    <img src="images/img/thành tựu/Phone.png" alt="" />
                                     <span>Gọi tổng đài</span>
                                 </button>
                             </div>
                             <div class="thanhtuu-col-4 col-4-w">
                                 <Link href="/datlich">
-                                    <img src="/images/img/thành tựu/Calendar.png" alt="" />
+                                    <img src="images/img/thành tựu/Calendar.png" alt="" />
                                     <span>Đặt lịch hẹn</span>
                                 </Link>
                             </div>
                             <div class="thanhtuu-col-4 col-4-w">
                                 <Link href="/timbacsi">
-                                    <img src="/images/img/thành tựu/doctor.png" alt="" />
+                                    <img src="images/img/thành tựu/doctor.png" alt="" />
                                     <span>Tìm bác sĩ</span>
                                 </Link>
                             </div>
@@ -43,47 +44,38 @@ export default function CoSoBenhVien() {
                             <div class="tt-bread">
                                 <Link href="#" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color">Hệ thống bệnh viện</Link>
+                                <p href="#" class="tt-item tt-item-1 tt-item-color">Hệ thống bệnh viện</p>
                             </div>
                             <div class="gt-related-posts">
                                 <div class="sm-title_cate_news">
                                     Các nhà cung cấp thuốc
                                 </div>
                                 <div class="tt-thanhtich-nhieu">
-                                    {data.map((base) => (
-                                        <div class="tt-thanhtich-nhieu-1">
+                                    {data.map((benhvien) => (
+                                        <div class="tt-thanhtich-nhieu-1" key={benhvien.id}>
                                             <div class="card card-thanhtich" id="card-boder">
-                                                <Link href={`/hethong/${base.id}`}>
-                                                    <img class="cart-anh card-img-top" src={`http://localhost:3000/images/img/bệnh viện/pro-1.jpg`}
+                                                <Link href={`/hethong/${benhvien.id}`}>
+                                                    <img class="cart-anh card-img-top" src={`http://localhost:3000/images/img/bệnh viện/pro-3.jpg`}
                                                         alt="..." />
                                                 </Link>
                                                 <div class="card-body" id="card-body">
-                                                    <Link href={`/hethong/${base.id}`}>
-                                                        <h5 class="card-title" id="card-title">{base.ten}</h5>
+                                                    <Link href={`/hethong/${benhvien.id}`}>
+                                                        <h5 class="card-title" id="card-title">{benhvien.ten}</h5>
                                                     </Link>
-                                                    <p class="card-text" id="card-text">
-                                                        <img className="card-text-img" src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <p>
-                                                            {base.dia_chi}
-                                                        </p>
+                                                    <p class="card-text" id="card-text">{benhvien.mo_ta}</p>
+                                                    <p class="bv-dc">
+                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
+                                                        <span>{benhvien.dia_chi}</span>
                                                     </p>
-                                                    <p class="card-text" id="card-text">
-                                                        <img className="card-text-img-1" src="/images/img/Trang chủ/call.png" alt="" />
-                                                        <p>
-                                                            {base.email}
-                                                        </p>
+                                                    <p class="bv-dc">
+                                                        <i class="fa-regular fa-envelope"></i>
+                                                        <span>{benhvien.email}</span>
                                                     </p>
-                                                    <p className="dk-va-xt">
-                                                        <Link class="bs-btn_book_doctor" href="/datlich">
-                                                            <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                            Đăng ký khám
-                                                        </Link>
-                                                        <Link href={`/hethong/${base.id}`} class="btn" id="tt-xemthem">Xem thêm
-                                                            <span class="btn-size">
-                                                                <img src="/images/img/thông tin/product/icon-2.png" alt="" />
-                                                            </span>
-                                                        </Link>
-                                                    </p>
+                                                    <Link href={`/hethong/${benhvien.id}`} class="btn" id="tt-xemthem">Xem thêm
+                                                        <span class="btn-size">
+                                                            <img src="images/img/thông tin/product/icon-2.png" alt="" />
+                                                        </span>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +89,7 @@ export default function CoSoBenhVien() {
                                     <div class="tt-thanhtich-nhieu-1">
                                         <div class="card card-thanhtich" id="card-boder">
                                             <Link href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-7.jpg"
+                                                <img class="cart-anh card-img-top" src="images/img/giải thưởng/pro-7.jpg"
                                                     alt="..." />
                                             </Link>
                                             <div class="card-body" id="card-body">
@@ -110,7 +102,7 @@ export default function CoSoBenhVien() {
                                                 </p>
                                                 <Link href="#" class="btn" id="tt-xemthem">Xem thêm
                                                     <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
+                                                        <img src="images/img/thông tin/product/icon-2.png" alt="" />
                                                     </span>
                                                 </Link>
                                             </div>
@@ -119,7 +111,7 @@ export default function CoSoBenhVien() {
                                     <div class="tt-thanhtich-nhieu-1">
                                         <div class="card card-thanhtich" id="card-boder">
                                             <Link href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-8.jpg"
+                                                <img class="cart-anh card-img-top" src="images/img/giải thưởng/pro-8.jpg"
                                                     alt="..." />
                                             </Link>
                                             <div class="card-body" id="card-body">
@@ -133,7 +125,7 @@ export default function CoSoBenhVien() {
                                                 </p>
                                                 <Link href="#" class="btn" id="tt-xemthem">Xem thêm
                                                     <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
+                                                        <img src="images/img/thông tin/product/icon-2.png" alt="" />
                                                     </span>
                                                 </Link>
                                             </div>
@@ -142,7 +134,7 @@ export default function CoSoBenhVien() {
                                     <div class="tt-thanhtich-nhieu-1">
                                         <div class="card card-thanhtich" id="card-boder">
                                             <Link href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-9.jpg"
+                                                <img class="cart-anh card-img-top" src="images/img/giải thưởng/pro-9.jpg"
                                                     alt="..." />
                                             </Link>
                                             <div class="card-body" id="card-body">
@@ -157,7 +149,7 @@ export default function CoSoBenhVien() {
                                                 </p>
                                                 <Link href="#" class="btn" id="tt-xemthem">Xem thêm
                                                     <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
+                                                        <img src="images/img/thông tin/product/icon-2.png" alt="" />
                                                     </span>
                                                 </Link>
                                             </div>
@@ -166,7 +158,7 @@ export default function CoSoBenhVien() {
                                     <div class="tt-thanhtich-nhieu-1">
                                         <div class="card card-thanhtich" id="card-boder">
                                             <Link href="#">
-                                                <img class="cart-anh card-img-top" src="/images/img/giải thưởng/pro-10.png"
+                                                <img class="cart-anh card-img-top" src="images/img/giải thưởng/pro-10.png"
                                                     alt="..." />
                                             </Link>
                                             <div class="card-body" id="card-body">
@@ -181,7 +173,7 @@ export default function CoSoBenhVien() {
                                                 </p>
                                                 <Link href="#" class="btn" id="tt-xemthem">Xem thêm
                                                     <span class="btn-size">
-                                                        <img src="/images/img/thông tin/product/icon-2.png" alt="" />
+                                                        <img src="images/img/thông tin/product/icon-2.png" alt="" />
                                                     </span>
                                                 </Link>
                                             </div>

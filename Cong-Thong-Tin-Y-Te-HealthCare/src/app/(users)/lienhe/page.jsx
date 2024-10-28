@@ -5,7 +5,11 @@ import "../../../../public/css/user/lienhe.css";
 import GoiTongDai from "../Components/Goitongdai";
 export default function LienHe() {
     const fetcher = (...args) => fetch(...args).then((res) => res.json());
+<<<<<<< HEAD
     const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien/thong-tin-benh-vien', fetcher);
+=======
+    const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien', fetcher);
+>>>>>>> TrungNhin
     if (error) return <strong>Lỗi...</strong>
     if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
     return (
@@ -44,8 +48,8 @@ export default function LienHe() {
                                 <Link href="#" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <Link href="#" class="tt-item">Hướng dẫn khách hàng</Link>
-                                <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color"> Liên hệ</Link>
+                                <i class="fa-solid fa-angle-right gt-item"></i>
+                                <p href="#" class="tt-item-1 cl-black"> Liên hệ</p>
                             </div>
                             <div class="lh-bottom_news_main lh-mt30">
                                 <h2 class="sm-title_cate_news">Thời gian làm việc</h2>
@@ -105,6 +109,7 @@ export default function LienHe() {
                                 <div class="lh-list_three_contact">
                                     <div class="lh-col-7">
                                         <ul class="lh-list_hospital_contact">
+<<<<<<< HEAD
                                             {data.map((contact) => (
                                                 <li class="lh-flex">
                                                     <div class="lh-left_list_hospital_contact">
@@ -112,19 +117,35 @@ export default function LienHe() {
                                                             <Link className="lh-name_hospital" href={`/hethong/${contact.id_benh_vien}`}>
                                                                 {contact.ten_benh_vien}
                                                             </Link>
+=======
+                                            {data.map((lienhe) => (
+                                                <li class="lh-flex">
+                                                    <div class="lh-left_list_hospital_contact">
+                                                        <div class="lh-name_hospital">
+                                                            {lienhe.ten}
+>>>>>>> TrungNhin
                                                         </div>
                                                         <div class="lh-address_hospital">
                                                             <img src="/images/img/bác sĩ/icon-address.png" alt="" />
                                                             <div>
+<<<<<<< HEAD
                                                                 {contact.dia_chi}
+=======
+                                                                {lienhe.dia_chi}
+>>>>>>> TrungNhin
                                                             </div>
 
                                                         </div>
                                                         <div class="lh-phone_hospital lh-address_hospital">
+<<<<<<< HEAD
                                                             <img src="/images/img/hệ thống/hotline.png" alt="" />
                                                             <Link href="#">
                                                                 {contact.so_dien_thoai.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')}
                                                             </Link>
+=======
+                                                            <i class="fa-regular fa-envelope"></i>
+                                                            <Link href="#">{lienhe.email}</Link>
+>>>>>>> TrungNhin
                                                         </div>
                                                     </div>
                                                     <div class="lh-right_list_hospital_contact">
@@ -136,6 +157,10 @@ export default function LienHe() {
                                                     </div>
                                                 </li>
                                             ))}
+<<<<<<< HEAD
+=======
+
+>>>>>>> TrungNhin
                                         </ul>
                                     </div>
                                     <div class="lh-col-5">

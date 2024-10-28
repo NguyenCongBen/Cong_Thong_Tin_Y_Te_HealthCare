@@ -1,6 +1,7 @@
 "use client";
 import "../../../../public/css/user/timbacsi.css";
 import Link from "next/link";
+<<<<<<< HEAD
 import useSWR from "swr";
 import GoiTongDai from "../Components/Goitongdai";
 
@@ -9,6 +10,16 @@ export default function TimBacSi() {
     const { data, error, isLoading } = useSWR('http://localhost:3000/doctor', fetcher);
     if (error) return <strong>Lỗi</strong>
     if (isLoading) return <strong>Lỗi load dữ liệu</strong>
+=======
+import GoiTongDai from "../Components/Goitongdai";
+import useSWR from "swr";
+
+export default function TimBacSi() {
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+    const { data, error, isLoading } = useSWR('http://localhost:3000/doctor', fetcher);
+    if (error) return <strong>Lỗi...</strong>
+    if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
+>>>>>>> TrungNhin
     return (
         <>
             <main>
@@ -41,10 +52,10 @@ export default function TimBacSi() {
                     </div>
                     <div class="container-body">
                         <div class="container-1">
-                            <div class="tt-bread">
+                            <div class="tt-bread-1">
                                 <Link href="#" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color">Chuyên gia y tế</Link>
+                                <Link href="#" class="tt-item-1 cl-black">Chuyên gia y tế</Link>
                             </div>
                             <div class="bs-fill_doctor">
                                 <div class="bs-fill_doctor-1">
@@ -309,10 +320,17 @@ export default function TimBacSi() {
                                 <h2 class="sm-title_cate_news">Danh sách bác sĩ</h2>
                                 <ul class="bs-list_doctor_cate">
                                     {data.map((doctor) => (
+<<<<<<< HEAD
                                         <li class="bs-flex-all" key={doctor.id_bac_si}>
                                             <div class="bs-anh">
                                                 <Link class="bs-thumbblock" href={`/timbacsi/${doctor.id_bac_si}`}>
                                                     <img src={`http://localhost:3000/images/img/bác sĩ/${doctor.hinh_anh}`} alt="" />
+=======
+                                        <li class="bs-flex-all" key={doctor.id}>
+                                            <div class="bs-anh">
+                                                <Link class="bs-thumbblock" href={`/timbacsi/${doctor.id}`}>
+                                                    <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
+>>>>>>> TrungNhin
                                                 </Link>
                                                 <Link class="bs-btn_book_doctor" href="/datlich">
                                                     <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
@@ -321,11 +339,16 @@ export default function TimBacSi() {
                                             </div>
                                             <div class="bs-flex-one">
                                                 <div class="bs-name">
+<<<<<<< HEAD
                                                     <Link href={`/timbacsi/${doctor.id_bac_si}`}>{doctor.ten}</Link>
+=======
+                                                    <Link href={`/timbacsi/${doctor.id}`}>{doctor.ten}</Link>
+>>>>>>> TrungNhin
                                                     <span>Không có đánh giá</span>
                                                 </div>
                                                 <div class="bs-icon_list_doctor">
                                                     <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
+<<<<<<< HEAD
                                                     Bác sĩ chuyên khoa II,
                                                 </div>
                                                 <div class="bs-icon_list_doctor">
@@ -336,11 +359,27 @@ export default function TimBacSi() {
                                                     <img src="/images/img/bác sĩ/Hospital.png" alt="" />
                                                     <Link class="bs-a" href={`/chuyenkhoa/${doctor.chuyen_khoa}`}>
                                                         {doctor.chuyen_khoa}
+=======
+                                                    Bác sĩ chuyên khoa {doctor.id_chuyen_khoa}
+                                                </div>
+                                                <div class="bs-icon_list_doctor">
+                                                    <img src="/images/img/bác sĩ/input_name.png" alt="" />
+                                                    {doctor.mo_ta}
+                                                </div>
+                                                <div class="bs-icon_list_doctor">
+                                                    <img src="/images/img/bác sĩ/Hospital.png" alt="" />
+                                                    <Link class="bs-a" href={`/chuyenkhoa/${doctor.id_chuyen_khoa}`}>
+                                                        {doctor.ten_chuyen_khoa}
+>>>>>>> TrungNhin
                                                     </Link>
                                                 </div>
                                             </div>
                                         </li>
                                     ))}
+<<<<<<< HEAD
+=======
+
+>>>>>>> TrungNhin
                                 </ul>
                                 <div class="tt-phantrang">
                                     <Link href="#" class="tt-item-paging active">1</Link>

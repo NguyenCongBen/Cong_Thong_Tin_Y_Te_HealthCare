@@ -4,10 +4,10 @@ import useSWR from "swr";
 import "../../../../../public/css/user/chuyenkhoa.css";
 import GoiTongDai from "../../Components/Goitongdai";
 export default function ChuyenKhoa({ params }) {
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data: system, error: errorSystem, isLoading: isLoadingSystem } = useSWR(`http://localhost:3000/benhvien/${params.id}`, fetcher);
-    if (errorSystem) return <strong>Lỗi...</strong>
-    if (isLoadingSystem) return <strong>Lỗi load dữ liệu...</strong>
+    const fetcher = (...args) => fetch(...args).then((res) => res.json())
+    const { data: benhvien, error: errorBenhvien, isLoading: isLoadingBenhvien } = useSWR(`http://localhost:3000/benhvien/${params.id}`, fetcher);
+    if (errorBenhvien) return <strong>Lỗi...</strong>
+    if (isLoadingBenhvien) return <strong>Lỗi load dữ liệu...</strong>
     return (
         <>
             <main>
@@ -15,8 +15,7 @@ export default function ChuyenKhoa({ params }) {
                 <div class="container-all">
                     <div class="cover-list-news">
                         <img src="/images/img/hệ thống/banner.jpg" alt="" />
-                        <div class="name-cate-cover">{system.ten}
-                        </div>
+                        <div class="name-cate-cover">{benhvien.ten}</div>
                         <div class="thanhtuu-bar_util">
                             <div class="thanhtuu-col-4 col-4-w color-blue">
                                 <button type="button" class="btn btn-primary thanhtuu-col-4 col-4-w color-blue" id="btn-goi"
@@ -26,13 +25,13 @@ export default function ChuyenKhoa({ params }) {
                                 </button>
                             </div>
                             <div class="thanhtuu-col-4 col-4-w">
-                                <Link href="/datlich">
+                                <Link href="datlichkham.html">
                                     <img src="/images/img/thành tựu/Calendar.png" alt="" />
                                     <span>Đặt lịch hẹn</span>
                                 </Link>
                             </div>
                             <div class="thanhtuu-col-4 col-4-w">
-                                <Link href="/timbacsi">
+                                <Link href="timbacsi.html">
                                     <img src="/images/img/thành tựu/doctor.png" alt="" />
                                     <span>Tìm bác sĩ</span>
                                 </Link>
@@ -46,24 +45,23 @@ export default function ChuyenKhoa({ params }) {
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <Link href="#" class="tt-item">Hệ thống bệnh viện</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color"> {system.ten}</Link>
+                                <p href="#" class="tt-item tt-item-1 tt-item-color">{benhvien.ten}</p>
                             </div>
                             <div class="ht-hospital-detail">
                                 <div class="ht-hospital-header">
-                                    <h1 class="sm-title_cate_news">{system.ten}</h1>
+                                    <h1 class="sm-title_cate_news">{benhvien.ten}</h1>
                                     <div class="ht-address-hospital ht-mb">
                                         <img class="ht-mr" src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                        {system.dia_chi}
+                                        {benhvien.dia_chi}
                                     </div>
-                                    <div class="ht-address-hospital">
-                                        <img class="ht-mr" src="/images/img/hệ thống/hotline.png" alt="" />
-                                        {system.email}
-
+                                    <div class="ht-address-hospital bv-dc">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        {benhvien.email}
                                     </div>
                                 </div>
                                 <h2 class="ht-hospital-intro">Giới thiệu</h2>
                                 <div class="ht-entry">
-                                    <p>{system.mo_ta}</p>
+                                    <p>{benhvien.mo_ta}</p>
                                     <p>Với các trang thiết bị hiện đại, đồng bộ và tiên tiến thế giới, với đội ngũ bác sĩ - kỹ
                                         thuật viên có trình độ chuyên môn cao và nhiều kinh nghiệm, khoa Chẩn đoán hình ảnh Bệnh
                                         viện Đa khoa Quốc tế Vinmec Central Park có thể thực hiện nhiều kỹ thuật đa dạng và

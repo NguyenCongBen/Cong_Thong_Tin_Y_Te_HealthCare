@@ -1,13 +1,23 @@
 "use client";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+>>>>>>> TrungNhin
 import useSWR from "swr";
 import "../../../../../public/css/user/thongtinbacsi.css";
 import GoiTongDai from "../../Components/Goitongdai";
 export default function ThongTinBacSi({ params }) {
+<<<<<<< HEAD
     const fetcher = (...agrs) => fetch(...agrs).then((res) => res.json());
     const { data: doctor, error: errorDoctor, isLoading: isLoadingDoctor } = useSWR(`http://localhost:3000/doctor/${params.id}`, fetcher);
     if (errorDoctor) return <strong>Error Doctor</strong>
     if (isLoadingDoctor) return <strong>Lỗi loading</strong>
+=======
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+    const { data: doctor, error: errorDoctor, isLoading: isLoadingDoctor } = useSWR(`http://localhost:3000/doctor/${params.id}`, fetcher);
+    if (errorDoctor) return <strong>Lỗi...</strong>
+    if (isLoadingDoctor) return <strong>Lỗi load dữ liệu...</strong>
+>>>>>>> TrungNhin
     return (
         <>
             <main>
@@ -18,14 +28,21 @@ export default function ThongTinBacSi({ params }) {
                             <div class="tt-bread">
                                 <Link href="/trangchu" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
+<<<<<<< HEAD
                                 <Link href="/timbacsi" class="tt-item">Tìm bác sĩ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <Link href="#" class="tt-item tt-item-1 tt-item-color">{doctor.ten}</Link>
+=======
+                                <a href="/timbacsi" class="tt-item">Tìm bác sĩ</a>
+                                <i class="fa-solid fa-angle-right gt-item"></i>
+                                <p class="tt-item-1 cl-black">{doctor.ten}</p>
+>>>>>>> TrungNhin
                             </div>
                             <div class="ct-profile_doctor">
                                 <div class="ct-flex">
                                     <div class="ct-col-5">
                                         <div class="ct-avar_doctor">
+<<<<<<< HEAD
                                             <Link href="#" class="ct-thumbblock">
                                                 <img src={`http://localhost:3000/images/img/bác sĩ/${doctor.hinh_anh}`} alt="" />
                                             </Link>
@@ -33,6 +50,15 @@ export default function ThongTinBacSi({ params }) {
                                                 <div class="ct-blue">Kỹ thuật viên</div>
                                                 <div class="ct-blue ct-f22">{doctor.ten}</div>
                                                 <Link href="/datlich" class="ct-btn_book_detail_doctor">
+=======
+                                            <a href="#" class="ct-thumbblock">
+                                                <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
+                                            </a>
+                                            <div class="ct-flex-one">
+                                                <div class="ct-blue">Kỹ thuật viên</div>
+                                                <div class="ct-blue ct-f22">{doctor.ten}</div>
+                                                <a href="/datlich" class="ct-btn_book_detail_doctor">
+>>>>>>> TrungNhin
                                                     <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
                                                     Đăng ký khám
                                                 </Link>
