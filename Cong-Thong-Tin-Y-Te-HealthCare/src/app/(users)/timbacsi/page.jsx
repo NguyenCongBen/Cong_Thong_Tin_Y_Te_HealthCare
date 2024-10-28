@@ -1,168 +1,18 @@
+"use client";
 import "../../../../public/css/user/timbacsi.css";
 import Link from "next/link";
+import GoiTongDai from "../Components/Goitongdai";
+import useSWR from "swr";
 
 export default function TimBacSi() {
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+    const { data, error, isLoading } = useSWR('http://localhost:3000/doctor', fetcher);
+    if (error) return <strong>Lỗi...</strong>
+    if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
     return (
         <>
             <main>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header model-goi">
-                                <h3 class="modal-title g-blue" id="exampleModalLabel">Hotline</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="g-content">
-                                    <ul class="g-phone-list">
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="g-button-group">
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/Download_App_8f9cde90f2.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Đặt lịch qua App - MyVinmec</span>
-                                                    <span class="g-item-text">Đặt lịch hẹn chủ động ngay tại nhà với bác sĩ và
-                                                        ngày giờ khám</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Tải ngay
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/CSKH_b6c956f10b.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Cổng dịch vụ CSKH 24/7</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Gửi yêu cầu
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <GoiTongDai />
                 <div class="container-all">
                     <div class="cover-list-news">
                         <img src="/images/img/thành tựu/banner.jpg" alt="" />
@@ -191,10 +41,10 @@ export default function TimBacSi() {
                     </div>
                     <div class="container-body">
                         <div class="container-1">
-                            <div class="tt-bread">
+                            <div class="tt-bread-1">
                                 <Link href="#" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color">Chuyên gia y tế</Link>
+                                <Link href="#" class="tt-item-1 cl-black">Chuyên gia y tế</Link>
                             </div>
                             <div class="bs-fill_doctor">
                                 <div class="bs-fill_doctor-1">
@@ -458,245 +308,40 @@ export default function TimBacSi() {
                             <div class="bs-doctor_cate">
                                 <h2 class="sm-title_cate_news">Danh sách bác sĩ</h2>
                                 <ul class="bs-list_doctor_cate">
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-1.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="/datlich">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="/thongtinbacsi">bùi ngọc uyên chi</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Bác sĩ chuyên khoa II,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Gây mê hồi sức
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="/chuyenkhoa">
-                                                    Khoa Gây mê Phẫu thuật - Bệnh viện Đa khoa Quốc tế Vinmec Central Park
+                                    {data.map((doctor) => (
+                                        <li class="bs-flex-all" key={doctor.id}>
+                                            <div class="bs-anh">
+                                                <Link class="bs-thumbblock" href={`/timbacsi/${doctor.id}`}>
+                                                    <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
+                                                </Link>
+                                                <Link class="bs-btn_book_doctor" href="/datlich">
+                                                    <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
+                                                    Đăng ký khám
                                                 </Link>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-2.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Bùi Tiến Sĩ</Link>
-                                                <span>Không có đánh giá</span>
+                                            <div class="bs-flex-one">
+                                                <div class="bs-name">
+                                                    <Link href={`/timbacsi/${doctor.id}`}>{doctor.ten}</Link>
+                                                    <span>Không có đánh giá</span>
+                                                </div>
+                                                <div class="bs-icon_list_doctor">
+                                                    <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
+                                                    Bác sĩ chuyên khoa {doctor.id_chuyen_khoa}
+                                                </div>
+                                                <div class="bs-icon_list_doctor">
+                                                    <img src="/images/img/bác sĩ/input_name.png" alt="" />
+                                                    {doctor.mo_ta}
+                                                </div>
+                                                <div class="bs-icon_list_doctor">
+                                                    <img src="/images/img/bác sĩ/Hospital.png" alt="" />
+                                                    <Link class="bs-a" href={`/chuyenkhoa/${doctor.id_chuyen_khoa}`}>
+                                                        {doctor.ten_chuyen_khoa}
+                                                    </Link>
+                                                </div>
                                             </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Thạc sĩ, Bác sĩ nội trú,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Chẩn đoán hình ảnh
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Khoa Chẩn đoán hình ảnh - Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-3.webp" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Nguyễn Thế Dũng</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Cử nhân,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Ngân hàng mô
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Ngân hàng mô Vinmec
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-4.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Đào Huy Hoàng</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Thạc sĩ,
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-5.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Hoàng Hương Diễm</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Thạc sĩ,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Sản xuất tế bào
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Khối Sản xuất Tế bào, Trung tâm Công nghệ Cao Vinmec
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-6.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Trần Vương Thế Vinh</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Thạc sĩ,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Sản xuất tế bào
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Khối Sản xuất Tế bào, Trung tâm Công nghệ Cao Vinmec
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-7.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">
-                                                    KS. Nguyễn Quỳnh Chi</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Cử nhân,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Ngân hàng mô
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Ngân hàng mô Vinmec
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bs-flex-all">
-                                        <div class="bs-anh">
-                                            <Link class="bs-thumbblock" href="#">
-                                                <img src="/images/img/bác sĩ/pro-8.jpg" alt="" />
-                                            </Link>
-                                            <Link class="bs-btn_book_doctor" href="#">
-                                                <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                Đăng ký khám
-                                            </Link>
-                                        </div>
-                                        <div class="bs-flex-one">
-                                            <div class="bs-name">
-                                                <Link href="#">Nguyễn Thanh Trúc</Link>
-                                                <span>Không có đánh giá</span>
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                Thạc sĩ,
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                Ngân hàng mô
-                                            </div>
-                                            <div class="bs-icon_list_doctor">
-                                                <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                <Link class="bs-a" href="#">
-                                                    Ngân hàng mô Vinmec
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    ))}
+
                                 </ul>
                                 <div class="tt-phantrang">
                                     <Link href="#" class="tt-item-paging active">1</Link>

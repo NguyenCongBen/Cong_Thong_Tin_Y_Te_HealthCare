@@ -1,4 +1,4 @@
-// File: C:\xampp\htdocs\DU_AN_TOT_MGHIEP\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
+// File: D:\FPT polytechnic\Dự án tốt nghiệp\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\(users)\page.js
 import * as entry from '../../../../src/app/(users)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

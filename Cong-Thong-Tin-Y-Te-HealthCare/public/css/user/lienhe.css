@@ -58,6 +58,12 @@ body {
     text-decoration: none;
 }
 
+.cl-black {
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
 .tt-search-all {
     display: flex;
     justify-content: space-around;
@@ -452,14 +458,21 @@ body {
 }
 
 .lh-address_hospital {
+    display: flex;
+    align-items: center;
     gap: 13px;
     margin-bottom: 10px;
     display: flex;
     font-size: 14px;
 }
 
+.lh-address_hospital>i {
+    color: #007EA9;
+    padding-right: 5px;
+}
+
 .lh-address_hospital>img {
-    height: 15px;
+    height: 18px;
     margin-top: 3px;
 }
 
