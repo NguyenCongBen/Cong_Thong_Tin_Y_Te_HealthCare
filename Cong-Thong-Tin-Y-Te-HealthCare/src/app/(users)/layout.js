@@ -5,7 +5,6 @@ import "../../../public/css/style.css";
 import "../../../public/bootstrap/css/bootstrap.min.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-// import Providers from "../../../redux/Provider";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,13 +18,13 @@ export default function RootLayout({ children }) {
         <Link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
       <body>
-        {/* <Providers> */}
-        <Header />
-        {children}
-        <Footer />
-        <script src="https://kit.fontawesome.com/2b5ed98ab2.js" crossOrigin="anonymous"></script>
-        <script src="/bootstrap/js/style.js"></script>
-        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <Header />
+
+          {children}
+          <Footer />
+          <script src="https://kit.fontawesome.com/2b5ed98ab2.js" crossOrigin="anonymous"></script>
+          <script src="/bootstrap/js/style.js"></script>
+          <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
       </body>
     </html>
   );

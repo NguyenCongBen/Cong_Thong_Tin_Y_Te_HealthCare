@@ -25,6 +25,11 @@ export default function Header() {
                                             Chăm sóc khách hàng
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link className="tt-tinhnang" href="/dltc">
+                                            Đặt lịch thành công
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ router.get('/bac_si/:id', (req, res) => {
         }
 
         if (results.length === 0) {
-            return res.status(404).json({ message: `No appointments found for doctor with ID ${doctorId}.` });
+            return res.status(404).json({ message: `No lich_hen found for doctor with ID ${doctorId}.` });
         }
 
         res.status(200).json(results); // Trả về danh sách lịch hẹn
@@ -44,7 +44,7 @@ router.get('/benh_nhan/:id', (req, res) => {
         }
 
         if (results.length === 0) {
-            return res.status(404).json({ message: `No appointments found for doctor with ID ${doctorId}.` });
+            return res.status(404).json({ message: `No lich_hen found for doctor with ID ${doctorId}.` });
         }
 
         res.status(200).json(results); // Trả về danh sách lịch hẹn
@@ -67,4 +67,39 @@ router.get('/:id', (req, res) => {
         res.status(200).json(results[0]);
     });
 });
+router.post('/', (req, res) => {
+    const { appointmentData, patientInfo } = req.body;
+
+    // Insert new patient
+    const patientQuery = 'INSERT INTO benh_nhan SET ?';
+    req.db.query(patientQuery, patientInfo, (error, patientResult) => {
+        if (error) {
+            console.error('Error adding patient:', error);
+            return res.status(500).json({ message: 'Error adding patient', error });
+        }
+
+        // Prepare appointment data with the new patient ID
+        const appointmentDataWithPatientId = {
+            ...appointmentData,
+            id_benh_nhan: patientResult.insertId,
+        };
+
+        const appointmentQuery = 'INSERT INTO lich_hen SET ?';
+        req.db.query(appointmentQuery, appointmentDataWithPatientId, (error, appointmentResult) => {
+            if (error) {
+                console.error('Error adding appointment:', error);
+                // If there was an error while inserting appointment data, consider rolling back the patient insertion if applicable
+                return res.status(500).json({ message: 'Error adding appointment', error });
+            }
+
+            // Successful response with appointment and patient IDs
+            return res.status(201).json({
+                message: 'Appointment and patient created successfully',
+                appointmentId: appointmentResult.insertId,
+                patientId: patientResult.insertId,
+            });
+        });
+    });
+});
+
 module.exports = router;
