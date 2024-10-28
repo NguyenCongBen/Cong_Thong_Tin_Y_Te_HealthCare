@@ -1,11 +1,5 @@
 {
   "pages": {
-    "/(users)/tracuuthuoc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/tracuuthuoc/page.css",
-      "static/chunks/app/(users)/tracuuthuoc/page.js"
-    ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,12 +10,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(users)/page.js"
-    ],
-    "/(users)/sudungthuocantoan/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/sudungthuocantoan/page.css",
-      "static/chunks/app/(users)/sudungthuocantoan/page.js"
     ],
     "/(users)/tracuuthuoc/[id]/page": [
       "static/chunks/webpack.js",
