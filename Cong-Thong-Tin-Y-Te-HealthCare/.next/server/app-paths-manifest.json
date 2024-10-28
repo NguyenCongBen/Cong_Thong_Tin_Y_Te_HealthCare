@@ -1,3 +1,6 @@
 {
-  "/(users)/tintuc/page": "app/(users)/tintuc/page.js"
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js",
+  "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js"
 }
