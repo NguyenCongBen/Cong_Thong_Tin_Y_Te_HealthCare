@@ -1,13 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-// Lấy tất cả bệnh viện
-router.get('/', (req, res) => {
-    req.db.query(`SELECT * FROM lich_hen  `, (error, results) => {
-        if (error) return res.status(500).json({ error: error.message });
-        res.json(results);
+// Lấy tất cả bệnh việnrouter.get('/', (req, res) => {
+    router.get('/', (req, res) => {
+        req.db.query(`
+            SELECT 
+                lich_hen.*, 
+                bac_si.*
+            FROM 
+                lich_hen
+            JOIN 
+                bac_si ON lich_hen.id_bac_si = bac_si.id
+        `, (error, results) => {
+            if (error) return res.status(500).json({ error: error.message });
+            res.json(results);
+        });
     });
-});
+    
+
+
+
 router.get('/bac_si/:id', (req, res) => {
     const doctorId = req.params.id; // Lấy ID bác sĩ từ tham số đường dẫn
 
