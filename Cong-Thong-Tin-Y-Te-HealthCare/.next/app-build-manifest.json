@@ -47,6 +47,35 @@
       "static/css/app/(users)/timbacsi/page.css",
       "static/chunks/app/(users)/timbacsi/page.js"
     ],
+    "/(users)/tracuuthuoc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tracuuthuoc/page.css",
+      "static/chunks/app/(users)/tracuuthuoc/page.js"
+    ],
+    "/(users)/timbacsi/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/[id]/page.css",
+      "static/chunks/app/(users)/timbacsi/[id]/page.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/admin/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/layout.css",
+      "static/chunks/app/admin/layout.js"
+    ],
+    "/(users)/tintuc/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tintuc/[id]/page.css",
+      "static/chunks/app/(users)/tintuc/[id]/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
