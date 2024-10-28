@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import "./../../../public/css/user/tranchu.css"
 import GoiTongDai from "./Components/Goitongdai";
 export default function Home() {
   return (

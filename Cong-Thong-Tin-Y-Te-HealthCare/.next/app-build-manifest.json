@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "pages": {}
-=======
   "pages": {
     "/(users)/page": [
       "static/chunks/webpack.js",
@@ -14,28 +11,46 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/tracuuthuoc/page": [
+    "/(users)/datlich/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/tracuuthuoc/page.css",
-      "static/chunks/app/(users)/tracuuthuoc/page.js"
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
     ],
-    "/admin/Doctors/page": [
+    "/(users)/cothenguoi/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
+      "static/css/app/(users)/cothenguoi/page.css",
+      "static/chunks/app/(users)/cothenguoi/page.js"
     ],
-    "/admin/layout": [
+    "/(users)/tracuubenh/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
+      "static/css/app/(users)/tracuubenh/page.css",
+      "static/chunks/app/(users)/tracuubenh/page.js"
     ],
-    "/admin/page": [
+    "/(users)/tamnhinvasumenh/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/css/app/(users)/tamnhinvasumenh/page.css",
+      "static/chunks/app/(users)/tamnhinvasumenh/page.js"
+    ],
+    "/(users)/tintuc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tintuc/page.css",
+      "static/chunks/app/(users)/tintuc/page.js"
+    ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
->>>>>>> 981eaa115292d6fb3829168d082d29943ffce1d4
 }
