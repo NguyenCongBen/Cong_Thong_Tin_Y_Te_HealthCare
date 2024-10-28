@@ -1,7 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/(users)/timbacsi/[id]/page": "app/(users)/timbacsi/[id]/page.js",
   "/admin/page": "app/admin/page.js",
   "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
