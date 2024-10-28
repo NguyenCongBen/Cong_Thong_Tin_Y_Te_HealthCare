@@ -1,12 +1,4 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
-  "/(users)/hethong/page": "app/(users)/hethong/page.js",
-  "/(users)/hethong/[id]/page": "app/(users)/hethong/[id]/page.js",
-  "/(users)/baohiem/page": "app/(users)/baohiem/page.js",
-  "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
-  "/(users)/tintuc/[id]/page": "app/(users)/tintuc/[id]/page.js",
-  "/(users)/lienhe/page": "app/(users)/lienhe/page.js",
-  "/(users)/chuyenkhoa/[id]/page": "app/(users)/chuyenkhoa/[id]/page.js"
+  "/(users)/tintuc/page": "app/(users)/tintuc/page.js"
 }

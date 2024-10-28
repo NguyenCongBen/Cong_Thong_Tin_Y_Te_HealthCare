@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 
 
 
-
 // //PHẢN HỒI TỪ BỆNH NHÂN 
 // // 1. Lấy tất cả phản hồi của bệnh nhân
 // router.get('/phan-hoi', (req, res) => {
