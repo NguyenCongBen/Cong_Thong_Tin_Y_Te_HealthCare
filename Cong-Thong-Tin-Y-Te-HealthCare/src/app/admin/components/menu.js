@@ -56,16 +56,15 @@ export default function Menu(){
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Bác Sĩ</span> </a>
                                 <ul>
                                     <li>  <Link href="/admin/Doctors">Tất Cả Bác Sĩ</Link></li>
-                                    <li><Link href="/admin/Add_doctors">Th Bác Sĩ</Link></li>
+                                    <li><Link href="/admin/Add_doctors">Thêm Bác Sĩ</Link></li>
                                     <li><a href="doctor-events.html">Lịch Trình Bác Sĩ</a></li>
                                 </ul>
                             </li>
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Bệnh Nhân</span> </a>
                                 <ul>
-                                    <li><a href="patients-all.html">Tất Cả Bệnh Nhân</a></li>
+                                <li><Link href="/admin/BenhNhan">Tất Cả Bệnh Nhân</Link></li>
                                     <li><a href="patient-add.html">Thêm Bệnh Nhân</a></li>
-                                    <li><a href="patient-profile.html">Hồ Sơ Bệnh Nhân</a></li>
-                                    <li><a href="patient-invoice.html">Hosa Đơn</a></li>
+                                    <li><a href="patient-invoice.html">Hóa Đơn</a></li>
                                 </ul>
                             </li>
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Thanh Toán</span> </a>

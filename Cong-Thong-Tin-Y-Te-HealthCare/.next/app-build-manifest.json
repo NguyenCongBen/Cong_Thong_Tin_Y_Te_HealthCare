@@ -1,10 +1,9 @@
 {
   "pages": {
-    "/(users)/tintuc/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/tintuc/page.css",
-      "static/chunks/app/(users)/tintuc/page.js"
+      "static/chunks/app/(users)/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -12,10 +11,47 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/_not-found/page": [
+    "/(users)/datlich/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
+    ],
+    "/(users)/dltc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/dltc/page.css",
+      "static/chunks/app/(users)/dltc/page.js"
+    ],
+    "/(users)/cothenguoi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/cothenguoi/page.css",
+      "static/chunks/app/(users)/cothenguoi/page.js"
+    ],
+    "/(users)/tracuubenh/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tracuubenh/page.css",
+      "static/chunks/app/(users)/tracuubenh/page.js"
+    ],
+    "/(users)/tamnhinvasumenh/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tamnhinvasumenh/page.css",
+      "static/chunks/app/(users)/tamnhinvasumenh/page.js"
+    ],
+    "/(users)/tintuc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tintuc/page.css",
+      "static/chunks/app/(users)/tintuc/page.js"
+    ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
     ]
   }
 }

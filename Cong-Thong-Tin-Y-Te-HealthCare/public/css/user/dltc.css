@@ -1,0 +1,137 @@
+#dltc-w {
+    width: 100%;
+    height: 1000px;
+    overflow: auto;
+    max-height: 700px;
+}
+
+#dltc-boder {
+    border-bottom: none;
+}
+
+#exampleModalLabel {
+    width: 100%;
+}
+
+.dltc-name {
+    padding: 0;
+    margin: 0;
+    font-size: 27px;
+    text-align: center;
+}
+
+.dltc-color {
+    background-color: aquamarine;
+    width: 100px;
+    height: 3px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dltc-name {
+    padding: 0;
+    height: 10px;
+}
+
+.dltc-img>img {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    text-align: center;
+    margin: auto;
+}
+
+.dltc-sm-title_cate_news {
+    font-size: 26px;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.dltc-sm-title_cate_news:after {
+    content: "";
+    width: 100px;
+    height: 2px;
+    background: #00b5a5;
+    display: inline-block;
+    position: absolute;
+    bottom: -5px;
+    left: 48%;
+    margin-left: -50px;
+}
+
+.dltc-ly {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.dltc-email {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    color: #d6982f;
+    padding-bottom: 20px;
+}
+
+.dltc-bg {
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    background: #f2f7fb;
+}
+
+.dltc-dv {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.dltc-dv>img {
+    width: 32px;
+}
+
+.dltc-dv>p {
+    margin-top: 15px;
+    color: #0076c0;
+}
+
+.dltc-bg-1 {
+    padding-top: 5px;
+}
+
+.dltc-flex {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dltc-flex>p {
+    font-size: 14px;
+}
+
+.dltc-bg-all {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-bottom: 30px;
+}
+
+.dltc-ly>i {
+    font-size: 18px;
+}
+
+.text-none {
+    text-decoration: none;
+    color: #0076c0;
+}

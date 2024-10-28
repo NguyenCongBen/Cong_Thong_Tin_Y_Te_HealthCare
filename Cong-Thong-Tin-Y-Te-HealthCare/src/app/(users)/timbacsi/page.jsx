@@ -341,7 +341,6 @@ export default function TimBacSi() {
                                             </div>
                                         </li>
                                     ))}
-
                                 </ul>
                                 <div class="tt-phantrang">
                                     <Link href="#" class="tt-item-paging active">1</Link>

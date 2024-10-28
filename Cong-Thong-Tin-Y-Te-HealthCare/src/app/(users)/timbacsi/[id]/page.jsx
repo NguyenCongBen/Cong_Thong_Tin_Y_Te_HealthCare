@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import useSWR from "swr";
 import "../../../../../public/css/user/thongtinbacsi.css";
 import GoiTongDai from "../../Components/Goitongdai";
@@ -15,9 +16,9 @@ export default function ThongTinBacSi({ params }) {
                     <div class="container-body">
                         <div class="container-1">
                             <div class="tt-bread">
-                                <a href="/trangchu" class="tt-item">Trang chủ</a>
+                                <Link href="/trangchu" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <a href="/timbacsi" class="tt-item">Tìm bác sĩ</a>
+                                <Link href="/timbacsi" class="tt-item">Tìm bác sĩ</Link>
                                 <i class="fa-solid fa-angle-right gt-item"></i>
                                 <p class="tt-item-1 cl-black">{doctor.ten}</p>
                             </div>
@@ -25,16 +26,16 @@ export default function ThongTinBacSi({ params }) {
                                 <div class="ct-flex">
                                     <div class="ct-col-5">
                                         <div class="ct-avar_doctor">
-                                            <a href="#" class="ct-thumbblock">
+                                            <Link href="#" class="ct-thumbblock">
                                                 <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
-                                            </a>
+                                            </Link>
                                             <div class="ct-flex-one">
                                                 <div class="ct-blue">Kỹ thuật viên</div>
                                                 <div class="ct-blue ct-f22">{doctor.ten}</div>
-                                                <a href="/datlich" class="ct-btn_book_detail_doctor">
+                                                <Link href="/datlich" class="ct-btn_book_detail_doctor">
                                                     <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
                                                     Đăng ký khám
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                         <div class="ct-blue ct-f18 ct-mt2">
@@ -70,9 +71,9 @@ export default function ThongTinBacSi({ params }) {
                                         <div class="ct-f14">
                                             <div class="ct-blue ct-f18">Nơi làm việc</div>
                                             <div class="ct-mt1">
-                                                <a href="hethong.html">
+                                                <Link href="hethong.html">
                                                     Khoa Chẩn đoán hình ảnh - Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div class="ct-line_ver"></div>
                                         </div>
