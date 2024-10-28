@@ -1,13 +1,6 @@
 {
-<<<<<<< Updated upstream
-  "/_not-found/page": "app/_not-found/page.js",
   "/(users)/page": "app/(users)/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/admin/Doctors/page": "app/admin/Doctors/page.js",
+  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/admin/page": "app/admin/page.js"
-=======
-  "/(users)/page": "app/(users)/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/Doctors/page": "app/admin/Doctors/page.js"
->>>>>>> Stashed changes
 }
