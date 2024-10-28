@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 {}
+=======
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
+  "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js"
+}
+>>>>>>> d810769aa654878a6375afd4e8e14c617274bf54
