@@ -10,9 +10,9 @@ router.get('/', function(req, res, next) {
 
 
 
-// //PHẢN HỒI TỪ BỆNH NHÂN 
-// // 1. Lấy tất cả phản hồi của bệnh nhân
-// router.get('/phan-hoi', (req, res) => {
+// // //PHẢN HỒI TỪ BỆNH NHÂN 
+// // // 1. Lấy tất cả phản hồi của bệnh nhân
+// router.get('/phan_hoi', (req, res) => {
 //     req.db.query(`
 //         SELECT 
 //             p.*, 
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 //     });
 // });
 
-// // 2. Thêm phản hồi từ bệnh nhân
+// // // 2. Thêm phản hồi từ bệnh nhân
 // router.post('/phan-hoi', (req, res) => {
 //     const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
 //     req.db.query(`
@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
 //     });
 // });
 
-// // 3. Cập nhật phản hồi của bệnh nhân
+// // // 3. Cập nhật phản hồi của bệnh nhân
 // router.put('/phan-hoi/:id', (req, res) => {
 //     const { id } = req.params;
 //     const { id_benh_nhan, ngay_gui, noi_dung, danh_gia } = req.body;
@@ -54,7 +54,7 @@ router.get('/', function(req, res, next) {
 //     });
 // });
 
-// // 4. Xóa phản hồi của bệnh nhân
+// // // 4. Xóa phản hồi của bệnh nhân
 // router.delete('/phan-hoi/:id', (req, res) => {
 //     const { id } = req.params;
 //     req.db.query(`
@@ -69,7 +69,7 @@ router.get('/', function(req, res, next) {
 
 
 
-// //DỊCH VỤ 
+// // //DỊCH VỤ 
 // // Lấy tất cả dịch vụ
 // router.get('/dich-vu', (req, res) => {
 //   req.db.query(`
@@ -92,7 +92,7 @@ router.get('/', function(req, res, next) {
 //   });
 // });
 
-// // Cập nhật dịch vụ
+// // // Cập nhật dịch vụ
 // router.put('/dich-vu/:id', (req, res) => {
 //   const { id } = req.params;
 //   const { ten_dich_vu, mo_ta, don_gia } = req.body;
@@ -132,7 +132,7 @@ router.get('/', function(req, res, next) {
 
 // //THÔNG TIN NHÀ CUNG CẤP THUỐC 
 // // Lấy tất cả nhà cung cấp dược phẩm
-// router.get('/thong-tin-nha-cung-cap-thuoc', (req, res) => {
+// router.get('/thong_tin_duoc_pham', (req, res) => {
 //   req.db.query(`SELECT * FROM ThongTinNhaCungCapDuocPham`, (error, results) => {
 //       if (error) return res.status(500).json({ error: error.message });
 //       res.json(results);
