@@ -23,16 +23,16 @@
       "static/css/app/(users)/tintuc/page.css",
       "static/chunks/app/(users)/tintuc/page.js"
     ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
     "/(users)/tintuc/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/tintuc/[id]/page.css",
       "static/chunks/app/(users)/tintuc/[id]/page.js"
-    ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
