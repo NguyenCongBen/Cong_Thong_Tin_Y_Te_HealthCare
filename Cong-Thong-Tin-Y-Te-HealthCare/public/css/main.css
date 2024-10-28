@@ -531,7 +531,7 @@ html.fullscreen-bg #wrapper {
 
 .card .header {
     color: #444;
-    padding: 20px;
+    padding: 5px;
     position: relative;
     box-shadow: none
 }
@@ -639,7 +639,7 @@ html.fullscreen-bg #wrapper {
 
 .card .body {
     color: #444;
-    padding: 20px;
+    padding: 8px;
     font-weight: 400
 }
 

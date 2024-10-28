@@ -1,1 +1,3 @@
-{}
+{
+  "/(users)/tintuc/page": "app/(users)/tintuc/page.js"
+}
