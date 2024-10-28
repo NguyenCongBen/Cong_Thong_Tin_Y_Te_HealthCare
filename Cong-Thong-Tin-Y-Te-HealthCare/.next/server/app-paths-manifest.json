@@ -1,10 +1,10 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
-  "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js",
-  "/(users)/tamnhinvasumenh/page": "app/(users)/tamnhinvasumenh/page.js",
-  "/(users)/thanhtuu/page": "app/(users)/thanhtuu/page.js",
-  "/(users)/trungtamtimmach/page": "app/(users)/trungtamtimmach/page.js",
+  "/(users)/tintuc/page": "app/(users)/tintuc/page.js",
+  "/(users)/tintuc/[id]/page": "app/(users)/tintuc/[id]/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/(users)/timbacsi/[id]/page": "app/(users)/timbacsi/[id]/page.js",
+  "/(users)/chuyenkhoa/[id]/page": "app/(users)/chuyenkhoa/[id]/page.js",
   "/(users)/hethong/page": "app/(users)/hethong/page.js",
   "/(users)/hethong/[id]/page": "app/(users)/hethong/[id]/page.js"
 }
