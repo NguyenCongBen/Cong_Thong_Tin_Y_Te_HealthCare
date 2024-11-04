@@ -2,7 +2,7 @@ import React from 'react';
 export default function Header() {
     return (
         <>
-            <nav class="navbar navbar-fixed-top " style={{ position: 'fixed', top: '0', left: '0' }}>
+            <nav class="navbar navbar-fixed-top " id='navbar-fixed-top' style={{ position: 'fixed', top: '0', left: '0' }}>
                 <div class="container-fluid">
                     <div class="navbar-btn">
                         <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
@@ -14,7 +14,7 @@ export default function Header() {
                 </div>
 
                 <div id="navbar-menu">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" id='navbar-nav'>
                         <li>
                             <a href="doctor-events.html" class="icon-menu d-none d-sm-block d-md-none d-lg-block"><i class="fa-solid fa-calendar-days"></i></a>
                         </li>

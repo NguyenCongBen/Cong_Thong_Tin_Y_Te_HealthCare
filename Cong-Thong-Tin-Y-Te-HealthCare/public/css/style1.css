@@ -158,7 +158,18 @@
     cursor: pointer;
 }
 
+.all_doctors_btn a {
+    margin: 0 10px;
+    padding: 10px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
 .edit_doctors {
+    text-decoration: none;
     background-color: #3879FB;
     transition: .3s;
 }
@@ -354,11 +365,15 @@ tbody tr td a {
 }
 
 .phantrang_admin_doctors {
+<<<<<<< HEAD
     position: fixed;
+=======
+>>>>>>> TrungNhin
     right: 35%;
     bottom: 0;
 }
 
+<<<<<<< HEAD
 .main_admin_gioitinh {
     display: flex;
     gap: 10px;
@@ -371,4 +386,36 @@ tbody tr td a {
     display: flex;
     width: 100%;
     gap: 20px;
+=======
+#navbar-menu {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#navbar-nav {
+    display: flex;
+    width: 40%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.navbar-nav .icon-menu {
+    padding: 0;
+}
+
+.navbar-nav .icon-menu .notification-dot {
+    top: 0;
+    right: -3px;
+}
+
+#navbar-fixed-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar>.container,
+.navbar>.container-fluid {
+    width: 50%;
+>>>>>>> TrungNhin
 }

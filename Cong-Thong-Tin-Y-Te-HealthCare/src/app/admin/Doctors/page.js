@@ -1,14 +1,34 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react';
-import useSWR from "swr";
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export default function Doctors() {
-  const { data, error } = useSWR('http://localhost:3000/doctor', fetcher);
+  const [data, setData] = useState([]);
   
+  const fetchDoctor = async () => {
+    const res = await fetch("http://localhost:3000/doctor", {
+      cache: 'no-store'
+    });
+    const newData = await res.json();
+    setData(newData);
+  };
+
+  useEffect(() => {
+    fetchDoctor();
+  }, []);
+
+  const deleteDoctor = async (id) => {
+    if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
+      const res = await fetch(`http://localhost:3000/doctor/${id}`, {
+        method: 'DELETE',
+      });
+      const result = await res.json();
+      if (result.message) {
+        fetchDoctor();
+      }
+    }
+  };
   // Pagination state
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 7; // Number of doctors per page
@@ -23,8 +43,8 @@ export default function Doctors() {
   const currentDoctors = data ? data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage) : [];
 
   // Error handling
-  if (error) return <strong>Error loading Doctors</strong>;
-  if (!data || data.length === 0) return <p>No Doctors data available.</p>;
+  // if (error) return <strong>Error loading Doctors</strong>;
+  // if (!data || data.length === 0) return <p>No Doctors data available.</p>;
 
   return (
     <>
@@ -51,15 +71,15 @@ export default function Doctors() {
           </div>
 
           <div className="row clearfix">
-            {currentDoctors.map((doctor) => (
+            {currentDoctors.map((doctor, index) => (
               <div key={doctor.id} className="col-lg-3 col-md-6 col-sm-12">
-                <Link href={`/admin/Doctors/${doctor.id}`}>
+                {/* <Link href={`/admin/Doctors/Edit/${doctor.id}`}> */}
                   <div className="card doctors_main">
                     <div className="body text-center">
                       <div className="chart" data-percent="75">
                         <span>
                           <img
-                            src={doctor.hinh_anh || "/images/sm/avatar1.jpg"} // Default image if none provided
+                            src={`http://localhost:3000/images/img/bác sĩ/${doctor.anh}`}
                             data-toggle="tooltip"
                             data-placement="top"
                             title={doctor.ten}
@@ -67,7 +87,9 @@ export default function Doctors() {
                           />
                         </span>
                       </div>
-                      <small className="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small>
+                      <small className="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small> <br />
+                      <br />
+                      <h3 className="adress_admin_doctors">{index + 1}</h3>
                       <h6 className="mb-0 name_doctors_admin">
                         <a href="#" title="">{doctor.ten}</a>
                       </h6>
@@ -80,12 +102,12 @@ export default function Doctors() {
                         <i className="fa-regular fa-star"></i>
                       </div>
                       <div className="all_doctors_btn">
-                        <button className="edit_doctors">Sửa</button>
-                        <button className="delete_doctors">Xóa</button>
+                        <Link href={`/admin/Doctors/Edit/${doctor.id}`} className="edit_doctors">Sửa</Link>
+                        <button className="delete_doctors" onClick={() => deleteDoctor(doctor.id)}>Xóa</button>
                       </div>
                     </div>
                   </div>
-                </Link>
+                {/* </Link> */}
               </div>
             ))}
             <div className="col-lg-3 col-md-6 col-sm-12">
@@ -102,21 +124,21 @@ export default function Doctors() {
             </div>
           </div>
 
-            <div class="phantrang_admin_doctors">
-          <ReactPaginate
-            previousLabel={'← Previous'}
-            nextLabel={'Next →'}
-            breakLabel={'...'}
-            breakClassName={'break-me'}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageChange}
-            containerClassName={'pagination'}
-            subContainerClassName={'pages pagination'}
-            activeClassName={'active'}
-            disabledClassName={'disabled'}
-          />
+          <div class="phantrang_admin_doctors">
+            <ReactPaginate
+              previousLabel={'← Previous'}
+              nextLabel={'Next →'}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageChange}
+              containerClassName={'pagination'}
+              subContainerClassName={'pages pagination'}
+              activeClassName={'active'}
+              disabledClassName={'disabled'}
+            />
           </div>
         </div>
       </div>
