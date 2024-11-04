@@ -1,14 +1,13 @@
-"use client";
+import React from "react";
 import Link from "next/link";
-import useSWR from "swr";
 import "../../../../public/css/user/hethong.css";
+import TatCaBenhVien from "../Components/Allbenhvien";
 import GoiTongDai from "../Components/Goitongdai";
 
-export default function HeThong() {
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien', fetcher);
-    if (error) return <strong>Lỗi...</strong>
-    if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
+export default async function HeThong() {
+    const res = await fetch("http://localhost:3000/benhvien", { cache: 'no-store' });
+    const data = await res.json();
+    console.log(data);
     return (
         <>
             <main>
@@ -51,35 +50,7 @@ export default function HeThong() {
                                     Các nhà cung cấp thuốc
                                 </div>
                                 <div class="tt-thanhtich-nhieu">
-                                    {data.map((benhvien) => (
-                                        <div class="tt-thanhtich-nhieu-1" key={benhvien.id}>
-                                            <div class="card card-thanhtich" id="card-boder">
-                                                <Link href={`/hethong/${benhvien.id}`}>
-                                                    <img class="cart-anh card-img-top" src={`http://localhost:3000/images/img/bệnh viện/pro-3.jpg`}
-                                                        alt="..." />
-                                                </Link>
-                                                <div class="card-body" id="card-body">
-                                                    <Link href={`/hethong/${benhvien.id}`}>
-                                                        <h5 class="card-title" id="card-title">{benhvien.ten}</h5>
-                                                    </Link>
-                                                    <p class="card-text" id="card-text">{benhvien.mo_ta}</p>
-                                                    <p class="bv-dc">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <span>{benhvien.dia_chi}</span>
-                                                    </p>
-                                                    <p class="bv-dc">
-                                                        <i class="fa-regular fa-envelope"></i>
-                                                        <span>{benhvien.email}</span>
-                                                    </p>
-                                                    <Link href={`/hethong/${benhvien.id}`} class="btn" id="tt-xemthem">Xem thêm
-                                                        <span class="btn-size">
-                                                            <img src="images/img/thông tin/product/icon-2.png" alt="" />
-                                                        </span>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
+                                    <TatCaBenhVien data={data} />
                                 </div>
                                 <div class="tt-line-cdd"></div>
                                 <div class="sm-title_cate_news">

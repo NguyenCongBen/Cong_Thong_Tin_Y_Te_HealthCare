@@ -2,13 +2,13 @@
 import "../../../../public/css/user/timbacsi.css";
 import Link from "next/link";
 import GoiTongDai from "../Components/Goitongdai";
-import useSWR from "swr";
+import TatCaBacSi from "../Components/Alldoctor";
 
-export default function TimBacSi() {
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data, error, isLoading } = useSWR('http://localhost:3000/doctor', fetcher);
-    if (error) return <strong>Lỗi...</strong>
-    if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
+export default async function TimBacSi() {
+    const res = await fetch("http://localhost:3000/doctor", { cache: 'no-store' });
+    const data = await res.json();
+    console.log(data);
+
     return (
         <>
             <main>
@@ -295,52 +295,22 @@ export default function TimBacSi() {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bs-flex-1">
-                                    <div class="bs-col-6">
-                                        <input class="bs-txt_name_doctor" type="text" placeholder="Nhập tên bác sĩ..." />
-                                        <img src="/images/img/bác sĩ/input_name.png" alt="" />
+                                <form action="/timkiembacsi">
+                                    <div class="bs-flex-1">
+                                        <div class="bs-col-6">
+                                            <input class="bs-txt_name_doctor" type="text" name="keyword" placeholder="Nhập tên bác sĩ..." />
+                                            <img src="/images/img/bác sĩ/input_name.png" alt="" />
+                                        </div>
+                                        <div class="bs-col-6">
+                                            <button class="bs-btn_fill_doctor" type="submit">Tìm bác sĩ</button>
+                                        </div>
                                     </div>
-                                    <div class="bs-col-6">
-                                        <button class="bs-btn_fill_doctor">Tìm bác sĩ</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                             <div class="bs-doctor_cate">
                                 <h2 class="sm-title_cate_news">Danh sách bác sĩ</h2>
                                 <ul class="bs-list_doctor_cate">
-                                    {data.map((doctor) => (
-                                        <li class="bs-flex-all" key={doctor.id}>
-                                            <div class="bs-anh">
-                                                <Link class="bs-thumbblock" href={`/timbacsi/${doctor.id}`}>
-                                                    <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
-                                                </Link>
-                                                <Link class="bs-btn_book_doctor" href="/datlich">
-                                                    <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
-                                                    Đăng ký khám
-                                                </Link>
-                                            </div>
-                                            <div class="bs-flex-one">
-                                                <div class="bs-name">
-                                                    <Link href={`/timbacsi/${doctor.id}`}>{doctor.ten}</Link>
-                                                    <span>Không có đánh giá</span>
-                                                </div>
-                                                <div class="bs-icon_list_doctor">
-                                                    <img src="/images/img/bác sĩ/icon_hocvi.png" alt="" />
-                                                    Bác sĩ chuyên khoa {doctor.id_chuyen_khoa}
-                                                </div>
-                                                <div class="bs-icon_list_doctor">
-                                                    <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                                    {doctor.mo_ta}
-                                                </div>
-                                                <div class="bs-icon_list_doctor">
-                                                    <img src="/images/img/bác sĩ/Hospital.png" alt="" />
-                                                    <Link class="bs-a" href={`/chuyenkhoa/${doctor.id_chuyen_khoa}`}>
-                                                        {doctor.ten_chuyen_khoa}
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    ))}
+                                    <TatCaBacSi data={data} />
                                 </ul>
                                 <div class="tt-phantrang">
                                     <Link href="#" class="tt-item-paging active">1</Link>

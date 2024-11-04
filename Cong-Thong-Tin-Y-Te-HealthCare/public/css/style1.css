@@ -158,7 +158,18 @@
     cursor: pointer;
 }
 
+.all_doctors_btn a {
+    margin: 0 10px;
+    padding: 10px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
 .edit_doctors {
+    text-decoration: none;
     background-color: #3879FB;
     transition: .3s;
 }
@@ -275,16 +286,19 @@
     border-radius: 100%;
     box-shadow: 0 0 10px 5px rgba(154, 155, 156, 0.3);
 }
-tbody tr td a{
+
+tbody tr td a {
     color: black;
-    
+
 }
-.title_thongtin_benhnhan{
+
+.title_thongtin_benhnhan {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.detail_benhnhan_btn_admin{
+
+.detail_benhnhan_btn_admin {
     padding: 5px 15px;
     border: none;
     border-radius: 10px;
@@ -295,10 +309,12 @@ tbody tr td a{
     transition: all .5s ease;
     text-transform: capitalize;
 }
-.detail_benhnhan_btn_admin:hover{
+
+.detail_benhnhan_btn_admin:hover {
     background-color: #58b729;
 }
-.list-name{
+
+.list-name {
     background-color: rgb(255, 51, 51);
     color: #ffffff;
     padding: 2px 5px;
@@ -310,38 +326,77 @@ tbody tr td a{
 /* Pagination container */
 .pagination {
     display: flex;
-    justify-content: center; /* Center the pagination */
-    list-style: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 20px 0; /* Add margin above and below */
-  }
-  
-  /* Individual page items */
-  .pagination li {
-    margin: 0 5px; /* Space between page items */
-  }
-  
-  .pagination a,
-  .pagination span {
-    display: inline-block; 
+    justify-content: center;
+    /* Center the pagination */
+    list-style: none;
+    /* Remove default list styles */
+    padding: 0;
+    /* Remove padding */
+    margin: 20px 0;
+    /* Add margin above and below */
+}
+
+/* Individual page items */
+.pagination li {
+    margin: 0 5px;
+    /* Space between page items */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
     padding: 10px 15px;
-    color: #000000 !important; 
+    color: #000000 !important;
     border: 1px solid gray;
     box-shadow: 0 0 10px 1px rgba(152, 152, 152, 0.4);
-    text-decoration: none; 
-    transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
-  }
-  
-  /* Styles for disabled items */
-  .pagination .disabled {
-    opacity: 0.5; /* Fade out disabled items */
-  }
-  .phantrang_asbout_admin{
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    /* Transition for hover effect */
+}
+
+/* Styles for disabled items */
+.pagination .disabled {
+    opacity: 0.5;
+    /* Fade out disabled items */
+}
+
+.phantrang_asbout_admin {
     position: relative;
-  }
-  .phantrang_admin_doctors{
-        position:fixed;
-        right: 35%;
-        bottom: 0;
-  }
-  
+}
+
+.phantrang_admin_doctors {
+    right: 35%;
+    bottom: 0;
+}
+
+#navbar-menu {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#navbar-nav {
+    display: flex;
+    width: 40%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.navbar-nav .icon-menu {
+    padding: 0;
+}
+
+.navbar-nav .icon-menu .notification-dot {
+    top: 0;
+    right: -3px;
+}
+
+#navbar-fixed-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar>.container,
+.navbar>.container-fluid {
+    width: 50%;
+}
