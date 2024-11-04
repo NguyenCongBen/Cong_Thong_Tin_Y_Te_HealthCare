@@ -27,7 +27,7 @@ export default function TatCaBacSi(props) {
                             </div>
                             <div class="bs-icon_list_doctor">
                                 <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                {mo_ta}
+                                {dia_chi}
                             </div>
                             <div class="bs-icon_list_doctor">
                                 <img src="/images/img/bác sĩ/Hospital.png" alt="" />

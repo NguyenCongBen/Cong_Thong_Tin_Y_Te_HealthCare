@@ -1,4 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/page": "app/(users)/page.js"
+  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
+  "/admin/Doctors/page": "app/admin/Doctors/page.js",
+  "/(users)/page": "app/(users)/page.js",
+  "/admin/Doctors/Edit/[id]/page": "app/admin/Doctors/Edit/[id]/page.js",
+  "/admin/Doctors/AddDoctor/page": "app/admin/Doctors/AddDoctor/page.js"
 }

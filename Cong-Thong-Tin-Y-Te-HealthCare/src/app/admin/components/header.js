@@ -9,7 +9,7 @@ export default function Header() {
                     </div>
 
                     <div class="navbar-brand">
-                        <a href="index.html"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo" /></a>
+                        <a href="/admin"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo" /></a>
                     </div>
                 </div>
 
