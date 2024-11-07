@@ -9,12 +9,24 @@ export default function Doctors() {
   // Kiểm tra lỗi
   if (error) return <strong>Error loading Doctors</strong>;
 
+  // Handle page change
+  const handlePageChange = (selected) => {
+    setCurrentPage(selected.selected);
+  };
+
+  // Get current doctors to display
+  const currentDoctors = data
+    ? data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+    : [];
+
+  // Error handling
+  if (error) return <strong>Error loading Doctors</strong>;
   if (!data || data.length === 0) return <p>No Doctors data available.</p>;
 
   return (
     <>
       <div id="main-content">
-        <div className="container-fluid">
+        <div className="container-fluid phantrang_asbout_admin">
           <div className="block-header">
             <div className="row">
               <div className="col-lg-6 col-md-8 col-sm-12">
@@ -52,7 +64,7 @@ export default function Doctors() {
                       <div className="chart" data-percent="75">
                         <span>
                           <img
-                            src={doctor.hinh_anh || "/images/sm/avatar1.jpg"} // Nếu không có ảnh thì dùng ảnh mặc định
+                            src={doctor.hinh_anh || "/images/sm/avatar1.jpg"} // Default image if none provided
                             data-toggle="tooltip"
                             data-placement="top"
                             title={doctor.ten}
@@ -60,57 +72,70 @@ export default function Doctors() {
                           />
                         </span>
                       </div>
+                      <small className="chuyen_khoa_admin_doctor">
+                        {" "}
+                        {doctor.ten_chuyen_khoa}
+                      </small>
                       <h6 className="mb-0 name_doctors_admin">
                         <a href="#" title="">
                           {doctor.ten}
                         </a>
                       </h6>
-
-                      <small>{doctor.chuyen_khoa}</small>
-                      <br />
-
-                      <span>{doctor.dia_chi}</span>
-                      <small class="chuyen_khoa_admin_doctor">
-                        {" "}
-                        Khoa : {doctor.chuyen_khoa}
-                      </small>
-
-                      <span class="adress_admin_doctors">{doctor.dia_chi}</span>
-                      <div class="icon_ngoisao_admin_doctors">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                      <span className="adress_admin_doctors">
+                        {doctor.dia_chi}
+                      </span>
+                      <div className="icon_ngoisao_admin_doctors">
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star"></i>
+                        <i className="fa-regular fa-star"></i>
                       </div>
-                      <div class="all_doctors_btn">
-                        <button class="edit_doctors">Sửa</button>
-                        <button class="delete_doctors">Xóa</button>
+                      <div className="all_doctors_btn">
+                        <button className="edit_doctors">Sửa</button>
+                        <button className="delete_doctors">Xóa</button>
                       </div>
                     </div>
                   </div>
                 </Link>
               </div>
             ))}
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="card">
-                <div class="body text-center">
-                  <div class="p-t-80 p-b-80">
+            <div className="col-lg-3 col-md-6 col-sm-12">
+              <div className="card">
+                <div className="body text-center">
+                  <div className="p-t-80 p-b-80">
                     <h6>
-                      Add New <br /> Docter
+                      Add New <br /> Doctor
                     </h6>
                     <button
                       type="button"
-                      class="btn btn-outline-primary m-t-10"
+                      className="btn btn-outline-primary m-t-10"
                       data-toggle="modal"
                       data-target="#addcontact"
                     >
-                      <i class="fa fa-plus-circle"></i>
+                      <i className="fa fa-plus-circle"></i>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="phantrang_admin_doctors">
+            <ReactPaginate
+              previousLabel={"← Previous"}
+              nextLabel={"Next →"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageChange}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              disabledClassName={"disabled"}
+            />
           </div>
         </div>
       </div>
@@ -198,6 +223,7 @@ export default function Doctors() {
                       placeholder="Facebook"
                     />
                   </div>
+                  ut-{" "}
                 </div>
                 <div class="col-6">
                   <div class="input-group mb-3">

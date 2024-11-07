@@ -5,18 +5,18 @@ const jwt = require('jsonwebtoken');
 
 /* GET users listing. */
 //http://localhost:3000/users
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   req.db.query('SELECT * FROM nguoidung', function (error, results, fields) {
     if (error) {
       return res.status(500).json({ error: error.message });
     }
-    res.json(results); 
+    res.json(results);
   });
 });
 
 /* API cập nhật trạng thái người dùng. */
 //http://localhost:3000/users/status/id
-router.put('/status/:userId', function(req, res, next) {
+router.put('/status/:userId', function (req, res, next) {
   const userId = req.params.userId;
   const { status } = req.body;
 
@@ -27,7 +27,7 @@ router.put('/status/:userId', function(req, res, next) {
   }
 
   // Truy vấn cập nhật trạng thái trong MySQL
-  req.db.query('UPDATE nguoidung SET status = ? WHERE id = ?', [status, userId], function(error, results) {
+  req.db.query('UPDATE nguoidung SET status = ? WHERE id = ?', [status, userId], function (error, results) {
     if (error) {
       return res.status(500).json({ error: error.message });
     }
@@ -42,9 +42,9 @@ router.put('/status/:userId', function(req, res, next) {
 
 
 router.post('/register', (req, res) => {
-  const { ten, email, mat_khau, vai_tro,trang_thai } = req.body;
+  const { ten, email, mat_khau, vai_tro, trang_thai } = req.body;
 
-  if (!ten || !email || !mat_khau || !vai_tro||!trang_thai) {
+  if (!ten || !email || !mat_khau || !vai_tro || !trang_thai) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
       // Tạo JWT token
       const token = jwt.sign(
         { id: user.id_nguoi_dung, email: user.email, vai_tro: user.vai_tro },
-process.env.JWT_SECRET || 'your_jwt_secret',
+        process.env.JWT_SECRET || 'your_jwt_secret',
         { expiresIn: '1h' } // Token hết hạn sau 1 giờ
       );
 
@@ -133,7 +133,7 @@ const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: "ncb301104@gmail.com",
-    pass:"osqx ueqr ohiu ghmd"
+    pass: "osqx ueqr ohiu ghmd"
   }
 });
 const resetTokens = {};
@@ -147,7 +147,7 @@ router.post('/forgot-password', (req, res) => {
     }
 
     const user = results[0];
-    
+
     // Tạo token đặt lại mật khẩu
     const Token = crypto.randomBytes(32).toString('hex');
     const expiresAt = new Date(Date.now() + 3600000); // Token có thời hạn 1 giờ
@@ -160,8 +160,8 @@ router.post('/forgot-password', (req, res) => {
     //   }
 
     const resetUrl = `http://localhost:3000/users/reset-password/${Token}`;
-      // Cấu hình gửi email
-    
+    // Cấu hình gửi email
+
     //   const mailOptions = {
     //     from: "ncb301104@gmail.com",
     //     to: email,
@@ -180,7 +180,7 @@ router.post('/forgot-password', (req, res) => {
     const mailOptions = {
       to: email,
       subject: 'Yêu cầu đặt lại mật khẩu',
-    html: `
+      html: `
       <table width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center">
@@ -210,15 +210,15 @@ router.post('/forgot-password', (req, res) => {
 </table>
 
     `,
-};
+    };
 
 
-  
 
-  transporter.sendMail(mailOptions, (error) => {
+
+    transporter.sendMail(mailOptions, (error) => {
       if (error) return res.status(500).json({ message: 'Đã xảy ra lỗi khi gửi email' });
       res.status(200).json({ message: 'Email đã được gửi. Kiểm tra hộp thư của bạn.' });
-  });
+    });
 
   });
 });
@@ -229,13 +229,13 @@ router.post('/reset-password/:token', (req, res) => {
   const { mat_khau } = req.body;
 
   if (!mat_khau) {
-      return res.status(400).json({ message: 'Mật khẩu mới là bắt buộc' });
+    return res.status(400).json({ message: 'Mật khẩu mới là bắt buộc' });
   }
 
   // Kiểm tra xem token có tồn tại và còn hiệu lực không
   const tokenData = resetTokens[token];
   if (!tokenData || tokenData.expiresAt < Date.now()) {
-      return res.status(400).json({ message: 'Mã th ông báo không hợp lệ hoặc đã hết hạn' });
+    return res.status(400).json({ message: 'Mã th ông báo không hợp lệ hoặc đã hết hạn' });
   }
 
   const userId = tokenData.userId;
@@ -243,12 +243,12 @@ router.post('/reset-password/:token', (req, res) => {
 
   // Cập nhật mật khẩu mới trong cơ sở dữ liệu
   req.db.query('UPDATE NguoiDung SET mat_khau = ? WHERE id_nguoi_dung = ?', [hashedPassword, userId], (error) => {
-      if (error) return res.status(500).json({ message: 'Đã xảy ra lỗi' });
+    if (error) return res.status(500).json({ message: 'Đã xảy ra lỗi' });
 
-      // Xóa token khỏi bộ nhớ tạm thời
-      delete resetTokens[token];
+    // Xóa token khỏi bộ nhớ tạm thời
+    delete resetTokens[token];
 
-      res.status(200).json({ message: 'Mật khẩu đã được đặt lại thành công' });
+    res.status(200).json({ message: 'Mật khẩu đã được đặt lại thành công' });
   });
 });
 

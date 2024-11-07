@@ -1,9 +1,25 @@
 {
   "pages": {
-    "/(users)/sudungthuocantoan/page": [
+    "/admin/Doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/sudungthuocantoan/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
+    ],
+    "/admin/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admin/layout.css",
+      "static/chunks/app/admin/layout.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/page.js"
+    ],
+    "/(users)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(users)/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -16,11 +32,6 @@
       "static/chunks/main-app.js",
       "static/css/app/(users)/tracuuthuoc/page.css",
       "static/chunks/app/(users)/tracuuthuoc/page.js"
-    ],
-    "/(users)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Lấy danh sách bác sĩ
 router.get('/', (req, res) => {
-  req.db.query('SELECT * FROM bac_si', (error, results) => {
+  req.db.query('SELECT bs.*, ck.* FROM `bac_si` bs JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id', (error, results) => {
     if (error) return res.status(500).json({ error: error.message });
     res.json(results);
   });
@@ -18,6 +18,19 @@ router.get('/:id', (req, res) => {
     res.json(results[0]);
   });
 });
+router.get('/chuyen-khoa/:idChuyenKhoa', (req, res) => {
+  const idChuyenKhoa = req.params.idChuyenKhoa; 
+
+  req.db.query(
+    'SELECT bs.*, ck.* FROM `bac_si` bs JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id WHERE bs.id_chuyen_khoa = ?',
+    [idChuyenKhoa], 
+    (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+      res.json(results);
+    }
+  );
+});
+
 
 // Thêm bác sĩ mới
 router.post('/', (req, res) => {

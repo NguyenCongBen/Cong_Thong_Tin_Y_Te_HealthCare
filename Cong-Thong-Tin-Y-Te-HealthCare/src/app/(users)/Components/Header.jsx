@@ -25,6 +25,11 @@ export default function Header() {
                                             Chăm sóc khách hàng
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link className="tt-tinhnang" href="/dltc">
+                                            Đặt lịch thành công
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -264,13 +269,13 @@ export default function Header() {
                                                     <li class="sub-menu-item"><Link href="#">Tiêu hoá - Gan mật</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Trung tâm Nhi</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Trung tâm Sức khoẻ phụ nữ</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Thẩm mỹ Vinmec-View</Link></li>
+                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Thẩm mỹ Healthcare-View</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Sức khoẻ tổng quát</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Mắt Vinmec-Alina</Link></li>
+                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Mắt Healthcare-Alina</Link></li>
                                                 </ul>
                                                 <ul>
-                                                    <li class="sub-menu-item"><Link href="#">Nha khoa Vinmec View Premium</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Y học cổ truyền Vinmec-Sao Phương Đông</Link></li>
+                                                    <li class="sub-menu-item"><Link href="#">Nha khoa Healthcare View Premium</Link></li>
+                                                    <li class="sub-menu-item"><Link href="#">Trung tâm Y học cổ truyền Healthcare-Sao Phương Đông</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Trung tâm Công nghệ cao</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Trung tâm Chấn thương chỉnh hình - Y học thể thao</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Viện nghiên cứu tế bào gốc và công nghệ Gen</Link></li>
@@ -287,11 +292,11 @@ export default function Header() {
                                             <div class="drop-down-menu">
                                                 <ul>
                                                     <li class="sub-menu-item"><Link href="/lienhe">Liên hệ với chúng tôi</Link></li>
-                                                    <li class="sub-menu-item"><Link href="/hethong">Hệ thống Vinmec</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/hethong">Hệ thống Healthcare</Link></li>
                                                     <li class="sub-menu-item"><Link href="/timbacsi">Tìm bác sĩ</Link></li>
                                                     <li class="sub-menu-item"><Link href="/baohiem">Bảo hiểm</Link></li>
                                                     <li class="sub-menu-item"><Link href="/baohiem">Dịch vụ bảo hiểm</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Dịch vụ y tế</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/dichvu">Dịch vụ y tế</Link></li>
                                                     <li class="sub-menu-item"><Link href="#">Thông tin hỗ trợ khác</Link></li>
                                                 </ul>
                                             </div>
@@ -306,8 +311,8 @@ export default function Header() {
                                                 <ul>
                                                     <li class="sub-menu-item"><Link href="/tamnhinvasumenh">Tầm nhìn và sứ mệnh</Link></li>
                                                     <li class="sub-menu-item"><Link href="/thanhtuu">Thành tựu và Giải thưởng</Link></li>
-                                                    <li class="sub-menu-item"><Link href="/doitac">Đối tác của Vinmec</Link></li>
-                                                    <li class="sub-menu-item"><Link href="#">Làm việc tại Vinmec</Link></li>
+                                                    <li class="sub-menu-item"><Link href="/doitac">Đối tác của Healthcare</Link></li>
+                                                    <li class="sub-menu-item"><Link href="#">Làm việc tại Healthcare</Link></li>
                                                     <li class="sub-menu-item"><Link href="/tintuc">Tin tức</Link></li>
                                                 </ul>
                                             </div>

@@ -1,122 +1,309 @@
+"use client"
 import Link from "next/link"
+import React, { useEffect, useState } from 'react';
 import "../../../../public/css/user/tracuuthuoc.css"
-export default function tracuuthuoc(){
+const PAGE_SIZE = 5;
+
+
+export default function tracuuthuoc() {
+    const [drugs, setDrugs] = useState([]);
+    const [filteredDrugs, setFilteredDrugs] = useState([]); // Danh sách thuốc đã lọc
+    const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        const fetchDrugs = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/thuoc'); // Gọi API
+                const data = await response.json(); // Chuyển dữ liệu thành JSON
+                setDrugs(data); // Lưu dữ liệu vào state
+                setFilteredDrugs(data);  // Khởi tạo danh sách thuốc đã lọc
+            } catch (error) {
+                console.error('Lỗi khi lấy dữ liệu:', error); // Xử lý lỗi
+            }
+        };
+
+        fetchDrugs(); // Thực hiện gọi API
+    }, []);
+
+    const filterDrugsByLetter = (letter) => {
+        // Lọc danh sách thuốc theo chữ cái
+        const filtered = drugs.filter(drug =>
+          drug.ten_duoc_pham.toUpperCase().startsWith(letter.toUpperCase())
+        );
+        setFilteredDrugs(filtered); // Cập nhật danh sách thuốc đã lọc
+        setCurrentPage(1); // Đặt lại trang về 1 khi lọc
+      };
+    
+    // Tính toán số trang
+    const totalPages = Math.ceil(drugs.length / PAGE_SIZE);
+    const indexOfLastDrug = currentPage * PAGE_SIZE;
+    const indexOfFirstDrug = indexOfLastDrug - PAGE_SIZE;
+    const currentDrugs = drugs.slice(indexOfFirstDrug, indexOfLastDrug);
+
     return (
         <>
             <main>
-                <div class="cover_list_news">
-                    <div class="name_cate_cover">Danh mục thuốc</div>
-                    <img src="images/img/tracuuthuoc/banner_danh_muc_thuoc.jpg" alt="Danh mục thuốc"/>
-                    <div class="bar_util mb-hidden flex">
-                        <div class="col-4"><a href="javascript:modal.show('#modal-call-button')">
-                        <img src="images/img/tracuuthuoc/Phone.svg" alt="phone" />
-                        <span>Gọi tổng đài</span></a>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header model-goi">
+                                <h3 class="modal-title g-blue" id="exampleModalLabel">Hotline</h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="g-content">
+                                    <ul class="g-phone-list">
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="g-contact-pair">
+                                                <div class="g-col7">
+                                                    <span>Vinmec Times City (HN)</span>
+                                                </div>
+                                                <div class="g-col5">
+                                                    <strong>
+                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="g-button-group">
+                                        <div class="g-item">
+                                            <div class="g-item-desc">
+                                                <img src="/images/img/Download_App_8f9cde90f2.png" alt="" />
+                                                <div class="g-icon-main">
+                                                    <span class="g-item-title">Đặt lịch qua App - MyVinmec</span>
+                                                    <span class="g-item-text">Đặt lịch hẹn chủ động ngay tại nhà với bác sĩ và
+                                                        ngày giờ khám</span>
+                                                </div>
+                                            </div>
+                                            <Link class="g-a" href="#">
+                                                <button class="bg-blue text-white border-none m-10">
+                                                    <span>
+                                                        Tải ngay
+                                                    </span>
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        <div class="g-item">
+                                            <div class="g-item-desc">
+                                                <img src="/images/img/CSKH_b6c956f10b.png" alt="" />
+                                                <div class="g-icon-main">
+                                                    <span class="g-item-title">Cổng dịch vụ CSKH 24/7</span>
+                                                </div>
+                                            </div>
+                                            <Link class="g-a" href="#">
+                                                <button class="bg-blue text-white border-none m-10">
+                                                    <span>
+                                                        Gửi yêu cầu
+                                                    </span>
+                                                </button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-4"><a href="/"><img src="images/img/tracuuthuoc/Calendar.svg"
-                            alt="booking" /><span>Đặt lịch hẹn
-                            </span></a></div>
-                        <div class="col-4"><a href="/"><img src="images/img/tracuuthuoc/doctor.svg"
-                            alt="doctor" /><span>Tìm bác sĩ
-                            </span></a></div>
                     </div>
                 </div>
-                <link href="/" rel="stylesheet" />
-                <div class="container_body margin-auto">
-                    <div class="bread-cump-main">
-                        <a href="/" class="item-bread">Trang chủ</a>
-                        <span class="item-bread">Danh mục thuốc</span>
-                    </div>
-                    <section class="bg_white mb3">
-                        <div class="flex align-item-center">
-                            <div class="f26 bold">Tra cứu tên thuốc</div>
-                            <div class="search_drug flex-one">
-                                <div class="flex align-item-center justify-betwee">
-                                    <input id="search_box" type="text" class="txt_search_drug"
-                                        placeholder="Nhập tên thuốc cần tìm..." />
-                                    <button class="btn_search_drug"></button>
+                <div class="container-all">
+                    <div class="container-body">
+                        <div class="container-1">
+                            <div class="tt-bread">
+                                <a href="#" class="tt-item">Trang chủ</a>
+                                <i class="fa-solid fa-angle-right tt-item gt-item"></i>
+                                <a href="#" class="tt-item tt-item-1 tt-item-color">danh mục thuốc</a>
+                            </div>
+                            <div class="tc-bg_white tc-mb3">
+                                <div class="tc-flex tc-align-item-center">
+                                    <div class="tc-f26 tc-bold">
+                                        Tra Cứu Tên Thuốc
+                                    </div>
+                                    <div class="tc-search_drug tc-flex-one">
+                                        <div class="tc-flex tc-align-item-center tc-justify-betwee">
+                                            <input type="text" class="tc-txt_search_drug"
+                                                placeholder="Nhập tên thuốc cần tìm " />
+                                            <button class="tc-btn_search_drug">
+                                                <img src="images/img/tra cứu/search_icon_drug.png" alt="" />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <template id="search-template">
-                                    <div class="show_search_suggest ">
-                                        <button type="button" class="modal-close-popup">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6 18L18 6" stroke="#333333" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                                <path d="M18 18L6 6" stroke="#333333" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                            </svg>
-                                        </button>
-                                        Hiển thị kết quả cho từ khóa: <strong>__KEYWORD__</strong>
-                                        <div class="line_ver mt2 mb2"></div>
-                                        <ul class="list_result_search_drug">
-                                            <li><a href="__SLUG__">__NAME__</a></li>
-                                        </ul>
-                                        <div class="line_ver mt2 mb2"></div>
-                                        <div class="text-center">
-                                            <a onclick="ToVisible()" class="cl-blue">Xem tất cả
-                                                <img src="/assets/images/arr-blue.svg" height="14" />
+                            </div>
+                            <div className="tc-pb60">
+                                <div className="tc-bg_white tc-mb60">
+                                    <h2 className="sm-title_cate_news">Danh sách thuốc</h2>
+                                    <div className="tc-list_az">
+                                        <div className="collapse" id="collapseExample">
+                                            <div className="tc-letter-all">
+                                                {Array.from({ length: 26 }, (_, index) => String.fromCharCode(index + 65)).map((letter) => ( // Tạo 26 chữ cái từ A đến Z
+                                                    <p className="d-inline-flex gap-1" key={letter}>
+                                                        <button
+                                                            className="btn btn-primary"
+                                                            onClick={() => filterDrugsByLetter(letter)}
+                                                        >
+                                                            {letter}
+                                                        </button>
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <p className="d-inline-flex gap-1">
+                                            <button className="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseExample" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                Ẩn
+                                            </button>
+                                        </p>
+                                        <div className="container mt-4">
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <ul className="tc-list_drug">
+                                                        {currentDrugs.length > 0 ? (
+                                                            currentDrugs.map((drug) => (
+                                                                <li key={drug.id} className="tc-item">
+                                                                    <a href="#" className="tc-name_drug">
+                                                                        {drug.ten_duoc_pham}
+                                                                    </a>
+                                                                </li>
+                                                            ))
+                                                        ) : (
+                                                            <li className="tc-item">Không có thuốc nào.</li>
+                                                        )}
+                                                    </ul>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <ul className="tc-list_drug">
+                                                        {drugs
+                                                            .filter((_, index) => index % 2 !== 0) // Hiển thị thuốc ở cột thứ hai (nếu cần)
+                                                            .map((drug) => (
+                                                                <li key={drug.id} className="tc-item">
+                                                                    <a href="#" className="tc-name_drug">
+                                                                        {drug.ten_duoc_pham}
+                                                                    </a>
+                                                                </li>
+                                                            ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Phân trang */}
+                                        <div className="tt-phantrang">
+                                            {Array.from({ length: totalPages }, (_, index) => (
+                                                <a
+                                                    key={index + 1}
+                                                    href="#"
+                                                    className={`tt-item-paging ${currentPage === index + 1 ? "active" : ""}`}
+                                                    onClick={() => setCurrentPage(index + 1)} // Cập nhật trang hiện tại
+                                                >
+                                                    {index + 1}
+                                                </a>
+                                            ))}
+                                            <a href="#" className="tt-item-paging">
+                                                <img src="images/img/thông tin/product/icon-1.png" alt="Next" />
                                             </a>
                                         </div>
                                     </div>
-                                </template>
+                                </div>
                             </div>
                         </div>
-                    </section>
-                    <section class="bg_white mb60">
-                        <div class="title_cate_news">Danh sách thuốc</div>
-                        <div class="list_az">
-                            <span class="letter" onclick="Select('a')">A</span>
-                            <span class="letter" onclick="Select('b')">B</span>
-                            <span class="letter" onclick="Select('c')">C</span>
-                            <span class="letter" onclick="Select('d')">D</span>
-                            <span class="letter" onclick="Select('e')">E</span>
-                            <span class="letter" onclick="Select('f')">F</span>
-                            <span class="letter" onclick="Select('g')">G</span>
-                            <span class="letter" onclick="Select('h')">H</span>
-                            <span class="letter" onclick="Select('i')">I</span>
-                            <span class="letter" onclick="Select('j')">J</span>
-                            <span class="letter" onclick="Select('k')">K</span>
-                            <span class="letter" onclick="Select('l')">L</span>
-                            <span class="letter" onclick="Select('m')">M</span>
-                            <span class="letter" onclick="Select('n')">N</span>
-                            <span class="letter" onclick="Select('o')">O</span>
-                            <span class="letter" onclick="Select('p')">P</span>
-                            <span class="letter" onclick="Select('q')">Q</span>
-                            <span class="letter" onclick="Select('r')">R</span>
-                            <span class="letter" onclick="Select('s')">S</span>
-                            <span class="letter" onclick="Select('t')">T</span>
-                            <span class="letter" onclick="Select('u')">U</span>
-                            <span class="letter" onclick="Select('v')">V</span>
-                            <span class="letter" onclick="Select('w')">W</span>
-                            <span class="letter" onclick="Select('x')">X</span>
-                            <span class="letter" onclick="Select('y')">Y</span>
-                            <span class="letter" onclick="Select('z')">Z</span>
-                        </div>
-                        <span id="hide_alpha">Ẩn</span>
-                        <ul class="list_drug flex first-hide">
-
-                        </ul>
-                        <div class="paging mt40">
-                            <a id="slot-1" onclick="ThisPage(this)" class="item_paging active">1</a>
-                            <a id="slot-2" onclick="ThisPage(this)" class="item_paging">2 </a>
-                            <a id="slot-3" onclick="ThisPage(this)" class="item_paging">3 </a>
-                            <a id="slot-4" onclick="ThisPage(this)" class="item_paging">4 </a>
-                        </div>
-                    </section>
-
+                    </div>
                 </div>
-
-                <template id="drug_temp">
-                    <li class>
-                        <div class="flex align-item-center">
-                            <div class="flex-one">
-                                <a href="/vie/thuoc/__SLUG__" class="name_drug">__NAME__</a>
-                            </div>
-                        </div>
-                    </li>
-                </template>
-
-
             </main>
         </>
     )

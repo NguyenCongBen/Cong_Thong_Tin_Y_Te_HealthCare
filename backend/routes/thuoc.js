@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
         res.json(results);
     });
 });
+
 router.get('/:id', (req, res) => {
     const hospitalId = req.params.id;
 
@@ -24,5 +25,30 @@ router.get('/:id', (req, res) => {
 
         res.status(200).json(results[0]);
     });
+});
+router.post('/search', (req, res) => {
+    const { keyword } = req.body; // Lấy từ khóa từ body của yêu cầu
+
+    if (!keyword) {
+        return res.status(400).json({ message: "Vui lòng cung cấp từ khóa tìm kiếm" }); // Kiểm tra từ khóa có hợp lệ không
+    }
+
+    const db = req.db;
+
+    db.query(
+        'SELECT * FROM thong_tin_duoc_pham WHERE ten_duoc_pham LIKE ?',
+        [`%${keyword}%`], 
+        (err, results) => {
+            if (err) {
+                return res.status(500).json({ error: err.message }); 
+            }
+           
+            if (results.length > 0) {
+                res.status(200).json(results); 
+            } else {
+                res.status(404).json({ message: "Không tìm thấy thuốc nào" }); 
+            }
+        }
+    );
 });
 module.exports = router;
