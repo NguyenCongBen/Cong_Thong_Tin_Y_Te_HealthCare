@@ -433,6 +433,8 @@ body {
 .lk-flex {
     display: flex;
     gap: 7px;
+    font-size: large;
+    margin-bottom: 10px;
 }
 
 .lk-list_date {
@@ -525,9 +527,11 @@ body {
 }
 
 .lk-input-2 {
+    padding: 10px;
     width: 100%;
     outline: none;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .lk-input_gender {
@@ -930,6 +934,10 @@ body {
     height: 20px;
     border-right: 1px solid #999;
     display: none;
+}
+
+textarea {
+    border-radius: 6px;
 }
 
 @media (1025px < width < 1430px) {

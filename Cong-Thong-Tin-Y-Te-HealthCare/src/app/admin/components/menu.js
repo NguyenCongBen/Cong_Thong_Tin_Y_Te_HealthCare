@@ -86,7 +86,6 @@ export default function Menu() {
             </ul>
 
             <div class="tab-content p-l-0 p-r-0">
-<<<<<<< HEAD
               <div class="tab-pane active" id="menu">
                 <nav class="sidebar-nav">
                   <ul class="main-menu metismenu">
@@ -282,80 +281,6 @@ export default function Menu() {
               </div>
             </div>
           </div>
-=======
-                <div class="tab-pane active" id="menu">
-                    <nav class="sidebar-nav">
-                        <ul class="main-menu metismenu">
-                            <li class="active"><Link href="/admin"><i class="icon-home"></i><span>Bảng Điều Khiển</span></Link></li>
-                            <li><a href="/admin/Appointment"><i class="icon-calendar"></i>Cuộc Hẹn</a></li>
-                            <li><a href="app-taskboard.html"><i class="icon-list"></i>Bảng Tác Vụ</a></li>
-                            <li><a href="app-inbox.html"><i class="icon-home"></i>Ứng Dụng Inbox</a></li>
-                            <li><a href="app-chat.html"><i class="icon-bubbles"></i>Ứng Dụng Nhắn Tin</a></li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Bác Sĩ</span> </a>
-                                <ul>
-                                    <li>  <Link href="/admin/Doctors">Tất Cả Bác Sĩ</Link></li>
-                                    <li><Link href="/admin/Doctors/AddDoctor">Thêm Bác Sĩ</Link></li>
-                                    <li><a href="doctor-events.html">Lịch Trình Bác Sĩ</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user"></i><span>Bệnh Nhân</span> </a>
-                                <ul>
-                                <li><Link href="/admin/BenhNhan">Tất Cả Bệnh Nhân</Link></li>
-                                    <li><a href="patient-add.html">Thêm Bệnh Nhân</a></li>
-                                    <li><a href="patient-invoice.html">Hóa Đơn</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Thanh Toán</span> </a>
-                                <ul>
-                                    <li><a href="payments.html">Thánh Toán</a></li>
-                                    <li><a href="payments-add.html">Thêm Thanh Toán</a></li>
-                                    <li><a href="payments-invoice.html"></a>Hóa Đơn</li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-layers"></i><span>Cách Khoa</span> </a>
-                                <ul>
-                                    <li><a href="depa-add.html">Thêm</a></li>
-                                    <li><a href="depa-all.html">Tất Cả Khoa</a></li>
-                                    <li><a href="javascript:void(0);">Tim Mạch</a></li>
-                                    <li><a href="javascript:void(0);">Phổi </a></li>
-                                    <li><a href="javascript:void(0);">Phụ Khoa</a></li>
-                                    <li><a href="javascript:void(0);">Thần Kinh</a></li>
-                                    <li><a href="javascript:void(0);">Tiết Niệu</a></li>
-                                    <li><a href="javascript:void(0);">Tiêu Hóa</a></li>
-                                    <li><a href="javascript:void(0);">Bác Nhi Khoa</a></li>
-                                    <li><a href="javascript:void(0);">Phòng xét Nghiệm</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="our-centres.html"><i class="icon-pointer"></i>Trung Tâm trên Toàn Thế Giới</a></li>
-                            <li>
-                                <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Xác thực </span></a>
-                                <ul>
-                                    <li><a href="page-login.html">Đăng Nhập</a></li>
-                                    <li><a href="page-register.html">Đăng ký</a></li>
-                                    <li><a href="page-lockscreen.html">Màn Hình Khóa</a></li>
-                                    <li><a href="page-forgot-password.html">Quên Mật Khẩu</a></li>
-                                    <li><a href="page-404.html">Trang 404</a></li>
-                                    <li><a href="page-403.html">Trang 403</a></li>
-                                    <li><a href="page-500.html">Trang 500</a></li>
-                                    <li><a href="page-503.html">Trang 503</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#Widgets" class="has-arrow"><i class="icon-puzzle"></i><span>Widgets</span></a>
-                                <ul>
-                                    <li><a href="widgets-statistics.html">Thông Kê Widgets</a></li>
-                                    <li><a href="widgets-data.html">Dữ Liệu Widgets</a></li>
-                                    <li><a href="widgets-chart.html">Biểu Đồ Widgets</a></li>
-                                    <li><a href="widgets-weather.html">Thời Tiết Widgets</a></li>
-                                    <li><a href="widgets-social.html">Tiện Ích Xã Hội Widgets</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                  
-            </div>          
->>>>>>> 847ca752a220c43392c909a5252369f5f7c4f520
         </div>
       </div>
     </>

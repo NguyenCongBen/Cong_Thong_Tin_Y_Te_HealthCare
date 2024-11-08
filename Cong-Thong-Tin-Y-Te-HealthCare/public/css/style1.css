@@ -286,8 +286,6 @@
     height: 100px;
     border-radius: 100%;
     box-shadow: 0 0 10px 5px rgba(154, 155, 156, 0.3);
-<<<<<<< HEAD
-=======
 }
 
 tbody tr td a {
@@ -368,15 +366,11 @@ tbody tr td a {
 }
 
 .phantrang_admin_doctors {
-<<<<<<< HEAD
     position: fixed;
-=======
->>>>>>> TrungNhin
     right: 35%;
     bottom: 0;
 }
 
-<<<<<<< HEAD
 .main_admin_gioitinh {
     display: flex;
     gap: 10px;
@@ -385,41 +379,41 @@ tbody tr td a {
 .text_thongke_main_gioitinh_2 {
     margin-right: 10px;
 }
-.khung_2ben_doanhthu{
+
+.khung_2ben_doanhthu {
     display: flex;
     width: 100%;
     gap: 20px;
-=======
-#navbar-menu {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-}
 
-#navbar-nav {
-    display: flex;
-    width: 40%;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-}
+    #navbar-menu {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
 
-.navbar-nav .icon-menu {
-    padding: 0;
-}
+    #navbar-nav {
+        display: flex;
+        width: 40%;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
 
-.navbar-nav .icon-menu .notification-dot {
-    top: 0;
-    right: -3px;
-}
+    .navbar-nav .icon-menu {
+        padding: 0;
+    }
 
-#navbar-fixed-top {
-    display: flex;
-    justify-content: space-between;
-}
+    .navbar-nav .icon-menu .notification-dot {
+        top: 0;
+        right: -3px;
+    }
 
-.navbar>.container,
-.navbar>.container-fluid {
-    width: 50%;
->>>>>>> TrungNhin
->>>>>>> 847ca752a220c43392c909a5252369f5f7c4f520
+    #navbar-fixed-top {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar>.container,
+    .navbar>.container-fluid {
+        width: 50%;
+    }
 }

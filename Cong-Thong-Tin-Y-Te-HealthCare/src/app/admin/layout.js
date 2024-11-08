@@ -43,7 +43,6 @@ export default function RootLayout({ children }) {
         <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/index.js"></script>
         <script src="/js/"></script>
-        
         <script src="/bundles/libscripts.bundle.js"></script>
         <script src="/bundles/vendorscripts.bundle.js"></script>
         <script src="/bundles/mainscripts.bundle.js"></script>
@@ -55,7 +54,8 @@ export default function RootLayout({ children }) {
         <script src="/vendor/flot-charts/jquery.flot.selection.js"></script>
         <script src="/vendor/fullcalendar/fullcalendar.js"></script>
         <script
-          src="https://kit.fontawesome.com/bcd15b30db.js" crossorigin="anonymous"
+          src="https://kit.fontawesome.com/bcd15b30db.js"
+          crossorigin="anonymous"
         ></script>
         //js
         {/* <script scr="/bootstrap/js/bootstrap.bundle.js"> </script>
@@ -72,7 +72,6 @@ export default function RootLayout({ children }) {
         <script scr="/bootstrap/js/bootstrap.min.js.map"> </script>
         <script scr="/bootstrap/js/google.chart.js"> </script>
         <script scr="/bootstrap/js/style.js"> </script> */}
-        
         <script src="/js/pages/calendar.js"></script>
         <script src="/bootstrap/js/style.js"></script>
         <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
