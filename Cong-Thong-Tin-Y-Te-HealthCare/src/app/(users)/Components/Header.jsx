@@ -45,13 +45,14 @@ export default function Header() {
                                 <div className="tt-search-all">
                                     <div className="tt-search">
                                         <div className="tt-form-none">
-                                            <form className="d-flex" role="search">
+                                            <form className="d-flex" role="search" action="/timkiem">
                                                 <div className="tt-search-1">
-                                                    <button className="tt-button">
+                                                    <button className="tt-button" type="submit">
                                                         <i className="fa-solid fa-magnifying-glass"></i>
                                                     </button>
                                                     <input
                                                         className="form-control me-2"
+                                                        name="keyword"
                                                         id="tt-input"
                                                         type="search"
                                                         placeholder="Tiềm kiếm..."
