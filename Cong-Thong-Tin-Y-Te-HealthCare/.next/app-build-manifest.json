@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/(users)/sudungthuocantoan/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/sudungthuocantoan/page.js"
+      "static/chunks/app/(users)/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -11,29 +11,53 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
+    "/(users)/hoatdong/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/hoatdong/page.css",
+      "static/chunks/app/(users)/hoatdong/page.js"
+    ],
+    "/(users)/tamnhinvasumenh/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tamnhinvasumenh/page.css",
+      "static/chunks/app/(users)/tamnhinvasumenh/page.js"
+    ],
+    "/(users)/tintuc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/tintuc/page.css",
+      "static/chunks/app/(users)/tintuc/page.js"
+    ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
+    ],
     "/(users)/tracuuthuoc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/tracuuthuoc/page.css",
       "static/chunks/app/(users)/tracuuthuoc/page.js"
     ],
-<<<<<<< HEAD
-    "/(users)/page": [
+    "/(users)/datlich/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
     ],
-    "/_not-found/page": [
+    "/(users)/dangnhap/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
-=======
-    "/(users)/sudungthuocantoan/page": [
+      "static/css/app/(users)/dangnhap/page.css",
+      "static/chunks/app/(users)/dangnhap/page.js"
+    ],
+    "/(users)/dangky/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/sudungthuocantoan/page.css",
-      "static/chunks/app/(users)/sudungthuocantoan/page.js"
->>>>>>> 16293da129de4685ecb941e6f60caa483c74be61
+      "static/css/app/(users)/dangky/page.css",
+      "static/chunks/app/(users)/dangky/page.js"
     ]
   }
 }

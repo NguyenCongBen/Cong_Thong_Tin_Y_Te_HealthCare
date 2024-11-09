@@ -1,11 +1,8 @@
 {
-<<<<<<< HEAD
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
-  "/(users)/page": "app/(users)/page.js"
-=======
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
-  "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js"
->>>>>>> 16293da129de4685ecb941e6f60caa483c74be61
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/tamnhinvasumenh/page": "app/(users)/tamnhinvasumenh/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js",
+  "/(users)/dangky/page": "app/(users)/dangky/page.js",
+  "/(users)/dangnhap/page": "app/(users)/dangnhap/page.js"
 }
