@@ -34,10 +34,7 @@ img {
 .icon-main, .socia-icon {
     height: 30px;
 }
-img {
-    vertical-align: middle;
-    max-width: 100%;
-}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -405,9 +402,6 @@ img {
     margin: 0 15px;
 }
 .flex {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
 }
@@ -437,9 +431,21 @@ img {
     overflow: hidden;
     position: relative;
 }
-
+.hover-effect {  
+    transition: transform 0.3s ease-in-out;  
+  }  
+  
+  .hover-effect:hover {  
+    transform: translateY(-10px);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  }
 }
 
+.card-img-top {  
+    width: 260px;  
+    height: 180px;  
+    object-fit: cover;  
 
+  }  
 
 

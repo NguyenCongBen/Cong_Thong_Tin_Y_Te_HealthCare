@@ -1,7 +1,6 @@
 
+
 import Link from "next/link";
-
-
 
 export default function GoiTongDai() {
     return (
@@ -71,7 +70,7 @@ export default function GoiTongDai() {
                                             </div>
                                             <div class="g-col5">
                                                 <strong>
-                                                    <a class="g-blue g-phone" href="#">024 3974 3556</a>
+                                                    <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
                                                 </strong>
                                             </div>
                                         </div>
@@ -83,7 +82,7 @@ export default function GoiTongDai() {
                                             </div>
                                             <div class="g-col5">
                                                 <strong>
-                                                    <a class="g-blue g-phone" href="#">024 3974 3556</a>
+                                                    <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
                                                 </strong>
                                             </div>
                                         </div>
@@ -95,7 +94,7 @@ export default function GoiTongDai() {
                                             </div>
                                             <div class="g-col5">
                                                 <strong>
-                                                    <a class="g-blue g-phone" href="#">024 3974 3556</a>
+                                                    <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
                                                 </strong>
                                             </div>
                                         </div>
@@ -107,7 +106,7 @@ export default function GoiTongDai() {
                                             </div>
                                             <div class="g-col5">
                                                 <strong>
-                                                    <a class="g-blue g-phone" href="#">024 3974 3556</a>
+                                                    <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
                                                 </strong>
                                             </div>
                                         </div>
@@ -119,7 +118,7 @@ export default function GoiTongDai() {
                                             </div>
                                             <div class="g-col5">
                                                 <strong>
-                                                    <a class="g-blue g-phone" href="#">024 3974 3556</a>
+                                                    <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
                                                 </strong>
                                             </div>
                                         </div>
@@ -128,35 +127,35 @@ export default function GoiTongDai() {
                                 <div class="g-button-group">
                                     <div class="g-item">
                                         <div class="g-item-desc">
-                                            <img src="img/Download_App_8f9cde90f2.png" alt="" />
+                                            <img src="/images/img/Download_App_8f9cde90f2.png" alt="" />
                                             <div class="g-icon-main">
                                                 <span class="g-item-title">Đặt lịch qua App - MyVinmec</span>
                                                 <span class="g-item-text">Đặt lịch hẹn chủ động ngay tại nhà với bác sĩ và
                                                     ngày giờ khám</span>
                                             </div>
                                         </div>
-                                        <a class="g-a" href="#">
+                                        <Link class="g-a" href="#">
                                             <button class="bg-blue text-white border-none m-10">
                                                 <span>
                                                     Tải ngay
                                                 </span>
                                             </button>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div class="g-item">
                                         <div class="g-item-desc">
-                                            <img src="img/CSKH_b6c956f10b.png" alt="" />
+                                            <img src="/images/img/CSKH_b6c956f10b.png" alt="" />
                                             <div class="g-icon-main">
                                                 <span class="g-item-title">Cổng dịch vụ CSKH 24/7</span>
                                             </div>
                                         </div>
-                                        <a class="g-a" href="#">
+                                        <Link class="g-a" href="#">
                                             <button class="bg-blue text-white border-none m-10">
                                                 <span>
                                                     Gửi yêu cầu
                                                 </span>
                                             </button>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

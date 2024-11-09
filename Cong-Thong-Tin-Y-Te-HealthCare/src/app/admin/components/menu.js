@@ -49,14 +49,14 @@ export default function Menu(){
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
                             <li class="active"><Link href="/admin"><i class="icon-home"></i><span>Bảng Điều Khiển</span></Link></li>
-                            <li><a href="app-appointment.html"><i class="icon-calendar"></i>Cuộc Hẹn</a></li>
+                            <li><a href="/admin/Appointment"><i class="icon-calendar"></i>Cuộc Hẹn</a></li>
                             <li><a href="app-taskboard.html"><i class="icon-list"></i>Bảng Tác Vụ</a></li>
                             <li><a href="app-inbox.html"><i class="icon-home"></i>Ứng Dụng Inbox</a></li>
                             <li><a href="app-chat.html"><i class="icon-bubbles"></i>Ứng Dụng Nhắn Tin</a></li>
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Bác Sĩ</span> </a>
                                 <ul>
                                     <li>  <Link href="/admin/Doctors">Tất Cả Bác Sĩ</Link></li>
-                                    <li><Link href="/admin/Add_doctors">Thêm Bác Sĩ</Link></li>
+                                    <li><Link href="/admin/Doctors/AddDoctor">Thêm Bác Sĩ</Link></li>
                                     <li><a href="doctor-events.html">Lịch Trình Bác Sĩ</a></li>
                                 </ul>
                             </li>
