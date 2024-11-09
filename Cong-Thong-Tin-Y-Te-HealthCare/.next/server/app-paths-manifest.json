@@ -1,8 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
-  "/(users)/dltc/page": "app/(users)/dltc/page.js",
-  "/(users)/timkiem/page": "app/(users)/timkiem/page.js",
-  "/admin/page": "app/admin/page.js"
+  "/(users)/dangky/page": "app/(users)/dangky/page.js",
+  "/(users)/page": "app/(users)/page.js"
 }

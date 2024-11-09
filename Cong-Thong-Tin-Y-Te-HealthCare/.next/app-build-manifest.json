@@ -1,25 +1,10 @@
 {
   "pages": {
-    "/admin/Doctors/page": [
+    "/(users)/dangky/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
-    ],
-    "/admin/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
-    ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
-    ],
-    "/(users)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/page.js"
+      "static/css/app/(users)/dangky/page.css",
+      "static/chunks/app/(users)/dangky/page.js"
     ],
     "/(users)/layout": [
       "static/chunks/webpack.js",
@@ -27,40 +12,10 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/timbacsi/page": [
+    "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/timbacsi/page.css",
-      "static/chunks/app/(users)/timbacsi/page.js"
-    ],
-    "/(users)/datlich/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/datlich/page.css",
-      "static/chunks/app/(users)/datlich/page.js"
-    ],
-    "/(users)/tracuuthuoc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/tracuuthuoc/page.css",
-      "static/chunks/app/(users)/tracuuthuoc/page.js"
-    ],
-    "/(users)/dltc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/dltc/page.css",
-      "static/chunks/app/(users)/dltc/page.js"
-    ],
-    "/(users)/timkiem/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/timkiem/page.css",
-      "static/chunks/app/(users)/timkiem/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/(users)/page.js"
     ]
   }
 }
