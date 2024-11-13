@@ -1,4 +1,5 @@
 {
   "/(users)/dangky/page": "app/(users)/dangky/page.js",
-  "/(users)/page": "app/(users)/page.js"
+  "/(users)/page": "app/(users)/page.js",
+  "/(users)/dangnhap/page": "app/(users)/dangnhap/page.js"
 }
