@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
   "/admin/Doctors/[id]/page": "app/admin/Doctors/[id]/page.js",
   "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
   "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js",
   "/admin/Appointment/page": "app/admin/Appointment/page.js"
+=======
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(users)/page": "app/(users)/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js"
+>>>>>>> 5f92401 (m)
 }

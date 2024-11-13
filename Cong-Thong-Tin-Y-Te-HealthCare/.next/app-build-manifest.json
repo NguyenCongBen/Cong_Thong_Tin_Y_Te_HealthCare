@@ -1,5 +1,25 @@
 {
   "pages": {
+<<<<<<< HEAD
+=======
+    "/(users)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(users)/page.js"
+    ],
+    "/(users)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/layout.css",
+      "static/chunks/app/(users)/layout.js"
+    ],
+    "/(users)/datlich/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
+    ],
+>>>>>>> 5f92401 (m)
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -11,6 +31,7 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
+<<<<<<< HEAD
     "/admin/Appointment/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -35,6 +56,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/BenhNhan/[id]/page.js"
+=======
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+>>>>>>> 5f92401 (m)
     ]
   }
 }
