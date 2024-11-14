@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/admin/page": [
+    "/admin/BenhNhan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/chunks/app/admin/BenhNhan/page.js"
     ],
     "/admin/layout": [
       "static/chunks/webpack.js",
@@ -11,30 +11,15 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
-    "/admin/Appointment/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Appointment/page.js"
-    ],
-    "/admin/Doctors/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
-    ],
-    "/admin/Doctors/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/[id]/page.js"
-    ],
     "/admin/Add_doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/Add_doctors/page.js"
     ],
-    "/admin/BenhNhan/page": [
+    "/admin/Doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/BenhNhan/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
     ],
     "/admin/BenhNhan/[id]/page": [
       "static/chunks/webpack.js",
