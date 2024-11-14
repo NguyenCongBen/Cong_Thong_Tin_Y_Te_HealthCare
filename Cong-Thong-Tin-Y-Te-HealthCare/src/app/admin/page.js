@@ -1,304 +1,248 @@
 "use client";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import useSWR from "swr"; // Import useSWR
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
+    const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+    const { data, error: errorTotalPatients } = useSWR('http://localhost:3000/thong-ke/tong-so-benh-nhan', fetcher);
+    const { data: dataGender, error: errorGender } = useSWR('http://localhost:3000/thong-ke/benh-nhan-theo-gioi-tinh', fetcher);
+    const { data: dataAge, error: errorAge } = useSWR('http://localhost:3000/thong-ke/benh-nhan-theo-do-tuoi', fetcher);
+    const { data: dataTreatmentStatus, error: errorTreatmentStatus } = useSWR('http://localhost:3000/thong-ke/ke-hoach-dieu-tri-theo-trang-thai', fetcher);
+    const { data: dataRevenue, error: errorRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu', fetcher);
+    const { data: dataPharmacyRevenue, error: errorPharmacyRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-hieu-thuoc', fetcher); // Pharmacy revenue
+    const { data: dataServiceRevenue, error: errorServiceRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-dich-vu', fetcher); // Service revenue
 
-  if (!isClient) {
-    return null;
-  }
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
-  return (
-    <>
-    <div id="main-content">
+    if (!isClient) {
+        return null;
+    }
 
-        <div className="container-fluid">
-            <div className="block-header">
-                <div className="row">
-                    <div className="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" className="btn btn-xs btn-link btn-toggle-fullwidth"><i className="fa fa-arrow-left"></i></a> Dashboard</h2>
-                        <ul className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html"><i className="icon-home"></i></a></li>                            
-                            <li className="breadcrumb-item active">Dashboard</li>
-                        </ul>
-                    </div>            
-                  
-                </div>
-            </div>
-            <div className="row clearfix">
-                <div className="col-lg-3 col-md-12">
+    // Handle loading state
+    if (!data || !dataGender || !dataAge || !dataTreatmentStatus || !dataRevenue || !dataPharmacyRevenue || !dataServiceRevenue) {
+        return <div>Loading...</div>;
+    }
+
+    // Handle errors
+    if (errorTotalPatients || errorGender || errorAge || errorTreatmentStatus || errorRevenue || errorPharmacyRevenue || errorServiceRevenue) {
+        console.error('Error fetching data:', errorTotalPatients || errorGender || errorAge || errorTreatmentStatus || errorRevenue || errorPharmacyRevenue || errorServiceRevenue);
+        return <div>Error loading data</div>;
+    }
+
+    const maleCount = Array.isArray(dataGender) ? dataGender.find(item => item.gioi_tinh === 'Nam')?.so_luong || 0 : 0;
+    const femaleCount = Array.isArray(dataGender) ? dataGender.find(item => item.gioi_tinh === 'Nữ')?.so_luong || 0 : 0;
+
+    return (
+        <>
+            <div id="main-content">
+                <div className="container-fluid">
+                    <div className="block-header">
+                        <div className="row">
+                            <div className="col-lg-6 col-md-8 col-sm-12">
+                                <h2><a href="javascript:void(0);" className="btn btn-xs btn-link btn-toggle-fullwidth"><i className="fa fa-arrow-left"></i></a> Bảng Điều Khiển</h2>
+                                <ul className="breadcrumb">
+                                    <li className="breadcrumb-item"><a href="index.html"><i className="icon-home"></i></a></li>
+                                    <li className="breadcrumb-item active">Bảng Điều Khiển</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row clearfix">
-                        <div className="col-lg-12 col-md-6">
-                            <div className="card top_counter">
-                                <div className="body">
-                                    <div id="top_counter1" className="carousel slide" data-ride="carousel">
-                                        <div className="carousel-inner">
-                                            <div className="carousel-item active">
-                                                <div className="icon"><i className="fa fa-user"></i> </div>
-                                                <div className="content">
-                                                    <div className="text">Total Patient</div>
-                                                    <h5 className="number">215</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div id="top_counter2" className="carousel slide" data-ride="carousel">
-                                        <div className="carousel-inner">
-                                            <div className="carousel-item active">
-                                                <div className="icon"><i className="fa fa-user-md"></i> </div>
-                                                <div className="content">
-                                                    <div className="text">Operations</div>
-                                                    <h5 className="number">06</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-12 col-md-6">
-                            <div className="card top_counter">
-                                <div className="body">
-                                    <div id="top_counter3" className="carousel vert slide" data-ride="carousel" data-interval="2300">
-                                        <div className="carousel-inner">
-                                            <div className="carousel-item active">
-                                                <div className="icon"><i className="fa fa-eye"></i> </div>
-                                                <div className="content">
-                                                    <div className="text">Total Visitors</div>
-                                                    <h5 className="number">10K</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>                                    
-                                    <hr/>
-                                    <div className="icon"><i className="fa fa-university"></i> </div>
-                                    <div className="content">
-                                        <div className="text">Revenue</div>
-                                        <h5 className="number">$18,925</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-12 col-md-12">
-                            <div className="card top_counter">
-                                <div className="body">
-                                    <div className="icon"><i className="fa fa-thumbs-o-up"></i> </div>
-                                    <div className="content">
-                                        <div className="text">Happy Clients</div>
-                                        <h5 className="number">528</h5>
-                                    </div>
-                                    <hr/>
-                                    <div className="icon"><i className="fa fa-smile-o"></i> </div>
-                                    <div className="content">
-                                        <div className="text">Smiley Faces</div>
-                                        <h5 className="number">2,528</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-9 col-md-12">
-                    <div className="card">
-                        <div className="header">
-                            <h2>Total Revenue</h2>
-                            <ul className="header-dropdown">
-                                <li><a className="tab_btn" href="javascript:void(0);" title="Weekly">W</a></li>
-                                <li><a className="tab_btn" href="javascript:void(0);" title="Monthly">M</a></li>
-                                <li><a className="tab_btn active" href="javascript:void(0);" title="Yearly">Y</a></li>
-                                <li className="dropdown">
-                                    <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                    <ul className="dropdown-menu dropdown-menu-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another Action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="body">
+                        <div className="col-lg-3 col-md-12">
                             <div className="row clearfix">
-                                <div className="col-md-4">
-                                    <div className="body bg_title_1 text-light">
-                                        <h4><i className="icon-wallet"></i> 7,12,326$</h4>
-                                        <span>Operation Income</span>
+                                <div className="col-lg-12 col-md-6">
+                                    <div className="card top_counter">
+                                        <div className="body">
+                                            <div id="top_counter1" className="carousel slide" data-ride="carousel">
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <div className="icon"><i className="fa fa-user"></i> </div>
+                                                        <div className="content">
+                                                            <div className="text_thongke_main">
+                                                                <div className="text">Tất Cả Bệnh Nhân</div>
+                                                                <h5 className="number">{data.tong_so_benh_nhan}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <div className="icon"><i className="fa fa-user"></i></div>
+                                                        <div className="content main_admin_gioitinh">
+                                                            <div className="text_thongke_main">
+                                                                <div className="text">Nam</div>
+                                                                <h5 className="number">{maleCount}</h5>
+                                                            </div>
+                                                            <div className="text_thongke_main">
+                                                                <div className="text">Nữ</div>
+                                                                <h5 className="number">{femaleCount}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div id="top_counter2" className="carousel slide" data-ride="carousel">
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <div className="icon"><i className="fa fa-user-md"></i> </div>
+                                                        <div className="content">
+                                                            <div className="text">Hoạt Động</div>
+                                                            <h5 className="number">06</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-md-4">
-                                    <div className="body bg_title_2 text-light">
-                                        <h4><i className="icon-wallet"></i> 25,965$</h4>
-                                        <span>Pharmacy Income</span>
+                                <div className="col-lg-12 col-md-6">
+                                    <div className="card top_counter">
+                                        <div className="body">
+                                            <div id="top_counter3" className="carousel vert slide" data-ride="carousel" data-interval="2300">
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <div className="icon"><i className="fa fa-eye"></i> </div>
+                                                        <div className="content">
+                                                            <div className="text">Tổng Lượt Truy Cập</div>
+                                                            <h5 className="number">10K</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div className="icon"><i className="fa fa-university"></i> </div>
+                                            <div className="content">
+                                                <div className="text">Doanh Thu</div>
+                                                <h5 className="number">$18,925</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-md-4">
-                                    <div className="body bg_title_3 text-light">
-                                        <h4><i className="icon-wallet"></i> 14,965$</h4>
-                                        <span>Hospital Expenses</span>
+                                <div className="col-lg-12 col-md-12">
+                                    <div className="card top_counter">
+                                        <div className="body">
+                                            <div className="icon"><i className="fa fa-thumbs-o-up"></i> </div>
+                                            <div className="content">
+                                                <div className="text">Khách Hàng Hài Lòng</div>
+                                                <h5 className="number">528</h5>
+                                            </div>
+                                            <hr />
+                                            <div className="icon"><i className="fa fa-smile-o"></i> </div>
+                                            <div className="content">
+                                                <div className="text">Tích Cực</div>
+                                                <h5 className="number">2,528</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="total_revenue" className="ct-chart m-t-20"></div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <div className="col-lg-9 col-md-12">
+                            <div className="card">
+                                <div className="header">
+                                    <h2>Tổng Doanh Thu</h2>
+                                    <ul className="header-dropdown">
 
-            <div class="row clearfix">
-                <div class="col-lg-8 col-md-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>Visitors Statistics</h2>
-                            <ul class="header-dropdown">
-                                <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Weekly">W</a></li>
-                                <li><a class="tab_btn" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Monthly">M</a></li>
-                                <li><a class="tab_btn active" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Yearly">Y</a></li>
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another Action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
+                                        <li className="dropdown">
+                                            <a href="javascript:void(0);" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                                            <ul className="dropdown-menu dropdown-menu-right">
+                                                <li><a href="javascript:void(0);">Hành Động </a></li>
+                                                <li><a href="javascript:void(0);">Hành Động Khác</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
-                                </li>
-                            </ul>
+                                </div>
+                                <div className="body">
+                                    <div className="row clearfix">
+                                        <div className="col-md-4">
+                                            <div className="body_title bg_title_1 text-light">
+                                                {dataRevenue ? (
+                                                    dataRevenue.map((item, index) => (
+                                                        <div key={index}>
+                                                             <h4><i className="icon-wallet"></i> {item.doanh_thu} </h4>
+                                                            <span>Thu Nhập Hoạt Động</span>
+                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    <div className="text-center text-muted">Loading revenue statistics...</div>
+                                                )}
+                                            </div>
+
+                                        </div>
+                                        <div className="col-md-4">
+                                            <div className="body_title bg_title_2 text-light">
+                                                <h4>
+                                                    <i className="icon-wallet"></i>
+                                                    {dataPharmacyRevenue?.doanh_thu_hieu_thuoc}
+                                                </h4>
+
+                                                <span>Thu Nhập Từ Hiệu Thuốc</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-4">
+                                            <div className="body_title  bg_title_3 text-light">
+                                                <h4><i className="icon-wallet"></i> {dataServiceRevenue?.tong_doanh_thu_dich_vu}</h4>
+                                                <span>Chi Phí Hoạt Động</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="body">
-                            <div id="Visitors_chart" class="flot-chart m-b-20"></div>
-                            <div class="row text-center">
-                                <div class="col-lg-3 col-md-3 col-6">
-                                    <div id="Visitors_chart1" class="carousel slide" data-ride="carousel" data-interval="2000">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <div class="body xl-turquoise">
-                                                    <h4>2,025</h4>
-                                                    <span>America</span>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="body xl-parpl">
-                                                    <h4>1,100</h4>
-                                                    <span>Canada</span>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="body xl-salmon">
-                                                    <h4>680</h4>
-                                                    <span>Brazil</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="khung_2ben_doanhthu">
+                            <div className="card">
+                                <div className="card-header bg-primary text-white" style={{ backgroundColor: "#4B72F0" }}>
+                                    <h4 className="mb-0">Thống Kê Bệnh Nhân Theo Độ Tuổi</h4>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-6">
-                                    <div id="Visitors_chart2" class="carousel slide" data-ride="carousel" data-interval="2200">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <div class="body xl-parpl">
-                                                    <h4>1,025</h4>
-                                                    <span>UK</span>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="body xl-slategray">
-                                                    <h4>582</h4>
-                                                    <span>France</span>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="body xl-khaki">
-                                                    <h4>128</h4>
-                                                    <span>Georgia</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>                                    
+                                <div className="card-body">
+                                    {dataAge ? (
+                                        <ul className="list-group">
+                                            {dataAge.map((item, index) => (
+                                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                                                    Độ tuổi {item.do_tuoi}
+                                                    <span className="badge badge-primary badge-pill">{item.so_luong} bệnh nhân</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <div className="text-center text-muted">Loading age statistics...</div>
+                                    )}
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-6">
-                                    <div class="body xl-salmon">                                        
-                                        <h4>3,845</h4>
-                                        <span>India</span>
-                                    </div>
+                            </div>
+                            <div className="card ">
+                                <div className="card-header text-white" style={{ backgroundColor: "#F0864B" }}>
+                                    <h4 className="mb-0">Thống Kê Kế Hoạch Điều Trị Theo Trạng Thái</h4>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-6">
-                                    <div class="body xl-slategray">                                        
-                                        <h4>863</h4>
-                                        <span>Other</span>
-                                    </div>
-                                </div>                      
+                                <div className="card-body">
+                                    {dataTreatmentStatus ? (
+                                        <ul className="list-group">
+                                            {dataTreatmentStatus.map((item, index) => (
+                                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                                                    Trạng thái {item.trang_thai}
+                                                    <span className="badge badge-success badge-pill">{item.so_luong} kế hoạch</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <div className="text-center text-muted">Loading treatment plan statistics...</div>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>ToDo List <small>This Month task list</small></h2>
-                        </div>
-                        <div class="body todo_list">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <label class="fancy-checkbox mb-0">
-                                        <input type="checkbox" name="checkbox" />
-                                        <span>A Brief History Of Anesthetics</span>
-                                    </label>
-                                    <div class="m-l-35 m-b-30">
-                                        <small class="text-muted">SCHEDULED FOR 3:00 P.M. ON JUN 2018</small>
-                                        <ul class="list-unstyled team-info">
-                                            <li><img src="assets/images/xs/avatar1.jpg" data-toggle="tooltip" data-placement="top" title="Dr. Chris Fox" alt="Avatar"/></li>
-                                            <li><img src="assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="Dr. Joge Lucky" alt="Avatar"/></li>
-                                            <li><img src="assets/images/xs/avatar5.jpg" data-toggle="tooltip" data-placement="top" title="Isabella" alt="Avatar"/></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label class="fancy-checkbox mb-0">
-                                        <input type="checkbox" name="checkbox"/>
-                                        <span>Using Laser Teatment to Help</span>
-                                    </label>
-                                    <div class="m-l-35 m-b-30">
-                                        <small class="text-muted">SCHEDULED FOR 4:30 P.M. ON JUN 2018</small>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label class="fancy-checkbox mb-0">
-                                        <input type="checkbox" name="checkbox"/>
-                                        <span>Selecting the Apnea Treatment</span>
-                                    </label>
-                                    <div class="m-l-35 m-b-30">
-                                        <small class="text-muted">SCHEDULED FOR 4:30 P.M. ON JUN 2018</small><br/>
-                                        <small class="text-warning">ICU PATIENT - LAST 2 DAYS</small><br />
-                                        <small>Patient Name: <a href="#">Hossein</a></small>                                        
-                                    </div>
-                                </li>
-                                <li>
-                                    <label class="fancy-checkbox mb-0">
-                                        <input type="checkbox" name="checkbox"/>
-                                        <span>Using Laser Teatment to Help</span>
-                                    </label>
-                                    <div class="m-l-35">
-                                        <small class="text-muted">SCHEDULED FOR 4:30 P.M. ON JUN 2018</small>
-                                        <ul class="list-unstyled team-info">
-                                            <li><img src="assets/images/xs/avatar4.jpg" data-toggle="tooltip" data-placement="top" title="Dr. Chris Fox" alt="Avatar"/></li>
-                                            <li><img src="assets/images/xs/avatar6.jpg" data-toggle="tooltip" data-placement="top" title="Dr. Joge Lucky" alt="Avatar"/></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </div>
 
+                    </div>
+                </div>
             </div>
 
-        </div>
- 
-    </>
-  );
+
+        </>
+    );
 }

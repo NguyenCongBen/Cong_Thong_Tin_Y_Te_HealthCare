@@ -164,3 +164,28 @@ $(function() {
     $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
     
 });
+
+function changeColor(select) {
+    const value = select.value;
+
+    // Xóa tất cả lớp active
+    select.classList.remove('select-active', 'select-pending', 'select-rejected');
+
+    // Thêm lớp active tương ứng
+    if (value === 'approved') {
+        select.classList.add('select-active');
+        select.disabled = true; // Vô hiệu hóa dropdown khi "Đã Duyệt" được chọn
+    } else if (value === 'pending') {
+        select.classList.add('select-pending');
+    } else if (value === 'rejected') {
+        select.classList.add('select-rejected');
+    } else {
+        select.disabled = false; // Kích hoạt lại dropdown nếu không chọn tùy chọn nào
+    }
+}
+
+
+
+
+
+

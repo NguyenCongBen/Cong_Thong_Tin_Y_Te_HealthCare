@@ -1,10 +1,11 @@
-.bg_title_1{
+.bg_title_1 {
     background-color: #00D1C3;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_1::after{
+
+.bg_title_1::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -14,7 +15,8 @@
     background-color: #21D8CC;
     right: -10px;
 }
-.bg_title_1::before{
+
+.bg_title_1::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -25,13 +27,15 @@
     background-color: #44DDD3;
     right: 10px;
 }
-.bg_title_2{
+
+.bg_title_2 {
     background-color: #4B72F0;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_2::after{
+
+.bg_title_2::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -41,7 +45,8 @@
     background-color: #5E80F1;
     right: -10px;
 }
-.bg_title_2::before{
+
+.bg_title_2::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -51,13 +56,16 @@
     z-index: 3;
     background-color: #6E8DF2;
     right: 10px;
-}.bg_title_3{
+}
+
+.bg_title_3 {
     background-color: #F0864B;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.bg_title_3::after{
+
+.bg_title_3::after {
     position: absolute;
     content: "";
     width: 130px;
@@ -67,7 +75,8 @@
     background-color: #F1925E;
     right: -10px;
 }
-.bg_title_3::before{
+
+.bg_title_3::before {
     position: absolute;
     content: "";
     width: 80px;
@@ -77,4 +86,289 @@
     z-index: 3;
     background-color: #F29D6E;
     right: 10px;
+}
+
+.menu_thongbao_header {
+    position: absolute;
+    left: -450px;
+    display: none;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.menu_thongbao_header_2 {
+    position: absolute;
+    left: -150px;
+    display: none;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.menu_thongbao_header_2 li {
+    list-style: none;
+}
+
+.hover_information_bell:hover .menu_thongbao_header {
+    display: block;
+}
+
+.hover_information_bell:hover .menu_thongbao_header_2 {
+    display: block;
+}
+
+.doctors_main {
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    transition: .5s ease;
+}
+
+.name_doctors_admin {
+    font-size: 22px;
+    margin: 10px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.name_doctors_admin a {
+    color: black;
+    text-decoration: none;
+}
+
+.clearfix:hover a {
+    text-decoration: none;
+}
+
+.doctors_main:hover {
+    transform: translateY(-10px);
+    box-shadow: 1px 1px 10px #fff;
+}
+
+.all_doctors_btn {
+    margin-top: 10px;
+}
+
+.all_doctors_btn button {
+    margin: 0 10px;
+    padding: 10px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.edit_doctors {
+    background-color: #3879FB;
+    transition: .3s;
+}
+
+.edit_doctors:hover {
+    background-color: #76a0f3;
+}
+
+.delete_doctors {
+    transition: .3s;
+    background-color: #8D4D3F;
+}
+
+.delete_doctors:hover {
+    background-color: #ae7d72;
+}
+
+.doctors_main:hover .delete_doctors {
+    animation: vo_btn_xoa .5s ease;
+}
+
+.doctors_main:hover .edit_doctors {
+    animation: vo_btn_edit .5s ease;
+}
+
+.doctors_main:not(:hover) .delete_doctors {
+    animation: ra_btn_delete .5s ease forwards;
+}
+
+.doctors_main:not(:hover) .edit_doctors {
+    animation: ra_btn_edit .5s ease forwards;
+}
+
+@keyframes vo_btn_edit {
+    from {
+        opacity: 0;
+        transform: translateX(-180px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes vo_btn_xoa {
+    from {
+        opacity: 0;
+        transform: translateX(180px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ra_btn_edit {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-180px);
+    }
+}
+
+@keyframes ra_btn_delete {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(180px);
+    }
+}
+
+.chuyen_khoa_admin_doctor {
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: .5s ease;
+    box-shadow: 0 0 5px 2px rgba(154, 155, 156, 0.3);
+
+}
+
+.icon_ngoisao_admin_doctors {
+    margin-right: 5px;
+    font-size: 20px;
+    color: yellow;
+}
+
+.icon_ngoisao_admin_doctors i {
+    margin: 0 3px;
+}
+
+.adress_admin_doctors {
+    margin: 5px 0;
+}
+
+.chart {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.chart span img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px 5px rgba(154, 155, 156, 0.3);
+}
+
+tbody tr td a {
+    color: black;
+
+}
+
+.title_thongtin_benhnhan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail_benhnhan_btn_admin {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CD50B;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .5s ease;
+    text-transform: capitalize;
+}
+
+.detail_benhnhan_btn_admin:hover {
+    background-color: #58b729;
+}
+
+.list-name {
+    background-color: rgb(255, 51, 51);
+    color: #ffffff;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+/* Pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    /* Center the pagination */
+    list-style: none;
+    /* Remove default list styles */
+    padding: 0;
+    /* Remove padding */
+    margin: 20px 0;
+    /* Add margin above and below */
+}
+
+/* Individual page items */
+.pagination li {
+    margin: 0 5px;
+    /* Space between page items */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #000000 !important;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px 1px rgba(152, 152, 152, 0.4);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    /* Transition for hover effect */
+}
+
+/* Styles for disabled items */
+.pagination .disabled {
+    opacity: 0.5;
+    /* Fade out disabled items */
+}
+
+.phantrang_asbout_admin {
+    position: relative;
+}
+
+.phantrang_admin_doctors {
+    position: fixed;
+    right: 35%;
+    bottom: 0;
+}
+
+.main_admin_gioitinh {
+    display: flex;
+    gap: 10px;
+}
+
+.text_thongke_main_gioitinh_2 {
+    margin-right: 10px;
+}
+.khung_2ben_doanhthu{
+    display: flex;
+    width: 100%;
+    gap: 20px;
 }

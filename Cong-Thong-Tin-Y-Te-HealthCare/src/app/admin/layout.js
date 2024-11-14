@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-// import "./globals.css";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -40,14 +39,17 @@ export default function RootLayout({ children }) {
           <Menu></Menu>
           {children}
         </div>
+        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/index.js"></script>
-        <script src="/bundles/libscripts.bundle.js"></script>1
-        <script src="/bundles/vendorscripts.bundle.js"></script>1
-        <script src="/bundles/mainscripts.bundle.js"></script>1
-        <script src="/bundles/chartist.bundle.js"></script>1
-        <script src="/bundles/knob.bundle.js"></script>1
-        <script src="/bundles/flotscripts.bundle.js"></script>1
-        <script src="/bundles/fullcalendarscripts.bundle.js"></script>1
+        <script src="/js/"></script>
+        
+        <script src="/bundles/libscripts.bundle.js"></script>
+        <script src="/bundles/vendorscripts.bundle.js"></script>
+        <script src="/bundles/mainscripts.bundle.js"></script>
+        <script src="/bundles/chartist.bundle.js"></script>
+        <script src="/bundles/knob.bundle.js"></script>
+        <script src="/bundles/flotscripts.bundle.js"></script>
+        <script src="/bundles/fullcalendarscripts.bundle.js"></script>
         <script src="/vendor/toastr/toastr.js"></script>
         <script src="/vendor/flot-charts/jquery.flot.selection.js"></script>
         <script src="/vendor/fullcalendar/fullcalendar.js"></script>
@@ -55,6 +57,22 @@ export default function RootLayout({ children }) {
           src="https://kit.fontawesome.com/bcd15b30db.js"
           crossorigin="anonymous"
         ></script>
+        //js
+        {/* <script scr="/bootstrap/js/bootstrap.bundle.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.bundle.js.map"> </script>
+        <script scr="/bootstrap/js/bootstrap.bundle.min.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.bundle.min.js.map"> </script>
+        <script scr="/bootstrap/js/bootstrap.esm.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.esm.js.map"> </script>
+        <script scr="/bootstrap/js/bootstrap.esm.min.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.esm.min.js.map"> </script>
+        <script scr="/bootstrap/js/bootstrap.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.js.map"> </script>
+        <script scr="/bootstrap/js/bootstrap.min.js"> </script>
+        <script scr="/bootstrap/js/bootstrap.min.js.map"> </script>
+        <script scr="/bootstrap/js/google.chart.js"> </script>
+        <script scr="/bootstrap/js/style.js"> </script> */}
+        
         <script src="/js/pages/calendar.js"></script>
       </body>
     </html>
