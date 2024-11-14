@@ -31,7 +31,7 @@ export default function ChuyenKhoa({ params }) {
                                 </Link>
                             </div>
                             <div class="thanhtuu-col-4 col-4-w">
-                                <Link href="timbacsi.html">
+                                <Link href="/timbacsi">
                                     <img src="/images/img/thành tựu/doctor.png" alt="" />
                                     <span>Tìm bác sĩ</span>
                                 </Link>

@@ -37,6 +37,36 @@ body {
     padding: 0;
 }
 
+.tt-bread-1 {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.tt-bread-1>i {
+    margin-top: 3px;
+}
+
+.tt-item {
+    margin-right: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #0076CA;
+    font-size: 14px;
+}
+
+.tt-item-1 {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #222;
+    margin-right: 5px;
+}
+
+.tt-item-color {
+    color: #212529;
+    font-weight: 400;
+}
+
 .tt-vaitro {
     list-style: none;
     display: flex;

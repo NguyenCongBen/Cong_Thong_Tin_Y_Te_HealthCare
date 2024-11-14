@@ -1,7 +1,7 @@
 {
   "/(users)/dltc/page": "app/(users)/dltc/page.js",
   "/admin/page": "app/admin/page.js",
-  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
+  "/admin/Appointment/page": "app/admin/Appointment/page.js",
   "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js",
-  "/admin/Appointment/page": "app/admin/Appointment/page.js"
+  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js"
 }

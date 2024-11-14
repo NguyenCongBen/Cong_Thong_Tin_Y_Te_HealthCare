@@ -2,10 +2,11 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import AddDoctor from '../components/AddProduct';
 
 export default function Doctors() {
   const [data, setData] = useState([]);
-  
+
   const fetchDoctor = async () => {
     const res = await fetch("http://localhost:3000/doctor", {
       cache: 'no-store'
@@ -74,39 +75,39 @@ export default function Doctors() {
             {currentDoctors.map((doctor, index) => (
               <div key={doctor.id} className="col-lg-3 col-md-6 col-sm-12">
                 {/* <Link href={`/admin/Doctors/Edit/${doctor.id}`}> */}
-                  <div className="card doctors_main">
-                    <div className="body text-center">
-                      <div className="chart" data-percent="75">
-                        <span>
-                          <img
-                            src={`http://localhost:3000/images/img/bác sĩ/${doctor.anh}`}
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            title={doctor.ten}
-                            alt="user"
-                          />
-                        </span>
-                      </div>
-                      <small className="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small> <br />
-                      <br />
-                      <h3 className="adress_admin_doctors">{index + 1}</h3>
-                      <h6 className="mb-0 name_doctors_admin">
-                        <a href="#" title="">{doctor.ten}</a>
-                      </h6>
-                      <span className="adress_admin_doctors">{doctor.dia_chi}</span>
-                      <div className="icon_ngoisao_admin_doctors">
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-solid fa-star"></i>
-                        <i className="fa-regular fa-star"></i>
-                      </div>
-                      <div className="all_doctors_btn">
-                        <Link href={`/admin/Doctors/Edit/${doctor.id}`} className="edit_doctors">Sửa</Link>
-                        <button className="delete_doctors" onClick={() => deleteDoctor(doctor.id)}>Xóa</button>
-                      </div>
+                <div className="card doctors_main">
+                  <div className="body text-center">
+                    <div className="chart" data-percent="75">
+                      <span>
+                        <img
+                          src={`http://localhost:3000/images/img/bác sĩ/${doctor.anh}`}
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title={doctor.ten}
+                          alt="user"
+                        />
+                      </span>
+                    </div>
+                    <small className="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small> <br />
+                    <br />
+                    <h3 className="adress_admin_doctors">{index + 1}</h3>
+                    <h6 className="mb-0 name_doctors_admin">
+                      <a href="#" title="">{doctor.ten}</a>
+                    </h6>
+                    <span className="adress_admin_doctors">{doctor.dia_chi}</span>
+                    <div className="icon_ngoisao_admin_doctors">
+                      <i className="fa-solid fa-star"></i>
+                      <i className="fa-solid fa-star"></i>
+                      <i className="fa-solid fa-star"></i>
+                      <i className="fa-solid fa-star"></i>
+                      <i className="fa-regular fa-star"></i>
+                    </div>
+                    <div className="all_doctors_btn">
+                      <Link href={`/admin/Doctors/Edit/${doctor.id}`} className="edit_doctors">Sửa</Link>
+                      <button className="delete_doctors" onClick={() => deleteDoctor(doctor.id)}>Xóa</button>
                     </div>
                   </div>
+                </div>
                 {/* </Link> */}
               </div>
             ))}
@@ -143,56 +144,7 @@ export default function Doctors() {
         </div>
       </div>
 
-      {/* Modal for adding a doctor */}
-      <div className="modal fade" id="addcontact" tabIndex="-1" role="dialog">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h6 className="title" id="defaultModalLabel">Add Doctor</h6>
-            </div>
-            <div className="modal-body">
-              <div className="row clearfix">
-                <div className="col-6">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="First Name" />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Last Name" />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="form-group">
-                    <input type="number" className="form-control" placeholder="Phone Number" />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Specialty" />
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Enter Address" />
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="form-group">
-                    <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" />
-                    <small id="fileHelp" className="form-text text-muted">Upload doctor's image.</small>
-                  </div>
-                  <hr />
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary">Add</button>
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <AddDoctor />
     </>
   );
 }

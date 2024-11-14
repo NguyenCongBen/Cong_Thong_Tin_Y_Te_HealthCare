@@ -3,10 +3,9 @@ import Link from 'next/link';
 import React from 'react';
 import useSWR from "swr";
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function Doctors() {
-    const { data, error } = useSWR('http://localhost:3000/benhnhan', fetcher);
+export default function BenhNhan() {
+    const { data, error } = useSWR('http://localhost:3000/patient', fetcher);
     console.log(data);
-    // Kiểm tra lỗi
     if (error) return <strong>lỗi bệnh nhân</strong>;
 
     if (!data || data.length === 0) return <p>Không có dữ liệu bác sĩ.</p>;
@@ -61,12 +60,11 @@ export default function Doctors() {
                                         <div class="tab-pane table-responsive active show" id="All">
                                             <table class="table m-b-0 table-hover">
                                                 <thead class="thead-dark">
-                                                    <tr>
+                                                    <tr className='hihihi'>
                                                         <th>Hình Ảnh</th>
                                                         <th>Mã Bệnh Nhân</th>
                                                         <th>Tên</th>
-                                                        <th>Tuổi</th>
-                                                        <th>Địa Chỉ</th>
+                                                        <th>Ngày sinh</th>
                                                         <th>Số Điện Thoại</th>
                                                         <th>Email</th>
                                                         <th>Hành Động</th>
@@ -74,20 +72,17 @@ export default function Doctors() {
                                                 </thead>
                                                 <tbody>
                                                     {data.map((e) => (
-                                             
-
                                                         <tr>
                                                             <td><span class="list-icon"><img class="patients-img" src="/images/xs/avatar1.jpg" alt="" /></span></td>
                                                             <td><span class="list-name">#BN 00{e.id}</span></td>
                                                             <td>{e.ten} </td>
-                                                            <td>{e.ngay_sinh}</td>
-                                                            <td>{e.dia_chi}</td>
+                                                            <td>{e.ngay_sinh.split('T')[0]}</td>
                                                             <td>{e.so_dien_thoai}</td>
                                                             <td>{e.email}</td>
                                                             <td><Link href={`/admin/BenhNhan/${e.id}`}> <button class="detail_benhnhan_btn_admin">Chi tiết</button> </Link></td>
 
                                                         </tr>
-                                                          
+
                                                     ))};
                                                 </tbody>
                                             </table>

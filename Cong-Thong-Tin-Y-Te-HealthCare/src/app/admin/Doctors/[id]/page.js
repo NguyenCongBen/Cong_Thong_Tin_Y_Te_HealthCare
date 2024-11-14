@@ -64,7 +64,7 @@ export default function DoctorDetail({ params }) {
 
                             <div class="card">
                                 <div class="header">
-                                    <h2>Info</h2>
+                                    <h2>Thông tin</h2>
                                     <ul class="header-dropdown">
                                         <li class="dropdown">
                                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>

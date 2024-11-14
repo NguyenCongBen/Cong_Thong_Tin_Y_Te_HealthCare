@@ -3,6 +3,8 @@ import "../../../../public/css/user/timbacsi.css";
 import Link from "next/link";
 import GoiTongDai from "../Components/Goitongdai";
 import TatCaBacSi from "../Components/Alldoctor";
+import ChonCoSo from "../Components/choncoso";
+import ChuyenMon from "../Components/Chuyenmon";
 
 export default async function TimBacSi() {
     const res = await fetch("http://localhost:3000/doctor", { cache: 'no-store' });
@@ -65,24 +67,7 @@ export default async function TimBacSi() {
                                                     data-bs-parent="#accordionFlushExample" style={{ borderRadius: '5px' }}>
                                                     <div class="accordion-body" id="accordion-body">
                                                         <ul>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
+                                                            <ChonCoSo />
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -106,24 +91,7 @@ export default async function TimBacSi() {
                                                     data-bs-parent="#accordionFlushExample" style={{ borderRadius: '5px' }}>
                                                     <div class="accordion-body" id="accordion-body">
                                                         <ul>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <label for="#" class="bs-flex">
-                                                                    <input type="checkbox" class="bs-hospitals-items" />
-                                                                    Bệnh viện Đa khoa Quốc tế Vinmec Central Park
-                                                                </label>
-                                                            </li>
+                                                            <ChuyenMon />
                                                         </ul>
                                                     </div>
                                                 </div>

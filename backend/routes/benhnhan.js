@@ -48,6 +48,44 @@ WHERE
   });
 });
 
+// thêm bệnh nhân
+router.post('/api/benh_nhan', (req, res) => {
+  const { ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, anh } = req.body;
+
+  // Kiểm tra xem các trường bắt buộc có được cung cấp không
+  if (!ten || !ngay_sinh || !so_dien_thoai || !email) {
+    return res.status(400).json({ error: "Các trường 'ten', 'ngay_sinh', 'so_dien_thoai', và 'email' là bắt buộc." });
+  }
+
+  // Câu lệnh SQL để thêm một bệnh nhân mới
+  const query = `
+    INSERT INTO benh_nhan (ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, anh)
+    VALUES (?, ?, ?, ?, ?, ?, ?);
+  `;
+
+  // Thực hiện truy vấn với dữ liệu từ yêu cầu
+  req.db.query(query, [ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, anh], (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    // Phản hồi lại sau khi thêm thành công
+    res.status(201).json({
+      message: 'Bệnh nhân đã được tạo thành công',
+      id: results.insertId,
+      ten,
+      ngay_sinh,
+      gioi_tinh,
+      dia_chi,
+      so_dien_thoai,
+      email,
+      anh
+    });
+  });
+});
+
+
+
 
 router.get('/tinh_trang_suc_khoe/:id_benh_nhan', (req, res) => {
   const patientId = req.params.id_benh_nhan;

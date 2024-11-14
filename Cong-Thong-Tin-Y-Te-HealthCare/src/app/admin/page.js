@@ -12,8 +12,8 @@ export default function Home() {
     const { data: dataAge, error: errorAge } = useSWR('http://localhost:3000/thong-ke/benh-nhan-theo-do-tuoi', fetcher);
     const { data: dataTreatmentStatus, error: errorTreatmentStatus } = useSWR('http://localhost:3000/thong-ke/ke-hoach-dieu-tri-theo-trang-thai', fetcher);
     const { data: dataRevenue, error: errorRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu', fetcher);
-    const { data: dataPharmacyRevenue, error: errorPharmacyRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-hieu-thuoc', fetcher); // Pharmacy revenue
-    const { data: dataServiceRevenue, error: errorServiceRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-dich-vu', fetcher); // Service revenue
+    const { data: dataPharmacyRevenue, error: errorPharmacyRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-hieu-thuoc', fetcher);
+    const { data: dataServiceRevenue, error: errorServiceRevenue } = useSWR('http://localhost:3000/thong-ke/doanh-thu-dich-vu', fetcher);
 
     useEffect(() => {
         setIsClient(true);
@@ -78,9 +78,18 @@ export default function Home() {
                                                                 <div className="text">Nam</div>
                                                                 <h5 className="number">{maleCount}</h5>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <div className="icon"><i className="fa fa-user"></i></div>
+                                                        <div className="content main_admin_gioitinh">
                                                             <div className="text_thongke_main">
-                                                                <div className="text">Nữ</div>
-                                                                <h5 className="number">{femaleCount}</h5>
+                                                                <div className="text_thongke_main">
+                                                                    <div className="text">Nữ</div>
+                                                                    <h5 className="number">{femaleCount}</h5>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -164,8 +173,8 @@ export default function Home() {
                                             <div className="body_title bg_title_1 text-light">
                                                 {dataRevenue ? (
                                                     dataRevenue.map((item, index) => (
-                                                        <div key={index}>
-                                                             <h4><i className="icon-wallet"></i> {item.doanh_thu} </h4>
+                                                        <div key={index} className="hahaha">
+                                                            <h4><i className="icon-wallet"></i> {item.doanh_thu} </h4>
                                                             <span>Thu Nhập Hoạt Động</span>
                                                         </div>
                                                     ))
@@ -177,19 +186,24 @@ export default function Home() {
                                         </div>
                                         <div className="col-md-4">
                                             <div className="body_title bg_title_2 text-light">
-                                                <h4>
-                                                    <i className="icon-wallet"></i>
-                                                    {dataPharmacyRevenue?.doanh_thu_hieu_thuoc}
-                                                </h4>
+                                                <div className="hahaha">
+                                                    <h4>
+                                                        <i className="icon-wallet"></i>
+                                                        {dataPharmacyRevenue?.doanh_thu_hieu_thuoc}
+                                                    </h4>
+                                                    <span>Thu Nhập Từ Hiệu Thuốc</span>
+                                                </div>
 
-                                                <span>Thu Nhập Từ Hiệu Thuốc</span>
                                             </div>
                                         </div>
 
                                         <div className="col-md-4">
                                             <div className="body_title  bg_title_3 text-light">
-                                                <h4><i className="icon-wallet"></i> {dataServiceRevenue?.tong_doanh_thu_dich_vu}</h4>
-                                                <span>Chi Phí Hoạt Động</span>
+                                                <div className="hahaha">
+                                                    <h4><i className="icon-wallet"></i> {dataServiceRevenue?.tong_doanh_thu_dich_vu}</h4>
+                                                    <span>Chi Phí Hoạt Động</span>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

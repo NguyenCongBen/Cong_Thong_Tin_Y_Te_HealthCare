@@ -16,7 +16,7 @@ export default function Menu(){
                         <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Tin Nhắn</a></li>
                         <li><a href="javascript:void(0);"><i class="icon-settings"></i>Cài Đặt</a></li>
                         <li class="divider"></li>
-                        <li><a href="page-login.html"><i class="icon-power"></i>Đăng Xuất</a></li>
+                        <li><a href="/"><i class="icon-power"></i>Đăng Xuất</a></li>
                     </ul>
                 </div>
                 <hr  />
