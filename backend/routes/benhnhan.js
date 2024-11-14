@@ -4,11 +4,24 @@ var router = express.Router();
 
 // Lấy danh sách bệnh nhân
 router.get('/', (req, res) => {
-  req.db.query('SELECT * FROM benh_nhan ', (error, results) => {
+  req.db.query('SELECT * FROM benh_nhan ORDER BY id DESC', (error, results) => {
     if (error) return res.status(500).json({ error: error.message });
     res.json(results);
   });
 });
+
+
+
+// show ra chi tiết chi số sức khỏe 
+router.get('/ttngay/:id_benh_nhan', (req, res) => {
+  const { id_benh_nhan } = req.params;
+  req.db.query('SELECT * FROM thong_tin_chi_so_suc_khoe WHERE id_benh_nhan = ?', [id_benh_nhan], (error, results) => {
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
+  });
+});
+
+
 
 
 // Lấy thông tin bệnh nhân theo ID
@@ -83,6 +96,8 @@ router.get('/thong_tin_chi_so_suc_khoe/:id_benh_nhan', (req, res) => {
     res.status(200).json(results);
   });
 });
+
+
 
 
 module.exports = router;

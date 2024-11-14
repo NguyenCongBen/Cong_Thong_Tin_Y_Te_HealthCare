@@ -26,10 +26,26 @@
       "static/chunks/main-app.js",
       "static/chunks/app/admin/BenhNhan/[id]/page.js"
     ],
-    "/_not-found/page": [
+    "/admin/Doctors/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/admin/Doctors/[id]/page.js"
+    ],
+    "/admin/BenhNhan/EditBenhNhan/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/BenhNhan/EditBenhNhan/page.js"
+    ],
+    "/(users)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(users)/page.js"
+    ],
+    "/(users)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/layout.css",
+      "static/chunks/app/(users)/layout.js"
     ]
   }
 }

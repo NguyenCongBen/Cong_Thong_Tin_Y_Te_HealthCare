@@ -7,17 +7,40 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function BenhNhanDetail({ params }) {
     const [benhnhan, setBenhNhan] = useState(null);
+    const [cssk, setchisosuckhoe] = useState(null);
+    const [sortOrder, setSortOrder] = useState('newest');
+    const toggleSortOrder = () => {
+        setSortOrder(prevOrder => (prevOrder === 'newest' ? 'oldest' : 'newest'));
+    };
+
+    const [selectedIndices, setSelectedIndices] = useState([]);
     const { data, error } = useSWR(`http://localhost:3000/benhnhan/${params.id}`, fetcher);
+    const { data: ttngay, error: ttngayError } = useSWR(`http://localhost:3000/benhnhan/ttngay/${params.id}`, fetcher);
 
     useEffect(() => {
+        // Set the state if the data is available
         if (data) {
             setBenhNhan(data);
         }
-    }, [data]);
+        if (ttngay) {
+            setchisosuckhoe(ttngay);
+        }
+    }, [data, ttngay]);
 
-    if (error) return <strong>Lỗi khi tải thông tin bệnh nhân</strong>;
-    if (!benhnhan) return <div className="loader">Đang tải...</div>;
+    if (error || ttngayError) {
+        return <strong>Lỗi khi tải thông tin bệnh nhân</strong>;
+    }
 
+    if (!benhnhan) {
+        return <div className="loader">Đang tải...</div>;
+    }
+    const toggleDateSelection = (index) => {
+        if (selectedIndices.includes(index)) {
+            setSelectedIndices(selectedIndices.filter((i) => i !== index));
+        } else {
+            setSelectedIndices([...selectedIndices, index]);
+        }
+    };
     return (
         <>
             <div id="main-content" className="profilepage_1">
@@ -122,7 +145,9 @@ export default function BenhNhanDetail({ params }) {
                                 <div className="body">
                                     <ul className="nav nav-tabs-new2">
                                         <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#activity">Hoạt động</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#billings">Kết Quả</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#ttbenhly">Thông tin Bệnh Lý</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#lssudungthuoc">Cấp Thuốc</a></li>
+                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kehoachdieutri">Kế Hoạch Điều Trị</a></li>
 
                                     </ul>
                                     <div className="tab-content mt-3">
@@ -142,47 +167,102 @@ export default function BenhNhanDetail({ params }) {
                                                 </div>
                                             </div>
 
-                                            <div className="timeline-item">
-                                                <span className="date">Chi tiết khám bệnh</span>
-                                                <div className="msg">
-                                                    <strong>Ngày khám:</strong> {new Date(benhnhan.ngay).toLocaleDateString()}
-                                                    <table className="table table-hover">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Huyết áp</td>
-                                                                <td>{benhnhan.huyet_ap}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Nhịp tim</td>
-                                                                <td>{benhnhan.nhip_tim} bpm</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cân nặng</td>
-                                                                <td>{benhnhan.can_nang} kg</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Chiều cao</td>
-                                                                <td>{benhnhan.chieu_cao} m</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>BMI</td>
-                                                                <td>{benhnhan.bmi}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Đường huyết</td>
-                                                                <td>{benhnhan.duong_huyet} mmol/L</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cholesterol tổng</td>
-                                                                <td>{benhnhan.cholesterol_total} mg/dL</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                            <div className="timeline-item green">
+                                                <span className="date">Thông Tin Chỉ Số sức Khỏe</span>
+                                                <div className="msg" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                                                    {Array.isArray(cssk) && cssk.length > 0 ? (
+                                                        cssk
+                                                            .sort((a, b) => new Date(b.ngay) - new Date(a.ngay))
+                                                            .map((e, index) => (
+                                                                <div key={index} style={{ width: "auto" }}>
+                                                                    <button
+                                                                        style={{
+                                                                            cursor: 'pointer',
+                                                                            outline: 'none',
+                                                                            padding: '10px 15px',
+                                                                            background: 'linear-gradient(45deg, #4CAF50, #81C784)',
+                                                                            color: 'white',
+                                                                            border: 'none',
+                                                                            borderRadius: '5px',
+                                                                            fontSize: '16px',
+                                                                            fontWeight: 'bold',
+                                                                            margin: '10px',
+                                                                            transition: 'background-color 0.5s ease',
+                                                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                                        }}
+                                                                        onClick={() => toggleDateSelection(index)}
+                                                                    >
+                                                                        {new Date(e.ngay).toLocaleDateString("vi-VN", {
+                                                                            year: "numeric",
+                                                                            month: "long",
+                                                                            day: "numeric",
+                                                                        })}
+                                                                    </button>
+
+                                                                    {/* Bảng thông tin với hiệu ứng mở */}
+                                                                    <div
+                                                                        style={{
+                                                                            overflow: 'hidden',
+                                                                            maxHeight: selectedIndices.includes(index) ? '1000px' : '0',
+                                                                            opacity: selectedIndices.includes(index) ? 1 : 0,
+                                                                            transition: 'max-height 0.6s ease, opacity 0.8s ease',
+                                                                            marginTop: '10px',
+                                                                            padding: '10px',
+                                                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                                            borderRadius: '10px'
+                                                                        }}
+                                                                    >
+                                                                        {selectedIndices.includes(index) && (
+                                                                            <table
+                                                                                className="table table-hover"
+                                                                                style={{
+                                                                                    width: '100%',
+                                                                                    transition: 'all 0.3s ease-in-out',
+                                                                                }}
+                                                                            >
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Huyết áp</td>
+                                                                                        <td>{e.huyet_ap}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Nhịp tim</td>
+                                                                                        <td>{e.nhip_tim} bpm</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Cân nặng</td>
+                                                                                        <td>{e.can_nang} kg</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Chiều cao</td>
+                                                                                        <td>{e.chieu_cao} m</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>BMI</td>
+                                                                                        <td>{e.bmi}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Đường huyết</td>
+                                                                                        <td>{e.duong_huyet} mmol/L</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Cholesterol tổng</td>
+                                                                                        <td>{e.cholesterol_total} mg/dL</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            ))
+                                                    ) : (
+                                                        <div>No data available</div>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane" id="billings">
+                                        <div class="tab-pane" id="kehoachdieutri">
 
 
                                             <div className="treatment-plan">
@@ -211,6 +291,74 @@ export default function BenhNhanDetail({ params }) {
                                                         </tr>
                                                         <tr>
                                                             <td>
+                                                                <h5 className="billing-title">Dược phẩm ID <span className="invoice-number">#{benhnhan.id_duoc_pham}</span></h5>
+                                                                <span className="text-muted">Ngày sử dụng: {new Date(benhnhan.ngay_su_dung).toLocaleDateString()}</span>
+                                                            </td>
+                                                            <td className="amount">
+                                                                {new Date(benhnhan.ngay_ke_hoach).toLocaleDateString("vi-VN", {
+                                                                    year: "numeric",
+                                                                    month: "2-digit",
+                                                                    day: "2-digit",
+                                                                })}
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                                <div className="d-flex justify-content-end mt-3">
+                                                    <button
+                                                        style={{
+                                                            cursor: 'pointer',
+                                                            outline: 'none',
+                                                            padding: '10px 25px',
+                                                            background: 'linear-gradient(45deg, #4CAF50, #81C784)',
+                                                            color: 'white',
+                                                            border: 'none',
+                                                            borderRadius: '5px',
+                                                            fontSize: '16px',
+                                                            fontWeight: '500',
+                                                            margin: '10px',
+                                                            transition: 'all 0.8s ease-in-out',
+                                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                        }}
+                                                        onMouseOver={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #81C784, #4CAF50)';
+                                                            e.target.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.3)';
+                                                        }}
+                                                        onMouseOut={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #4CAF50, #81C784)';
+                                                            e.target.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+                                                        }}
+                                                    >
+                                                        Cập Nhật
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="tab-pane" id="ttbenhly">
+                                            <div className="treatment-plan">
+                                                <h6 className="mt-3 mb-3">Thông Tin Bệnh Lý</h6>
+                                                <table className="table table-bordered table-striped billing-history">
+                                                    <thead className="sr-only">
+                                                        <tr>
+                                                            <th>Chi tiết</th>
+                                                            <th>Thông tin</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <h5 className="billing-title">Chẩn đoán</h5>
+                                                                <span className="text-muted">Phương pháp điều trị</span>
+                                                            </td>
+                                                            <td className="amount">{benhnhan.ngay_su_dung}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
                                                                 <h5 className="billing-title">Chẩn đoán</h5>
                                                                 <span className="text-muted">Phương pháp điều trị</span>
                                                             </td>
@@ -223,12 +371,75 @@ export default function BenhNhanDetail({ params }) {
                                                             </td>
                                                             <td className="amount">{benhnhan.phuong_phap_dieu_tri}</td>
                                                         </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div className="d-flex justify-content-end mt-3">
+                                                    {/* <Link to="EditBenhNhan/{benhnhan.id}"></Link> */}
+                                                    <button
+                                                        style={{
+                                                            cursor: 'pointer',
+                                                            outline: 'none',
+                                                            padding: '10px 25px',
+                                                            background: 'linear-gradient(45deg, #4CAF50, #81C784)',
+                                                            color: 'white',
+                                                            border: 'none',
+                                                            borderRadius: '5px',
+                                                            fontSize: '16px',
+                                                            fontWeight: '500',
+                                                            margin: '10px',
+                                                            transition: 'all 0.8s ease-in-out',
+                                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                        }}
+                                                        onMouseOver={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #81C784, #4CAF50)';
+                                                            e.target.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.3)';
+                                                        }}
+                                                        onMouseOut={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #4CAF50, #81C784)';
+                                                            e.target.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+                                                        }}
+                                                    >
+                                                        Cập Nhật
+                                                    </button>
+
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="tab-pane" id="lssudungthuoc">
+                                            <div className="treatment-plan">
+                                                <h6 className="mt-3 mb-3">Lịch Sử Sử Dụng Thuốc</h6>
+                                                <table className="table table-bordered table-striped billing-history">
+                                                    <thead className="sr-only">
+                                                        <tr>
+                                                            <th>Chi tiết</th>
+                                                            <th>Thông tin</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
                                                         <tr>
                                                             <td>
                                                                 <h5 className="billing-title">Dược phẩm ID <span className="invoice-number">#{benhnhan.id_duoc_pham}</span></h5>
                                                                 <span className="text-muted">Ngày sử dụng: {new Date(benhnhan.ngay_su_dung).toLocaleDateString()}</span>
                                                             </td>
                                                             <td className="amount">{benhnhan.lieu_luong}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h5 className="billing-title">Dược phẩm ID <span className="invoice-number">#{benhnhan.id_duoc_pham}</span></h5>
+                                                                <span className="text-muted">Ngày sử dụng: {new Date(benhnhan.ngay_su_dung).toLocaleDateString()}</span>
+                                                            </td>
+                                                            <td className="amount">
+                                                                {new Date(benhnhan.ngay_su_dung).toLocaleDateString("vi-VN", {
+                                                                    year: "numeric",
+                                                                    month: "2-digit",
+                                                                    day: "2-digit",
+                                                                })}
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
@@ -241,26 +452,32 @@ export default function BenhNhanDetail({ params }) {
                                                 </table>
                                                 <div className="d-flex justify-content-end mt-3">
                                                     <button
-                                                        type="button"
-                                                        style={{ margin: "0 10px" }}
-                                                        className="btn btn-primary me-2"
-                                                    >
-                                                        Cập nhật
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-secondary"
-                                                        onClick={() => {
-                                                            if (window.confirm("Bạn có chắc chắn muốn xóa mục này không?")) {
-                                                                // Perform delete action here
-                                                                console.log("Deleted!");
-                                                            } else {
-                                                                console.log("Deletion canceled.");
-                                                            }
+                                                        style={{
+                                                            cursor: 'pointer',
+                                                            outline: 'none',
+                                                            padding: '10px 25px',
+                                                            background: 'linear-gradient(45deg, #4CAF50, #81C784)',
+                                                            color: 'white',
+                                                            border: 'none',
+                                                            borderRadius: '5px',
+                                                            fontSize: '16px',
+                                                            fontWeight: '500',
+                                                            margin: '10px',
+                                                            transition: 'all 0.8s ease-in-out',
+                                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                        }}
+                                                        onMouseOver={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #81C784, #4CAF50)';
+                                                            e.target.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.3)';
+                                                        }}
+                                                        onMouseOut={(e) => {
+                                                            e.target.style.background = 'linear-gradient(45deg, #4CAF50, #81C784)';
+                                                            e.target.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
                                                         }}
                                                     >
-                                                        Xóa
+                                                        Cập Nhật
                                                     </button>
+
                                                 </div>
 
                                             </div>
