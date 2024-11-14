@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import "./../../../public/css/user/tranchu.css"
 import GoiTongDai from "./Components/Goitongdai";
 export default function Home() {
   return (
@@ -32,13 +33,13 @@ export default function Home() {
                       <img src="/images/img/Trang chủ/banner-6.png" className="d-block w-100" alt="..." />
                     </div>
                   </div>
-                  <button className="carousel-control-prev" type="button"
+                  <button className="carousel-control-prev" id="bantay-left" type="button"
                     data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"
                       id="carousel-control-prev-icon"></span>
                     <span className="visually-hidden">Previous</span>
                   </button>
-                  <button className="carousel-control-next" type="button"
+                  <button className="carousel-control-next" id="bantay-right" type="button"
                     data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"
                       id="carousel-control-next-icon"></span>

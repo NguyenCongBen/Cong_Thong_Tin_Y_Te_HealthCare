@@ -16,7 +16,7 @@ export default function Menu(){
                         <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Tin Nhắn</a></li>
                         <li><a href="javascript:void(0);"><i class="icon-settings"></i>Cài Đặt</a></li>
                         <li class="divider"></li>
-                        <li><a href="page-login.html"><i class="icon-power"></i>Đăng Xuất</a></li>
+                        <li><a href="/"><i class="icon-power"></i>Đăng Xuất</a></li>
                     </ul>
                 </div>
                 <hr  />
@@ -49,7 +49,7 @@ export default function Menu(){
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
                             <li class="active"><Link href="/admin"><i class="icon-home"></i><span>Bảng Điều Khiển</span></Link></li>
-                            <li><a href="app-appointment.html"><i class="icon-calendar"></i>Cuộc Hẹn</a></li>
+                            <li><a href="/admin/Appointment"><i class="icon-calendar"></i>Cuộc Hẹn</a></li>
                             <li><a href="app-taskboard.html"><i class="icon-list"></i>Bảng Tác Vụ</a></li>
                             <li><a href="app-inbox.html"><i class="icon-home"></i>Ứng Dụng Inbox</a></li>
                             <li><a href="app-chat.html"><i class="icon-bubbles"></i>Ứng Dụng Nhắn Tin</a></li>

@@ -1,3 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f6;
+    margin: 0;
+    padding: 20px;
+}
+
+#main-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #6c63ff;
+    color: #ffffff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-label {
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.status-pending {
+    background-color: #ffab00;
+}
+
+.status-confirmed {
+    background-color: #00c853;
+}
+
+.status-completed {
+    background-color: #2196f3;
+}
+
+.status-cancelled {
+    background-color: #d50000;
+}
+
+.detail_appointment_btn_admin {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.detail_appointment_btn_admin:hover {
+    background-color: #0056b3;
+}
+
 .bg_title_1 {
     background-color: #00D1C3;
     border-radius: 10px;
@@ -412,4 +486,38 @@ tbody tr td a {
 #mr-20 {
     display: flex;
     gap: 10px;
+}
+
+.hahaha {
+    position: relative;
+    z-index: 100;
+}
+
+.list-group-item:hover {
+    border-top: 1px solid #dee2e6;
+}
+
+.table>thead {
+    width: 100%;
+}
+
+.hihihi>th {
+    justify-content: space-between;
+}
+
+#top_counter1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.profile-image>img {
+    width: 200px;
+    height: 200px;
+    /* object-fit: initial; */
+}
+
+.form-group>img {
+    width: 100px;
+    height: 100px;
 }

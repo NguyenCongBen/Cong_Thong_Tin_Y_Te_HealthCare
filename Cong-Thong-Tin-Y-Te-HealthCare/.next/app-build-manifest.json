@@ -11,23 +11,17 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/timkiem/page": [
+    "/(users)/datlich/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/timkiem/page.css",
-      "static/chunks/app/(users)/timkiem/page.js"
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
     ],
-    "/(users)/timbacsi/page": [
+    "/(users)/dltc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(users)/timbacsi/page.css",
-      "static/chunks/app/(users)/timbacsi/page.js"
-    ],
-    "/(users)/timkiembacsi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/timkiembacsi/page.css",
-      "static/chunks/app/(users)/timkiembacsi/page.js"
+      "static/css/app/(users)/dltc/page.css",
+      "static/chunks/app/(users)/dltc/page.js"
     ],
     "/admin/page": [
       "static/chunks/webpack.js",
@@ -40,30 +34,20 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
+    "/admin/Appointment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/Appointment/page.js"
+    ],
     "/admin/BenhNhan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/BenhNhan/page.js"
     ],
-    "/admin/Doctors/page": [
+    "/admin/BenhNhan/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
-    ],
-    "/admin/Doctors/Edit/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/Edit/[id]/page.js"
-    ],
-    "/admin/Doctors/AddDoctor/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/AddDoctor/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/admin/BenhNhan/[id]/page.js"
     ]
   }
 }

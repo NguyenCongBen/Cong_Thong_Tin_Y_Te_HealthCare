@@ -356,6 +356,8 @@ body {
 .accordion-body>ul {
     list-style: none;
     padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .bs-hospitals-items {

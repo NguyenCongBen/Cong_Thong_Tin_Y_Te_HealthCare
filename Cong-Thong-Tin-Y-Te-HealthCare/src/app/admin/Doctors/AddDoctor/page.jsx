@@ -41,6 +41,7 @@ export default function AddDoctors() {
         ngay_sinh: Yup.date()
             .required('Ngày là bắt buộc'),
     });
+    
     const formik = useFormik({
         initialValues: {
             anh: null,
@@ -222,7 +223,7 @@ export default function AddDoctors() {
 
                                         <div className="col-sm-6">
                                             <div className="form-group">
-                                                <input type="number"
+                                                <input type="phone"
                                                     className="form-control"
                                                     name="so_dien_thoai"
                                                     onChange={formik.handleChange}
@@ -266,7 +267,7 @@ export default function AddDoctors() {
                                         </div>
                                         <div className="col-sm-12" id='mr-20'>
                                             <button type="submit" className="btn btn-primary">Gửi</button>
-                                            <button type="button" className="btn btn-outline-secondary" onClick={() => router.push('/Doctors')}>Hủy</button>
+                                            <button type="button" className="btn btn-outline-secondary" onClick={() => router.push('/admin/Doctors')}>Hủy</button>
                                         </div>
                                     </div>
                                 </div>

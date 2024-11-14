@@ -66,9 +66,25 @@ router.get('/thong-ke/doanh-thu', (req, res) => {
     GROUP BY trang_thai
   `, (error, results) => {
     if (error) return res.status(500).json({ error: error.message });
-    res.json(results);
+
+    // Create a number formatter for Vietnamese currency
+    const formatter = new Intl.NumberFormat('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0, 
+    });
+
+    // Format results to include formatted "doanh thu" in the response
+    const formattedResults = results.map(item => ({
+      trang_thai: item.trang_thai,
+      doanh_thu: formatter.format(item.doanh_thu) // Format revenue as VND
+    }));
+
+    res.json(formattedResults);
   });
 });
+
 // API thống kê doanh thu theo tháng
 router.get('/thong-ke/doanh-thu-theo-thang', (req, res) => {
   req.db.query(`
@@ -95,9 +111,24 @@ router.get('/thong-ke/doanh-thu-hieu-thuoc', (req, res) => {
     WHERE id_duoc_pham IS NOT NULL AND trang_thai = 'Đã thanh toán'
   `, (error, results) => {
     if (error) return res.status(500).json({ error: error.message });
-    res.json(results[0]);  // Trả về kết quả doanh thu từ hiệu thuốc
+
+    // Calculate total revenue
+    const totalRevenue = results[0]?.doanh_thu_hieu_thuoc || 0;
+
+    // Format total revenue to Vietnamese currency
+    const formatter = new Intl.NumberFormat('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+    });
+
+    // Send formatted total revenue
+    res.json({
+      doanh_thu_hieu_thuoc: formatter.format(totalRevenue),  // Return formatted revenue
+    });
   });
 });
+
 router.get('/thong-ke/doanh-thu-dich-vu', (req, res) => {
   req.db.query(`
     SELECT 
