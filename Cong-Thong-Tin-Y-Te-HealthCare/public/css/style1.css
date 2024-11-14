@@ -193,7 +193,6 @@ tr:hover {
 .doctors_main {
     overflow: hidden;
     position: relative;
-    height: auto;
     transition: .5s ease;
 }
 
@@ -326,6 +325,7 @@ tr:hover {
 }
 
 .chuyen_khoa_admin_doctor {
+    border: 1px solid black;
     padding: 8px 10px;
     border-radius: 5px;
     text-transform: uppercase;
@@ -439,8 +439,24 @@ tbody tr td a {
 }
 
 .phantrang_admin_doctors {
+    position: fixed;
     right: 35%;
     bottom: 0;
+}
+
+.main_admin_gioitinh {
+    display: flex;
+    gap: 10px;
+}
+
+.text_thongke_main_gioitinh_2 {
+    margin-right: 10px;
+}
+
+.khung_2ben_doanhthu {
+    display: flex;
+    width: 100%;
+    gap: 20px;
 }
 
 #navbar-menu {
@@ -473,51 +489,4 @@ tbody tr td a {
 .navbar>.container,
 .navbar>.container-fluid {
     width: 50%;
-}
-
-.card .header {
-    padding: 15px;
-}
-
-#mb-20 {
-    margin-bottom: 20px;
-}
-
-#mr-20 {
-    display: flex;
-    gap: 10px;
-}
-
-.hahaha {
-    position: relative;
-    z-index: 100;
-}
-
-.list-group-item:hover {
-    border-top: 1px solid #dee2e6;
-}
-
-.table>thead {
-    width: 100%;
-}
-
-.hihihi>th {
-    justify-content: space-between;
-}
-
-#top_counter1 {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-.profile-image>img {
-    width: 200px;
-    height: 200px;
-    /* object-fit: initial; */
-}
-
-.form-group>img {
-    width: 100px;
-    height: 100px;
 }

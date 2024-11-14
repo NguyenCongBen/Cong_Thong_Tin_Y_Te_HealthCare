@@ -1,15 +1,14 @@
-"use client"
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
-import AddDoctor from '../components/AddProduct';
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 export default function Doctors() {
   const [data, setData] = useState([]);
 
   const fetchDoctor = async () => {
     const res = await fetch("http://localhost:3000/doctor", {
-      cache: 'no-store'
+      cache: "no-store",
     });
     const newData = await res.json();
     setData(newData);
@@ -20,9 +19,9 @@ export default function Doctors() {
   }, []);
 
   const deleteDoctor = async (id) => {
-    if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
+    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?")) {
       const res = await fetch(`http://localhost:3000/doctor/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
       const result = await res.json();
       if (result.message) {
@@ -41,7 +40,9 @@ export default function Doctors() {
   };
 
   // Get current doctors to display
-  const currentDoctors = data ? data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage) : [];
+  const currentDoctors = data
+    ? data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+    : [];
 
   // Error handling
   // if (error) return <strong>Error loading Doctors</strong>;
@@ -55,14 +56,19 @@ export default function Doctors() {
             <div className="row">
               <div className="col-lg-6 col-md-8 col-sm-12">
                 <h2>
-                  <a href="javascript:void(0);" className="btn btn-xs btn-link btn-toggle-fullwidth">
+                  <a
+                    href="javascript:void(0);"
+                    className="btn btn-xs btn-link btn-toggle-fullwidth"
+                  >
                     <i className="fa fa-arrow-left"></i>
                   </a>
                   All Doctors
                 </h2>
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">
-                    <a href="index.html"><i className="icon-home"></i></a>
+                    <a href="index.html">
+                      <i className="icon-home"></i>
+                    </a>
                   </li>
                   <li className="breadcrumb-item">Doctor</li>
                   <li className="breadcrumb-item active">All Doctors</li>
@@ -88,13 +94,21 @@ export default function Doctors() {
                         />
                       </span>
                     </div>
-                    <small className="chuyen_khoa_admin_doctor"> {doctor.ten_chuyen_khoa}</small> <br />
+                    <small className="chuyen_khoa_admin_doctor">
+                      {" "}
+                      {doctor.ten_chuyen_khoa}
+                    </small>{" "}
+                    <br />
                     <br />
                     <h3 className="adress_admin_doctors">{index + 1}</h3>
                     <h6 className="mb-0 name_doctors_admin">
-                      <a href="#" title="">{doctor.ten}</a>
+                      <a href="#" title="">
+                        {doctor.ten}
+                      </a>
                     </h6>
-                    <span className="adress_admin_doctors">{doctor.dia_chi}</span>
+                    <span className="adress_admin_doctors">
+                      {doctor.dia_chi}
+                    </span>
                     <div className="icon_ngoisao_admin_doctors">
                       <i className="fa-solid fa-star"></i>
                       <i className="fa-solid fa-star"></i>
@@ -103,8 +117,18 @@ export default function Doctors() {
                       <i className="fa-regular fa-star"></i>
                     </div>
                     <div className="all_doctors_btn">
-                      <Link href={`/admin/Doctors/Edit/${doctor.id}`} className="edit_doctors">Sửa</Link>
-                      <button className="delete_doctors" onClick={() => deleteDoctor(doctor.id)}>Xóa</button>
+                      <Link
+                        href={`/admin/Doctors/Edit/${doctor.id}`}
+                        className="edit_doctors"
+                      >
+                        Sửa
+                      </Link>
+                      <button
+                        className="delete_doctors"
+                        onClick={() => deleteDoctor(doctor.id)}
+                      >
+                        Xóa
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -115,8 +139,15 @@ export default function Doctors() {
               <div className="card">
                 <div className="body text-center">
                   <div className="p-t-80 p-b-80">
-                    <h6>Add New <br /> Doctor</h6>
-                    <button type="button" className="btn btn-outline-primary m-t-10" data-toggle="modal" data-target="#addcontact">
+                    <h6>
+                      Add New <br /> Doctor
+                    </h6>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary m-t-10"
+                      data-toggle="modal"
+                      data-target="#addcontact"
+                    >
                       <i className="fa fa-plus-circle"></i>
                     </button>
                   </div>
@@ -127,24 +158,167 @@ export default function Doctors() {
 
           <div class="phantrang_admin_doctors">
             <ReactPaginate
-              previousLabel={'← Previous'}
-              nextLabel={'Next →'}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
+              previousLabel={"← Previous"}
+              nextLabel={"Next →"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
               pageCount={pageCount}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={handlePageChange}
-              containerClassName={'pagination'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-              disabledClassName={'disabled'}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              disabledClassName={"disabled"}
             />
           </div>
         </div>
       </div>
-
-      <AddDoctor />
+      <div class="modal fade" id="addcontact" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="title" id="defaultModalLabel">
+                Add Doctor
+              </h6>
+            </div>
+            <div class="modal-body">
+              <div class="row clearfix">
+                <div class="col-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First Name"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Specialist"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Address"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      id="exampleInputFile"
+                      aria-describedby="fileHelp"
+                    />
+                    <small id="fileHelp" class="form-text text-muted">
+                      This is some placeholder block-level help text for the
+                      above input. It's a bit lighter and easily wraps to a new
+                      line.
+                    </small>
+                  </div>
+                  <hr />
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-facebook"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Facebook"
+                    />
+                  </div>
+                  ut-{" "}
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-twitter"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Twitter"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-linkedin"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Linkedin"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-instagram"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Instagram"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">
+                Add
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

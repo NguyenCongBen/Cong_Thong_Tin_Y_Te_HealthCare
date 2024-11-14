@@ -1,5 +1,7 @@
 {
   "pages": {
+<<<<<<< HEAD
+=======
     "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -17,12 +19,16 @@
       "static/css/app/(users)/datlich/page.css",
       "static/chunks/app/(users)/datlich/page.js"
     ],
+<<<<<<< HEAD
     "/(users)/dltc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/dltc/page.css",
       "static/chunks/app/(users)/dltc/page.js"
     ],
+=======
+>>>>>>> 5f92401 (m)
+>>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -34,11 +40,28 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
     "/admin/Appointment/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/Appointment/page.js"
     ],
+<<<<<<< HEAD
+=======
+    "/admin/Doctors/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/Doctors/page.js"
+    ],
+    "/admin/Doctors/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/Doctors/[id]/page.js"
+    ],
+>>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
     "/admin/BenhNhan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -48,6 +71,15 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/BenhNhan/[id]/page.js"
+<<<<<<< HEAD
+=======
+=======
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+>>>>>>> 5f92401 (m)
+>>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
     ]
   }
 }
