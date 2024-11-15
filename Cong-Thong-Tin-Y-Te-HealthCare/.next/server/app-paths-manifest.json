@@ -2,5 +2,9 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/(users)/page": "app/(users)/page.js",
   "/admin/page": "app/admin/page.js",
-  "/admin/Doctors/page": "app/admin/Doctors/page.js"
+  "/(users)/timkiembacsi/page": "app/(users)/timkiembacsi/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/admin/Appointment/page": "app/admin/Appointment/page.js",
+  "/(users)/dltc/page": "app/(users)/dltc/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js"
 }

@@ -27,6 +27,41 @@
       "static/chunks/main-app.js",
       "static/chunks/app/admin/Doctors/page.js"
     ],
+    "/(users)/timkiem/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timkiem/page.css",
+      "static/chunks/app/(users)/timkiem/page.js"
+    ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
+    ],
+    "/(users)/timkiembacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timkiembacsi/page.css",
+      "static/chunks/app/(users)/timkiembacsi/page.js"
+    ],
+    "/admin/Appointment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/Appointment/page.js"
+    ],
+    "/(users)/dltc/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/dltc/page.css",
+      "static/chunks/app/(users)/dltc/page.js"
+    ],
+    "/(users)/datlich/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/datlich/page.css",
+      "static/chunks/app/(users)/datlich/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
