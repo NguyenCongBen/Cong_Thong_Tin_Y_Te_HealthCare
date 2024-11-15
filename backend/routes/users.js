@@ -5,16 +5,6 @@ const jwt = require("jsonwebtoken");
 
 /* GET users listing. */
 //http://localhost:3000/users
-<<<<<<< HEAD
-router.get('/', function (req, res, next) {  
-  req.db.query('SELECT * FROM users', function (error, results, fields) {  
-    if (error) {  
-      return res.status(500).json({ error: error.message });  
-    }  
-    res.json(results);  
-  });  
-});  
-=======
 router.get("/", function (req, res, next) {
   req.db.query("SELECT * FROM nguoi_dung", function (error, results, fields) {
     if (error) {
@@ -23,7 +13,6 @@ router.get("/", function (req, res, next) {
     res.json(results);
   });
 });
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 
 /* API cập nhật trạng thái người dùng. */
 //http://localhost:3000/users/status/id

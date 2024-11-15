@@ -1,16 +1,7 @@
 {
-<<<<<<< HEAD
   "/_not-found/page": "app/_not-found/page.js",
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/thongtintaikhoan/page": "app/(users)/thongtintaikhoan/page.js",
   "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/(users)/tracuuthuoc/[id]/page": "app/(users)/tracuuthuoc/[id]/page.js",
+  "/(users)/page": "app/(users)/page.js",
   "/(users)/sudungthuocantoan/page": "app/(users)/sudungthuocantoan/page.js"
-=======
-  "/(users)/dltc/page": "app/(users)/dltc/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/Appointment/page": "app/admin/Appointment/page.js",
-  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
-  "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js"
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 }

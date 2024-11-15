@@ -2,7 +2,6 @@
 import Link from "next/link"
 import React, { useEffect, useState } from 'react';
 import "../../../../public/css/user/tracuuthuoc.css"
-<<<<<<< HEAD
 const PAGE_SIZE = 5;
 import axios from "axios";
 
@@ -69,10 +68,6 @@ export default function tracuuthuoc() {
     const indexOfLastDrug = currentPage * PAGE_SIZE;
     const indexOfFirstDrug = indexOfLastDrug - PAGE_SIZE;
     const currentDrugs = drugs.slice(indexOfFirstDrug, indexOfLastDrug);
-=======
-
-export default function tracuuthuoc() {
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 
     return (
         <>
@@ -415,7 +410,6 @@ export default function tracuuthuoc() {
                                                 Ẩn
                                             </button>
                                         </p>
-<<<<<<< HEAD
                                         <div className="container mt-4">
                                             <div className="row">
                                                 <div className="col-md-6">
@@ -463,41 +457,6 @@ export default function tracuuthuoc() {
                                             ))}
                                             <a href="#" className="tt-item-paging">
                                                 <img src="images/img/thông tin/product/icon-1.png" alt="Next" />
-=======
-
-                                        <div class="container mt-4">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                        <ul class="tc-list_drug">
-                                                            <li class="tc-item">
-                                                                <a class="tc-name_drug" href="/Acenocoumarol">Abobotulinum Toxin A</a>
-
-                                                            </li>
-                                                            <li class="tc-item">
-                                                                <a class="tc-name_drug" href="#">Acetazolamide</a>
-                                                            </li>
-                                                        </ul>
-                                                </div>
-                                                <div class="col-md-6">
-                                                        <ul class="tc-list_drug">
-
-                                                            <li class="tc-item">
-                                                                <a class="tc-name_drug" href="#">Acetylcysteine</a>
-                                                            </li>
-                                                            <li class="tc-item">
-                                                                <a class="tc-name_drug" href="#">Acid Folic</a>
-                                                            </li>
-                                                        </ul>
-                                                </div>                                                                                                                            </div>
-                                        </div>
-                                        <div class="tt-phantrang">
-                                            <a href="#" class="tt-item-paging active">1</a>
-                                            <a href="#" class="tt-item-paging active-1">2</a>
-                                            <a href="#" class="tt-item-paging active-1">3</a>
-                                            <a href="#" class="tt-item-paging active-1">4</a>
-                                            <a href="#" class="tt-item-paging">
-                                                <img src="images/img/thông tin/product/icon-1.png" alt="" />
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
                                             </a>
                                         </div>
                                     </div>

@@ -60,47 +60,6 @@ router.post("/", upload.single("anh"), async (req, res) => {
   );
 });
 
-<<<<<<< HEAD
-// Cập nhật thông tin bác sĩ
-router.put('/:id', upload.single('anh'), async (req, res) => {
-  const { id } = req.params; // Lấy id của bác sĩ từ URL
-  const { id_chuyen_khoa, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email } = req.body; // Lấy thông tin cập nhật từ body
-  const anh = req.file ? req.file.filename : null; // Lấy tên file ảnh nếu có file mới
-
-  // Tạo câu lệnh SQL cho việc cập nhật
-  const sql = `
-    UPDATE bac_si 
-    SET id_chuyen_khoa = ?, ten = ?, ngay_sinh = ?, gioi_tinh = ?, dia_chi = ?, so_dien_thoai = ?, email = ?, anh = COALESCE(?, anh) 
-    WHERE id = ?`;
-
-  // Thực thi câu lệnh SQL
-  req.db.query(
-    sql,
-    [id_chuyen_khoa, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, anh, id],
-    (error, results) => {
-      if (error) {
-        console.error('Error executing query:', error); // Log lỗi nếu có
-        return res.status(500).json({ error: error.message });
-      }
-      if (results.affectedRows === 0) {
-        return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
-      }
-      res.status(200).json({ message: 'Thông tin bác sĩ đã được cập nhật thành công' });
-    }
-  );
-});
-// Xóa bác sĩ
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  req.db.query('DELETE FROM bac_si WHERE id = ?', [id], (error, results) => {
-    if (error) return res.status(500).json({ error: error.message });
-    if (results.affectedRows === 0) return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
-    res.json({ message: 'Bác sĩ đã được xóa' });
-  });
-});
-
-=======
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
 // Lấy danh sách bác sĩ
 router.get("/", (req, res) => {
   req.db.query(
@@ -136,77 +95,6 @@ router.get("/chuyen-khoa/:idChuyenKhoa", (req, res) => {
   );
 });
 
-<<<<<<< HEAD
-=======
-// Cập nhật thông tin bác sĩ
-router.put("/:id", upload.single("anh"), async (req, res) => {
-  const { id } = req.params;
-  const {
-    id_chuyen_khoa,
-    ten,
-    ngay_sinh,
-    gioi_tinh,
-    dia_chi,
-    so_dien_thoai,
-    email,
-  } = req.body; // Thêm email
-  let updatedDoctor = {
-    id_chuyen_khoa,
-    ten,
-    ngay_sinh,
-    gioi_tinh,
-    dia_chi,
-    so_dien_thoai,
-    email,
-  };
-
-  // Nếu có upload ảnh mới thì cập nhật trường `anh`
-  if (req.file) {
-    const anh = req.file.filename;
-    updatedDoctor.anh = anh;
-  }
-
-  // Thực hiện truy vấn cập nhật
-  req.db.query(
-    "UPDATE bac_si SET id_chuyen_khoa = ?, anh = ?, ten = ?, ngay_sinh = ?, gioi_tinh = ?, dia_chi = ?, so_dien_thoai = ?, email = ? WHERE id = ?", // Cập nhật câu lệnh SQL
-    [
-      updatedDoctor.id_chuyen_khoa,
-      updatedDoctor.anh,
-      updatedDoctor.ten,
-      updatedDoctor.ngay_sinh,
-      updatedDoctor.gioi_tinh,
-      updatedDoctor.dia_chi,
-      updatedDoctor.so_dien_thoai,
-      updatedDoctor.email,
-      id,
-    ], // Cập nhật giá trị
-    (error, results) => {
-      if (error)
-        return res
-          .status(500)
-          .json({
-            message: "Có lỗi xảy ra, vui lòng thử lại",
-            error: error.message,
-          });
-      if (results.affectedRows === 0)
-        return res.status(404).json({ message: "Bác sĩ không tồn tại" });
-      res.json({ message: "Thông tin bác sĩ đã được cập nhật" });
-    }
-  );
-});
-
-// Xóa bác sĩ
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  req.db.query("DELETE FROM bac_si WHERE id = ?", [id], (error, results) => {
-    if (error) return res.status(500).json({ error: error.message });
-    if (results.affectedRows === 0)
-      return res.status(404).json({ message: "Bác sĩ không tồn tại" });
-    res.json({ message: "Bác sĩ đã được xóa" });
-  });
-});
-
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
 // Lấy lịch sử khám của bác sĩ
 router.get("/:id/lich-su-kham", (req, res) => {
   const { id } = req.params;

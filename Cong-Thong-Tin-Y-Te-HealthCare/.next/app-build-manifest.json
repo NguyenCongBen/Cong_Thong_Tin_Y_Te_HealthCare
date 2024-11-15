@@ -1,10 +1,5 @@
 {
   "pages": {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
     "/(users)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -16,12 +11,6 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-<<<<<<< HEAD
-    "/(users)/thongtintaikhoan/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(users)/thongtintaikhoan/page.js"
-    ],
     "/(users)/tracuuthuoc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -29,83 +18,21 @@
       "static/chunks/app/(users)/tracuuthuoc/page.js"
     ],
     "/(users)/tracuuthuoc/[id]/page": [
-=======
-    "/(users)/datlich/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/datlich/page.css",
-      "static/chunks/app/(users)/datlich/page.js"
-    ],
-<<<<<<< HEAD
-    "/(users)/dltc/page": [
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/tracuuthuoc/[id]/page.css",
       "static/chunks/app/(users)/tracuuthuoc/[id]/page.js"
     ],
-<<<<<<< HEAD
     "/(users)/sudungthuocantoan/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/sudungthuocantoan/page.css",
       "static/chunks/app/(users)/sudungthuocantoan/page.js"
-=======
-=======
->>>>>>> 5f92401 (m)
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
     ],
-    "/admin/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
-    ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
-    "/admin/Appointment/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Appointment/page.js"
-    ],
-<<<<<<< HEAD
-=======
-    "/admin/Doctors/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/page.js"
-    ],
-    "/admin/Doctors/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/Doctors/[id]/page.js"
-    ],
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
-    "/admin/BenhNhan/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/BenhNhan/page.js"
-    ],
-    "/admin/BenhNhan/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/BenhNhan/[id]/page.js"
-<<<<<<< HEAD
-=======
-=======
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
->>>>>>> 5f92401 (m)
->>>>>>> 9efdce2cecf4e6123b848cde87b48f4f65fb134b
     ]
   }
 }

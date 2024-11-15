@@ -53,77 +53,6 @@ export default function Header() {
                         </div>
                       </form>
                     </div>
-<<<<<<< HEAD
-                    <div className="container-1">
-                        <nav className="navbar" id="navbar">
-                            <div className="container-fluid" id="container-fluid">
-                                <div className="tt-logo">
-                                    <Link className="navbar-brand" href="/">
-                                        <img src="/images/img/thông tin/logo.png" alt="" />
-                                    </Link>
-                                </div>
-                                <div className="tt-search-all">
-                                    <div className="tt-search">
-                                        <div className="tt-form-none">
-                                            <form className="d-flex" role="search" action="/timkiem">
-                                                <div className="tt-search-1">
-                                                    <button className="tt-button" type="submit">
-                                                        <i className="fa-solid fa-magnifying-glass"></i>
-                                                    </button>
-                                                    <input
-                                                        className="form-control me-2"
-                                                        name="keyword"
-                                                        id="tt-input"
-                                                        type="search"
-                                                        placeholder="Tiềm kiếm..."
-                                                    />
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div className="tt-datlich">
-                                            <Link className="tt-icon" href="/datlich">
-                                                <img src="/images/img/thông tin/calendar.png" alt="" />
-                                            </Link>
-                                        </div>
-                                        <div className="tt-boder"></div>
-                                        <div className="tt-icon-search">
-                                            <i className="fa-solid fa-magnifying-glass"></i>
-                                        </div>
-                                        <div className="tt-boder-1"></div>
-                                    </div>
-                                    <div className="tt-ngonngu">
-                                        <div className="tt-anhvn">
-                                            <img src="/images/img/thông tin/vie.png" alt="" />
-                                        </div>
-                                        <div className="tt-chon">
-                                            <select
-                                                className="form-select icon-only"
-                                                id="tt-form-select"
-                                                aria-label="Default select example"
-                                            >
-                                                <option value="1">English</option>
-                                                <option value="2">Việt Nam</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <Link href="/thongtintaikhoan" class="text-decoration-none d-flex align-items-center">
-                                            <i class="bi bi-person-circle me-2"></i>
-                                            <p class="mb-0">Thông Tin cá nhân</p>
-                                        </Link>
-                                    </div>
-                                    <div className="tt-boder-1"></div>
-                                    <div className="tt-menu-icon">
-                                        <button
-                                            className="btn"
-                                            type="button"
-                                            data-bs-toggle="offcanvas"
-                                            data-bs-target="#staticBackdrop"
-                                            aria-controls="staticBackdrop"
-                                        >
-                                            <i className="fa-solid fa-bars tt-menu-icon"></i>
-                                        </button>
-=======
                     <div className="tt-datlich">
                       <Link className="tt-icon" href="/datlich">
                         <img src="/images/img/thông tin/calendar.png" alt="" />
@@ -160,7 +89,6 @@ export default function Header() {
                     >
                       Tài khoản
                     </a>
->>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 
                     <ul class="dropdown-menu">
                       <li>
