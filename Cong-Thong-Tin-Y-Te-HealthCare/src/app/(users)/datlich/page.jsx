@@ -4,7 +4,6 @@ import Link from "next/link";
 import "../../../../public/css/user/datlich.css";
 import GoiTongDai from "../Components/Goitongdai";
 import useSWR from "swr";
-import DatLichKham from "../Components/Datlichkham";
 import { useRouter } from "next/navigation";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -63,19 +62,59 @@ export default function DatLich() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  const convertTo24HourFormat = (time12hr) => {
+    // Tách phần giờ, phút và AM/PM
+    const [time, modifier] = time12hr.split(' ');
+    let [hours, minutes] = time.split(':');
+  
+    // Chuyển giờ từ định dạng 12h sang 24h
+    if (modifier === 'PM' && hours !== '12') {
+      hours = (parseInt(hours, 10) + 12).toString();
+    } else if (modifier === 'AM' && hours === '12') {
+      hours = '00'; // 12 AM là 00 giờ
+    }
+  
+    return `${hours}:${minutes}:00`;
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const timeString = formData.thoiGianKham; // Ví dụ: "08:00 AM"
+  
+  if (!timeString) {
+    alert("Vui lòng chọn thời gian khám.");
+    return;
+  }
 
+  // Chuyển đổi thời gian từ định dạng 12 giờ sang 24 giờ
+  const time24hr = convertTo24HourFormat(timeString); // Ví dụ: "08:00:00"
+
+  // Lấy ngày hiện tại
+  const currentDate = new Date();
+
+  // Tạo đối tượng Date với ngày hiện tại và giờ đã chuyển đổi
+  const appointmentDate = new Date(currentDate.toDateString()); // Tạo ngày mới với ngày hiện tại (không có giờ)
+  const [hours, minutes] = time24hr.split(':');
+  appointmentDate.setHours(hours, minutes, 0, 0);
+
+  // Kiểm tra nếu đối tượng Date không hợp lệ
+  if (isNaN(appointmentDate.getTime())) {
+    alert("Thời gian khám không hợp lệ.");
+    return;
+  }
+
+  // Chuyển đối tượng Date thành chuỗi ISO
+  const isoString = appointmentDate.toISOString();
+    if (isSuccess) return;
+  
     const appointmentData = {
       id_chuyen_khoa: formData.idChuyenKhoa,
-      thoi_gian_hen: formData.thoiGianKham,
+      thoi_gian_hen:isoString ,
       mo_ta: formData.lyDoKham,
       trang_thai: "Đang chờ",
       id_bac_si: formData.idBacSi,
       id_benh_vien: formData.idBenhVien,
     };
-
+  
     const patientInfo = {
       anh: "anh1.jpg",
       ten: formData.hoTen,
@@ -85,7 +124,7 @@ export default function DatLich() {
       so_dien_thoai: formData.soDienThoai,
       email: formData.email,
     };
-
+  
     try {
       const response = await fetch("http://localhost:3000/lichhen", {
         method: "POST",
@@ -94,27 +133,29 @@ export default function DatLich() {
         },
         body: JSON.stringify({ appointmentData, patientInfo }),
       });
-      console.log("Submitting data:", { appointmentData, patientInfo });
-
+  
+      
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Error response from server:", errorData);
         throw new Error("Network response was not ok");
       }
-
+  
+      
       const data = await response.json();
-
-      console.log(data);
-
+      console.log("Response data:", data);
+  
+      
       setIsSuccess(true);
-      {
-        isSuccess && router.push("/dltc");
-      }
+      router.push("/dltc");
+  
+      
       resetForm();
     } catch (error) {
       console.error("Error:", error);
     }
   };
+  
 
   const generateTimeSlots = () => {
     const slots = [];

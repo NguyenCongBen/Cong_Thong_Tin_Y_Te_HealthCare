@@ -1,4 +1,4 @@
-"use client";
+
 import "../../../../public/css/user/timbacsi.css";
 import Link from "next/link";
 import GoiTongDai from "../Components/Goitongdai";

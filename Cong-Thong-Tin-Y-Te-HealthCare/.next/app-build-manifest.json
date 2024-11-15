@@ -12,11 +12,28 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
+    "/(users)/timbacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timbacsi/page.css",
+      "static/chunks/app/(users)/timbacsi/page.js"
+    ],
     "/(users)/dltc/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/(users)/dltc/page.css",
       "static/chunks/app/(users)/dltc/page.js"
+    ],
+    "/(users)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(users)/page.js"
+    ],
+    "/(users)/timkiembacsi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(users)/timkiembacsi/page.css",
+      "static/chunks/app/(users)/timkiembacsi/page.js"
     ],
     "/admin/Appointment/page": [
       "static/chunks/webpack.js",
@@ -29,10 +46,10 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
-    "/_not-found/page": [
+    "/admin/Doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
     ]
   }
 }
