@@ -7,7 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function BenhNhanDetail({ params }) {
     const [benhnhan, setBenhNhan] = useState(null);
-    const { data, error } = useSWR(`http://localhost:3000/benhnhan/${params.id}`, fetcher);
+    const { data, error } = useSWR(`http://localhost:3000/patient/${params.id}`, fetcher);
 
     useEffect(() => {
         if (data) {
@@ -56,9 +56,7 @@ export default function BenhNhanDetail({ params }) {
                                     </div>
                                     <hr />
                                     <strong>Nghề nghiệp</strong>
-                                    <p>Development</p>
-                                    <strong>Nghề nghiệp</strong>
-                                    <p>Development</p>
+                                    <p>Ăn hàng ở không nói gọn là Hàng không</p>
                                     <strong>Email</strong>
                                     <p>{benhnhan.email}</p>
                                     <hr />

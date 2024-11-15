@@ -261,6 +261,14 @@ body {
     display: none;
 }
 
+#bantay-left {
+    cursor: grab;
+}
+
+#bantay-right {
+    cursor: grab;
+}
+
 .banner-content {
     width: 100%;
     position: absolute;

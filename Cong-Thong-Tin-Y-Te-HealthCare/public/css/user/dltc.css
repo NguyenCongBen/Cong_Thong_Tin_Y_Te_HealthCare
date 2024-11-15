@@ -2,7 +2,7 @@
     width: 100%;
     height: 1000px;
     overflow: auto;
-    max-height: 700px;
+    max-height: 680px;
 }
 
 #dltc-boder {
@@ -134,4 +134,26 @@
 .text-none {
     text-decoration: none;
     color: #0076c0;
+}
+
+.thoat-dltc {
+    text-decoration: none;
+
+}
+
+.dltc-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#btn-altc {
+    margin: 0;
+    padding: 0;
+}
+
+#hihi {
+    overflow-x: visible;
+    overflow-y: visible;
 }

@@ -9,7 +9,7 @@ export default function TatCaBacSi(props) {
                     <li class="bs-flex-all" key={id}>
                         <div class="bs-anh">
                             <Link class="bs-thumbblock" href={`/timbacsi/${id}`}>
-                                <img src={`http://localhost:3000/images/img/bác sĩ/pro-6.jpg`} alt="" />
+                                <img src={`http://localhost:3000/images/img/bác sĩ/${anh}`} alt="" />
                             </Link>
                             <Link class="bs-btn_book_doctor" href="/datlich">
                                 <img src="/images/img/bác sĩ/calendar-w.png" alt="" />
@@ -27,7 +27,7 @@ export default function TatCaBacSi(props) {
                             </div>
                             <div class="bs-icon_list_doctor">
                                 <img src="/images/img/bác sĩ/input_name.png" alt="" />
-                                {mo_ta}
+                                {dia_chi}
                             </div>
                             <div class="bs-icon_list_doctor">
                                 <img src="/images/img/bác sĩ/Hospital.png" alt="" />

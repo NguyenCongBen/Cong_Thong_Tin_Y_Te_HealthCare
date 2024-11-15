@@ -9,7 +9,7 @@ export default function Header() {
                     </div>
 
                     <div class="navbar-brand">
-                        <a href="index.html"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo" /></a>
+                        <a href="/admin"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo" /></a>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@ export default function Header() {
                             </ul>
                         </li>
                         <li>
-                            <a href="page-login.html" class="icon-menu"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                            <a href="/" class="icon-menu"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                         </li>
                     </ul>
                 </div>

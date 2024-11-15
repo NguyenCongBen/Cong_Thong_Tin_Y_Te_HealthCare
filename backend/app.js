@@ -1,7 +1,7 @@
 var createError = require("http-errors");
 var express = require("express");
-var path = require("path");
 var cors = require("cors");
+var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mysql = require("mysql2");
@@ -10,13 +10,13 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var chuyenkhoaRouter = require("./routes/chuyenkhoa");
 var BaivietRouter = require("./routes/baiviet");
+var benhvienRouter = require("./routes/benh_vien");
 var thuocRouter = require("./routes/thuoc");
 var dichvuRouter = require("./routes/dichvu");
 var lichhenRouter = require("./routes/lichhen");
 
 var benhnhanRouter = require("./routes/benhnhan");
 var bacsiRouter = require("./routes/bacsi");
-var benhvienRouter = require("./routes/benhvien");
 
 var app = express();
 
@@ -54,7 +54,7 @@ app.use("/chuyenkhoa", chuyenkhoaRouter);
 app.use("/baiviet", BaivietRouter);
 app.use("/users", usersRouter);
 app.use("/doctor", bacsiRouter);
-app.use("/patient", benhnhanRouter);
+app.use("/benhnhan", benhnhanRouter);
 app.use("/benhvien", benhvienRouter);
 app.use("/thuoc", thuocRouter);
 app.use("/dichvu", dichvuRouter);

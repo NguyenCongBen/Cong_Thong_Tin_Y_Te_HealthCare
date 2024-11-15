@@ -23,9 +23,6 @@ export default function AddDoctors() {
             .required('Tên sản phẩm là bắt buộc')
             .min(3, 'Tên sản phẩm phải có ít nhất 3 ký tự')
             .max(50, 'Tên sản phẩm không được vượt quá 50 ký tự'),
-        mo_ta: Yup.string()
-            .required('Mô tả là bắt buộc')
-            .min(10, 'Mô tả phải có ít nhất 10 ký tự'),
         gioi_tinh: Yup.string()
             .required('Giới tính là bắt buộc'),
         dia_chi: Yup.string()
@@ -44,6 +41,7 @@ export default function AddDoctors() {
         ngay_sinh: Yup.date()
             .required('Ngày là bắt buộc'),
     });
+    
     const formik = useFormik({
         initialValues: {
             anh: null,
@@ -55,7 +53,6 @@ export default function AddDoctors() {
             so_dien_thoai: '',
             email: '',
             ten_chuyen_khoa: '',
-            mo_ta: '',
         },
         validationSchema,
         onSubmit: async (values) => {
@@ -69,7 +66,6 @@ export default function AddDoctors() {
             data.append('email', values.email);
             data.append('ten_chuyen_khoa', values.ten_chuyen_khoa);
             data.append('id_chuyen_khoa', values.id_chuyen_khoa);
-            data.append('mo_ta', values.mo_ta);
 
             const res = await fetch('http://localhost:3000/doctor', {
                 method: 'POST',
@@ -227,7 +223,7 @@ export default function AddDoctors() {
 
                                         <div className="col-sm-6">
                                             <div className="form-group">
-                                                <input type="number"
+                                                <input type="phone"
                                                     className="form-control"
                                                     name="so_dien_thoai"
                                                     onChange={formik.handleChange}
@@ -255,7 +251,7 @@ export default function AddDoctors() {
                                                 ) : null}
                                             </div>
                                         </div>
-                                        <div className="col-lg-12">
+                                        <div className="col-lg-12" id='mb-20'>
                                             <input
                                                 type="file"
                                                 className="dropify"
@@ -269,25 +265,9 @@ export default function AddDoctors() {
                                                 <div className="text-danger">{formik.errors.anh}</div>
                                             ) : null}
                                         </div>
-
-                                        <div className="col-sm-12">
-                                            <div className="form-group mt-3">
-                                                <textarea rows="4"
-                                                    className="form-control no-resize"
-                                                    name="mo_ta"
-                                                    onChange={formik.handleChange}
-                                                    onBlur={formik.handleBlur}
-                                                    value={formik.values.mo_ta}
-                                                    placeholder="Vui lòng nhập nội dung bạn muốn..."
-                                                />
-                                                {formik.touched.mo_ta && formik.errors.mo_ta ? (
-                                                    <div className="text-danger">{formik.errors.mo_ta}</div>
-                                                ) : null}
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-12">
+                                        <div className="col-sm-12" id='mr-20'>
                                             <button type="submit" className="btn btn-primary">Gửi</button>
-                                            <button type="button" className="btn btn-outline-secondary" onClick={() => router.push('/Doctors')}>Hủy</button>
+                                            <button type="button" className="btn btn-outline-secondary" onClick={() => router.push('/admin/Doctors')}>Hủy</button>
                                         </div>
                                     </div>
                                 </div>

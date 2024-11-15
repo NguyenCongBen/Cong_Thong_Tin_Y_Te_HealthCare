@@ -1,3 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f6;
+    margin: 0;
+    padding: 20px;
+}
+
+#main-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #6c63ff;
+    color: #ffffff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-label {
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.status-pending {
+    background-color: #ffab00;
+}
+
+.status-confirmed {
+    background-color: #00c853;
+}
+
+.status-completed {
+    background-color: #2196f3;
+}
+
+.status-cancelled {
+    background-color: #d50000;
+}
+
+.detail_appointment_btn_admin {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.detail_appointment_btn_admin:hover {
+    background-color: #0056b3;
+}
+
 .bg_title_1 {
     background-color: #00D1C3;
     border-radius: 10px;
@@ -117,8 +191,9 @@
 }
 
 .doctors_main {
-
-    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+    transition: .5s ease;
 }
 
 .name_doctors_admin {
@@ -250,9 +325,7 @@
 }
 
 .chuyen_khoa_admin_doctor {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    border: 1px solid black;
     padding: 8px 10px;
     border-radius: 5px;
     text-transform: uppercase;
@@ -385,13 +458,18 @@ tbody tr td a {
     display: flex;
     width: 100%;
     gap: 20px;
-
 }
+
+<<<<<<< HEAD
+}
+=======
+>>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 #navbar-menu {
     width: 50%;
     display: flex;
     justify-content: flex-end;
 }
+<<<<<<< HEAD
 
 
     #navbar-menu {
@@ -399,23 +477,26 @@ tbody tr td a {
         display: flex;
         justify-content: flex-end;
     }
+=======
+>>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 
-    #navbar-nav {
-        display: flex;
-        width: 40%;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-    }
+#navbar-nav {
+    display: flex;
+    width: 40%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
 
-    .navbar-nav .icon-menu {
-        padding: 0;
-    }
+.navbar-nav .icon-menu {
+    padding: 0;
+}
 
-    .navbar-nav .icon-menu .notification-dot {
-        top: 0;
-        right: -3px;
-    }
+.navbar-nav .icon-menu .notification-dot {
+    top: 0;
+    right: -3px;
+}
 
+<<<<<<< HEAD
 
 .navbar>.container,
 .navbar>.container-fluid {
@@ -425,9 +506,14 @@ tbody tr td a {
         display: flex;
         justify-content: space-between;
     }
+=======
+#navbar-fixed-top {
+    display: flex;
+    justify-content: space-between;
+}
+>>>>>>> 75c87cc1915557a413609a382106389963f8d95c
 
-    .navbar>.container,
-    .navbar>.container-fluid {
-        width: 50%;
-    }
+.navbar>.container,
+.navbar>.container-fluid {
+    width: 50%;
 }

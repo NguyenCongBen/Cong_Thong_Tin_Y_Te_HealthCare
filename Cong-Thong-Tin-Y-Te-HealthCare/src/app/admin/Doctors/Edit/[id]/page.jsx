@@ -88,7 +88,7 @@ export default function EditDoctor({ params }) {
                                             src={`http://localhost:3000/images/img/bác sĩ/${doctor?.anh}`}
                                             data-toggle="tooltip"
                                             data-placement="top"
-                                            title="hihi"
+                                            title={doctor?.ten}
                                             alt="user"
                                             className="rounded-circle"
                                         /> </div>
@@ -105,7 +105,7 @@ export default function EditDoctor({ params }) {
 
                             <div class="card">
                                 <div class="header">
-                                    <h2>Info</h2>
+                                    <h2>Thông tin</h2>
                                     <ul class="header-dropdown">
                                         <li class="dropdown">
                                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
@@ -117,19 +117,39 @@ export default function EditDoctor({ params }) {
                                     </ul>
                                 </div>
                                 <div class="body">
-                                    <small class="text-muted" style={{ fontSize: '18px' }}>Địa Chỉ: </small>
-                                    <span class="m-b-0" style={{ fontSize: '16px' }}>{doctor?.dia_chi}</span>
+                                    <small class="text-muted" style={{ fontSize: '16px', color: '#222' }}>
+                                        <b>
+                                            Địa Chỉ:
+                                        </b>
+                                    </small>
+                                    <span class="m-b-0" style={{ fontSize: '16px', color: '#222' }}> {doctor?.dia_chi}</span>
                                     <div>
                                         {/* <iframe src="maps/embed?pb=!1m18!1m12!1m3!1d1923731.7533500232!2d-120.39098936853455!3d37.63767091877441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sin!4v1522391841133" width="100%" height="150" frameborder="0" style={{border:0}} allowfullscreen></iframe> */}
                                     </div>
-                                    <small class="text-muted" style={{ fontSize: '18px' }}>Email: </small>
-                                    <span class="m-b-0" style={{ fontSize: '16px' }}>{doctor?.email}</span> <br />
-                                    <small class="text-muted" style={{ fontSize: '18px' }}>Số Điện Thoại: </small>
-                                    <span class="m-b-0" style={{ fontSize: '16px' }}>{doctor?.so_dien_thoai}</span><br />
-                                    <small class="text-muted" style={{ fontSize: '18px' }}>Ngày Sinh: </small>
-                                    <span class="m-b-0" style={{ fontSize: '16px' }}>{doctor?.ngay_sinh.split('T')[0]}</span><br />
-                                    <small class="text-muted" style={{ fontSize: '18px' }}>Giới Tính: </small>
-                                    <span class="m-b-0" style={{ fontSize: '16px' }}>{doctor?.gioi_tinh}</span>
+                                    <small class="text-muted" style={{ fontSize: '16px', color: '#222' }}>
+                                        <b>
+                                            Email:
+                                        </b>
+                                    </small>
+                                    <span class="m-b-0" style={{ fontSize: '16px', color: '#222' }}> {doctor?.email}</span> <br />
+                                    <small class="text-muted" style={{ fontSize: '16px', color: '#222' }}>
+                                        <b>
+                                            Số Điện Thoại:
+                                        </b>
+                                    </small>
+                                    <span class="m-b-0" style={{ fontSize: '16px', color: '#222' }}> {doctor?.so_dien_thoai}</span><br />
+                                    <small class="text-muted" style={{ fontSize: '16px', color: '#222' }}>
+                                        <b>
+                                            Ngày Sinh:
+                                        </b>
+                                    </small>
+                                    <span class="m-b-0" style={{ fontSize: '16px', color: '#222' }}> {doctor?.ngay_sinh.split('T')[0]}</span><br />
+                                    <small class="text-muted" style={{ fontSize: '16px', color: '#222' }}>
+                                        <b>
+                                            Giới Tính:
+                                        </b>
+                                    </small>
+                                    <span class="m-b-0" style={{ fontSize: '16px', color: '#222' }}> {doctor?.gioi_tinh}</span>
                                 </div>
                             </div>
 
