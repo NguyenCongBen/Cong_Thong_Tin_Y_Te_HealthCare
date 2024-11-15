@@ -1,4 +1,4 @@
-// File: D:\DỰ ÁN TỐT NGHIỆP\website\Cong-Thong-Tin-Y-Te-HealthCare\src\app\admin\layout.js
+// File: D:\DA_TT_K\Cong_Thong_Tin_Y_Te_HealthCare\Cong-Thong-Tin-Y-Te-HealthCare\src\app\admin\layout.js
 import * as entry from '../../../../src/app/admin/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
