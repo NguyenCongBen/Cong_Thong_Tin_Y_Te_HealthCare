@@ -372,3 +372,39 @@ tbody tr td a {
     width: 100%;
     gap: 20px;
 }
+
+
+.filters {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px; 
+    padding: 10px;
+    border-radius: 10px; 
+}
+
+.filters .form-select {
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid rgb(169, 169, 169);
+    background: #fff; 
+    color: #333; /* Màu chữ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out; 
+}
+
+.filters .form-select:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Đổ bóng khi hover */
+}
+
+.filters .form-select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.5); /* Hiệu ứng khi focus */
+}
+.table td{
+    padding:  .95rem !important;
+}

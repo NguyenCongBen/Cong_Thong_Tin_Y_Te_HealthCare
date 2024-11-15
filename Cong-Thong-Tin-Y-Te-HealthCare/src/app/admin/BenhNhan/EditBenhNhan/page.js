@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
 
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function BenhNhanEdit({ params }) {
     const [benhnhan, setBenhNhan] = useState(null);
     const [formData, setFormData] = useState({});
-    
+
     const { data, error } = useSWR(`http://localhost:3000/benhnhan/${params.id}`, fetcher);
 
     useEffect(() => {
