@@ -16,7 +16,7 @@ export default function Menu(){
                         <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Tin Nhắn</a></li>
                         <li><a href="javascript:void(0);"><i class="icon-settings"></i>Cài Đặt</a></li>
                         <li class="divider"></li>
-                        <li><a href="page-login.html"><i class="icon-power"></i>Đăng Xuất</a></li>
+                        <li><a href="/"><i class="icon-power"></i>Đăng Xuất</a></li>
                     </ul>
                 </div>
                 <hr  />
@@ -56,7 +56,7 @@ export default function Menu(){
                             <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-user-follow"></i><span>Bác Sĩ</span> </a>
                                 <ul>
                                     <li>  <Link href="/admin/Doctors">Tất Cả Bác Sĩ</Link></li>
-                                    <li><Link href="/admin/Add_doctors">Thêm Bác Sĩ</Link></li>
+                                    <li><Link href="/admin/Doctors/AddDoctor">Thêm Bác Sĩ</Link></li>
                                     <li><a href="doctor-events.html">Lịch Trình Bác Sĩ</a></li>
                                 </ul>
                             </li>

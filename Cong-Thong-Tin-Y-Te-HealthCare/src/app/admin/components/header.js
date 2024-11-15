@@ -1,25 +1,20 @@
 import React from 'react';
-export default function Header(){
-    return(
-       <>
-       <nav class="navbar navbar-fixed-top " style={{ position: 'fixed', top: 0, left: 0 }}>
-        <div class="container-fluid">
-            <div class="navbar-btn">
-                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
-            </div>
+export default function Header() {
+    return (
+        <>
+            <nav class="navbar navbar-fixed-top " id='navbar-fixed-top' style={{ position: 'fixed', top: '0', left: '0' }}>
+                <div class="container-fluid">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+                    </div>
 
-            <div class="navbar-brand">
-                <a href="index.html"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo"/></a>                
-            </div>
-            
-            <div class="navbar-right">
-                <form id="navbar-search" class="navbar-form search-form">
-                    <input value="" class="form-control" placeholder="Search here..." type="text"/>
-                    <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
-                </form>                
+                    <div class="navbar-brand">
+                        <a href="/admin"><img src="assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo" /></a>
+                    </div>
+                </div>
 
                 <div id="navbar-menu">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" id='navbar-nav'>
                         <li>
                             <a href="doctor-events.html" class="icon-menu d-none d-sm-block d-md-none d-lg-block"><i class="fa-solid fa-calendar-days"></i></a>
                         </li>
@@ -31,7 +26,7 @@ export default function Header(){
                         </li>
                         <li class="dropdown hover_information_bell">
                             <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="fa-regular fa-bell"></i>
+                                <i class="fa-regular fa-bell"></i>
                                 <span class="notification-dot"></span>
                             </a>
                             <ul class=" notifications menu_thongbao_header">
@@ -48,7 +43,7 @@ export default function Header(){
                                             </div>
                                         </div>
                                     </a>
-                                </li>                               
+                                </li>
                                 <li>
                                     <a href="javascript:void(0);">
                                         <div class="media">
@@ -62,7 +57,7 @@ export default function Header(){
                                         </div>
                                     </a>
                                 </li>
-                                 <li>
+                                <li>
                                     <a href="javascript:void(0);">
                                         <div class="media">
                                             <div class="media-left">
@@ -101,18 +96,16 @@ export default function Header(){
                                 <li><a href="javascript:void(0);"><i class="icon-bell"></i> <span>Thông Báo</span></a></li>
                                 <li class="menu-heading">BILLING</li>
                                 <li><a href="javascript:void(0);"><i class="icon-credit-card"></i> <span>Thanh Toán</span></a></li>
-                                <li><a href="javascript:void(0);"><i class="icon-printer"></i> <span>Hóa Đơn</span></a></li>                                
+                                <li><a href="javascript:void(0);"><i class="icon-printer"></i> <span>Hóa Đơn</span></a></li>
                                 <li><a href="javascript:void(0);"><i class="icon-refresh"></i> <span>Gia Hạn</span></a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="page-login.html" class="icon-menu"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                            <a href="/" class="icon-menu"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </nav>
-       </>
+            </nav>
+        </>
     )
 }

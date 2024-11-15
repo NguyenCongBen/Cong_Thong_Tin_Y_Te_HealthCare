@@ -3,28 +3,6 @@ export default function Footer() {
     return (
         <>
             <footer>
-                <div class="container-body">
-                    <div class="mb-hud pc-hidden">
-                        <div class="hud-buttons">
-                            <a href="#" class="hud-button advice-button">
-                                <button type="button"
-                                    class="btn btn-primary hud-button advice-button thanhtuu-col-4 col-4-w color-blue"
-                                    id="btn-goi" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <img src="/images/img/phone_1.png" alt="" />
-                                    <span class="goi-footer">Gọi tổng đài</span>
-                                </button>
-                            </a>
-                            <a href="datlichkham.html" class="hud-button advice-button">
-                                <img src="/images/img/calendar_1.png" alt="" />
-                                <span>Đặt lịch hẹn</span>
-                            </a>
-                            <a href="timbacsi.html" class="hud-button advice-button active">
-                                <img src="/images/img/doctor_1.png" alt="" />
-                                <span>Tìm bác sĩ</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 <div class="tt-footer">
                     <div class="container-1">
                         <div class="tt-footer-1">
@@ -121,6 +99,28 @@ export default function Footer() {
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-body">
+                    <div class="mb-hud pc-hidden">
+                        <div class="hud-buttons">
+                            <a href="#" class="hud-button advice-button">
+                                <button type="button"
+                                    class="btn btn-primary hud-button advice-button thanhtuu-col-4 col-4-w color-blue"
+                                    id="btn-goi" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img src="/images/img/phone_1.png" alt="" />
+                                    <span class="goi-footer">Gọi tổng đài</span>
+                                </button>
+                            </a>
+                            <a href="/datlich" class="hud-button advice-button">
+                                <img src="/images/img/calendar_1.png" alt="" />
+                                <span>Đặt lịch hẹn</span>
+                            </a>
+                            <a href="/timbacsi" class="hud-button advice-button active">
+                                <img src="/images/img/doctor_1.png" alt="" />
+                                <span>Tìm bác sĩ</span>
+                            </a>
                         </div>
                     </div>
                 </div>

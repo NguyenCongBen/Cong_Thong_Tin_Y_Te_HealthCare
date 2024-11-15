@@ -325,7 +325,14 @@ body {
     margin-top: 3px;
 }
 
+.bv-dc>i {
+    color: #0076cab8;
+    margin-right: 10px;
+}
+
 .tt-item {
+    padding: 0;
+    margin: 0;
     margin-right: 5px;
     text-decoration: none;
     font-weight: 700;
@@ -384,7 +391,7 @@ body {
 }
 
 .ht-mr {
-    height: 24px;
+    height: 22px;
     margin-right: .5rem;
 }
 

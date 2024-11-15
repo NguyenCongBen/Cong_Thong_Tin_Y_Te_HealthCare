@@ -1,167 +1,17 @@
+"use client";
 import Link from "next/link";
+import useSWR from "swr";
 import "../../../../public/css/user/lienhe.css";
+import GoiTongDai from "../Components/Goitongdai";
 export default function LienHe() {
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+    const { data, error, isLoading } = useSWR('http://localhost:3000/benhvien', fetcher);
+    if (error) return <strong>Lỗi...</strong>
+    if (isLoading) return <strong>Lỗi load dữ liệu...</strong>
     return (
         <>
             <main>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header model-goi">
-                                <h3 class="modal-title g-blue" id="exampleModalLabel">Hotline</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="g-content">
-                                    <ul class="g-phone-list">
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="g-contact-pair">
-                                                <div class="g-col7">
-                                                    <span>Vinmec Times City (HN)</span>
-                                                </div>
-                                                <div class="g-col5">
-                                                    <strong>
-                                                        <Link class="g-blue g-phone" href="#">024 3974 3556</Link>
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="g-button-group">
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/Download_App_8f9cde90f2.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Đặt lịch qua App - MyVinmec</span>
-                                                    <span class="g-item-text">Đặt lịch hẹn chủ động ngay tại nhà với bác sĩ và
-                                                        ngày giờ khám</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Tải ngay
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                        <div class="g-item">
-                                            <div class="g-item-desc">
-                                                <img src="/images/img/CSKH_b6c956f10b.png" alt="" />
-                                                <div class="g-icon-main">
-                                                    <span class="g-item-title">Cổng dịch vụ CSKH 24/7</span>
-                                                </div>
-                                            </div>
-                                            <Link class="g-a" href="#">
-                                                <button class="bg-blue text-white border-none m-10">
-                                                    <span>
-                                                        Gửi yêu cầu
-                                                    </span>
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <GoiTongDai />
                 <div class="container-all">
                     <div class="cover-list-news">
                         <img src="/images/img/liên hệ/banner.jpg" alt="" />
@@ -194,8 +44,8 @@ export default function LienHe() {
                                 <Link href="#" class="tt-item">Trang chủ</Link>
                                 <i class="fa-solid fa-angle-right tt-item gt-item"></i>
                                 <Link href="#" class="tt-item">Hướng dẫn khách hàng</Link>
-                                <i class="fa-solid fa-angle-right tt-item gt-item"></i>
-                                <Link href="#" class="tt-item tt-item-1 tt-item-color"> Liên hệ</Link>
+                                <i class="fa-solid fa-angle-right gt-item"></i>
+                                <p href="#" class="tt-item-1 cl-black"> Liên hệ</p>
                             </div>
                             <div class="lh-bottom_news_main lh-mt30">
                                 <h2 class="sm-title_cate_news">Thời gian làm việc</h2>
@@ -255,235 +105,33 @@ export default function LienHe() {
                                 <div class="lh-list_three_contact">
                                     <div class="lh-col-7">
                                         <ul class="lh-list_hospital_contact">
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Times City (HN)
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            458 Đường Minh Khai, Khu đô thị Times City, Phường Vĩnh Tuy, Quận
-                                                            Hai Bà Trưng, Thành phố Hà Nội
+                                            {data.map((lienhe) => (
+                                                <li class="lh-flex">
+                                                    <div class="lh-left_list_hospital_contact">
+                                                        <div class="lh-name_hospital">
+                                                            {lienhe.ten}
                                                         </div>
+                                                        <div class="lh-address_hospital">
+                                                            <img src="/images/img/bác sĩ/icon-address.png" alt="" />
+                                                            <div>
+                                                                {lienhe.dia_chi}
+                                                            </div>
 
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">024 3974 3556</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="/datlich" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Central Park
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            720A Điện Biên Phủ, Phường 22, Q.Bình Thạnh, Hồ Chí Minh
                                                         </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">028 3622 1166</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Times City (HN)
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            458 Đường Minh Khai, Khu đô thị Times City, Phường Vĩnh Tuy, Quận
-                                                            Hai Bà Trưng, Thành phố Hà Nội
+                                                        <div class="lh-phone_hospital lh-address_hospital">
+                                                            <i class="fa-regular fa-envelope"></i>
+                                                            <Link href="#">{lienhe.email}</Link>
                                                         </div>
-
                                                     </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">024 3974 3556</Link>
+                                                    <div class="lh-right_list_hospital_contact">
+                                                        <Link href="/datlich" class="lh-btn_book_doctor_contact">
+                                                            <img src="/images/img/thành tựu/Calendar.png" alt="" />
+                                                            Đăng ký khám
+                                                        </Link>
+                                                        <Link href="#" class="lh-btn_contact">Liên hệ</Link>
                                                     </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Central Park
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            720A Điện Biên Phủ, Phường 22, Q.Bình Thạnh, Hồ Chí Minh
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">028 3622 1166</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Times City (HN)
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            458 Đường Minh Khai, Khu đô thị Times City, Phường Vĩnh Tuy, Quận
-                                                            Hai Bà Trưng, Thành phố Hà Nội
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">024 3974 3556</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Central Park
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            720A Điện Biên Phủ, Phường 22, Q.Bình Thạnh, Hồ Chí Minh
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">028 3622 1166</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Times City (HN)
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            458 Đường Minh Khai, Khu đô thị Times City, Phường Vĩnh Tuy, Quận
-                                                            Hai Bà Trưng, Thành phố Hà Nội
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">024 3974 3556</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Central Park
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            720A Điện Biên Phủ, Phường 22, Q.Bình Thạnh, Hồ Chí Minh
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">028 3622 1166</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
-                                            <li class="lh-flex">
-                                                <div class="lh-left_list_hospital_contact">
-                                                    <div class="lh-name_hospital">
-                                                        Vinmec Central Park
-                                                    </div>
-                                                    <div class="lh-address_hospital">
-                                                        <img src="/images/img/bác sĩ/icon-address.png" alt="" />
-                                                        <div>
-                                                            720A Điện Biên Phủ, Phường 22, Q.Bình Thạnh, Hồ Chí Minh
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="lh-phone_hospital lh-address_hospital">
-                                                        <img src="/images/img/hệ thống/hotline.png" alt="" />
-                                                        <Link href="#">028 3622 1166</Link>
-                                                    </div>
-                                                </div>
-                                                <div class="lh-right_list_hospital_contact">
-                                                    <Link href="#" class="lh-btn_book_doctor_contact">
-                                                        <img src="/images/img/thành tựu/Calendar.png" alt="" />
-                                                        Đăng ký khám
-                                                    </Link>
-                                                    <Link href="#" class="lh-btn_contact">Liên hệ</Link>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                     <div class="lh-col-5">

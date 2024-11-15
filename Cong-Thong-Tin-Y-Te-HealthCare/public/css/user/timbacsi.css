@@ -32,6 +32,11 @@ body {
     justify-content: space-between;
 }
 
+.cl-black {
+    color: #222;
+    text-decoration: none;
+}
+
 .tt-flex {
     margin: 0;
     padding: 0;
@@ -315,13 +320,13 @@ body {
     background-color: #51be9d;
 }
 
-.tt-bread {
+.tt-bread-1 {
     display: flex;
     align-items: center;
     padding: 20px 0;
 }
 
-.tt-bread>i {
+.tt-bread-1>i {
     margin-top: 3px;
 }
 
@@ -351,6 +356,8 @@ body {
 .accordion-body>ul {
     list-style: none;
     padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .bs-hospitals-items {

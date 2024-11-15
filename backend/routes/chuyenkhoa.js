@@ -41,6 +41,23 @@ router.get('/:id', (req, res) => {
         res.json(results[0]);
     });
 });
+// 
+router.get('/benh-vien/:idBenhVien', (req, res) => {
+    const idBenhVien = req.params.idBenhVien;
+
+    req.db.query(
+        `
+      SELECT bv.*, ck.* 
+      FROM thong_tin_benh_vien bv 
+      JOIN chuyen_khoa ck ON bv.id = ck.id_benh_vien 
+      WHERE bv.id = ?`,
+        [idBenhVien],
+        (error, results) => {
+            if (error) return res.status(500).json({ error: error.message });
+            res.json(results);
+        }
+    );
+});
 
 // Create a new specialty
 router.post('/', upload.single('anh'), (req, res) => {

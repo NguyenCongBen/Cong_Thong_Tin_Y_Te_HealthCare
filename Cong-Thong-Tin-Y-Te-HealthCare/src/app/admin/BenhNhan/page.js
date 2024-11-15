@@ -52,34 +52,36 @@ export default function Doctors() {
                                 <div className="header">
                                     <h2>Danh Sách Bệnh Nhân</h2>
                                 </div>
-                                <div className="body">
-                                    <div className="tab-content m-t-10 padding-0">
-                                        <div className="tab-pane table-responsive active show" id="All">
-                                            <table className="table m-b-0 table-hover">
-                                                <thead className="thead-dark">
-                                                    <tr>
+                                <div class="body">
+
+                                    <ul class="nav nav-tabs-new2">
+                                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#All">Tất cả</a></li>
+                                        {/* <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#USA">Mỹ</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#India">Ấn Độ</a></li> */}
+                                    </ul>
+
+
+                                    <div class="tab-content m-t-10 padding-0">
+                                        <div class="tab-pane table-responsive active show" id="All">
+                                            <table class="table m-b-0 table-hover">
+                                                <thead class="thead-dark">
+                                                    <tr className='hihihi'>
                                                         <th>Hình Ảnh</th>
                                                         <th>Mã Bệnh Nhân</th>
                                                         <th>Tên</th>
-                                                        <th>Tuổi</th>
-                                                        <th>Địa Chỉ</th>
+                                                        <th>Ngày sinh</th>
                                                         <th>Số Điện Thoại</th>
                                                         <th>Email</th>
                                                         <th>Hành Động</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {currentItems.map((e) => (
-                                                        <tr key={e.id}>
-                                                            <td>
-                                                                <span className="list-icon">
-                                                                    <img className="patients-img" src="/images/xs/avatar1.jpg" alt="" />
-                                                                </span>
-                                                            </td>
-                                                            <td><span className="list-name">#BN 00{e.id}</span></td>
-                                                            <td>{e.ten}</td>
-                                                            <td>{e.ngay_sinh}</td>
-                                                            <td>{e.dia_chi}</td>
+                                                    {data.map((e) => (
+                                                        <tr>
+                                                            <td><span class="list-icon"><img class="patients-img" src="/images/xs/avatar1.jpg" alt="" /></span></td>
+                                                            <td><span class="list-name">#BN 00{e.id}</span></td>
+                                                            <td>{e.ten} </td>
+                                                            <td>{e.ngay_sinh.split('T')[0]}</td>
                                                             <td>{e.so_dien_thoai}</td>
                                                             <td>{e.email}</td>
                                                             <td>

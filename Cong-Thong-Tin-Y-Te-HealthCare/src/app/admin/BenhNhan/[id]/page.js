@@ -7,6 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function BenhNhanDetail({ params }) {
     const [benhnhan, setBenhNhan] = useState(null);
+<<<<<<< HEAD
     const [cssk, setchisosuckhoe] = useState(null);
     const [sortOrder, setSortOrder] = useState('newest');
     const toggleSortOrder = () => {
@@ -16,6 +17,9 @@ export default function BenhNhanDetail({ params }) {
     const [selectedIndices, setSelectedIndices] = useState([]);
     const { data, error } = useSWR(`http://localhost:3000/benhnhan/${params.id}`, fetcher);
     const { data: ttngay, error: ttngayError } = useSWR(`http://localhost:3000/benhnhan/ttngay/${params.id}`, fetcher);
+=======
+    const { data, error } = useSWR(`http://localhost:3000/patient/${params.id}`, fetcher);
+>>>>>>> origin/TrungNhin
 
     useEffect(() => {
         // Set the state if the data is available
@@ -79,9 +83,7 @@ export default function BenhNhanDetail({ params }) {
                                     </div>
                                     <hr />
                                     <strong>Nghề nghiệp</strong>
-                                    <p>Development</p>
-                                    <strong>Nghề nghiệp</strong>
-                                    <p>Development</p>
+                                    <p>Ăn hàng ở không nói gọn là Hàng không</p>
                                     <strong>Email</strong>
                                     <p>{benhnhan.email}</p>
                                     <hr />

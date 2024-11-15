@@ -1,13 +1,110 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const multer = require('multer');
+const router = express.Router();
+
+
+
+// Thiết lập nơi lưu trữ và tên file
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images'); // Đường dẫn lưu trữ ảnh
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // Tên file gốc
+  }
+});
+
+// Kiểm tra file upload
+function checkFileUpload(req, file, cb) {
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+    return cb(new Error('Bạn chỉ được upload file ảnh'));
+  }
+  cb(null, true);
+}
+
+let upload = multer({ storage: storage, fileFilter: checkFileUpload });
+
+// Thêm bác sĩ
+router.post('/', upload.single('anh'), async (req, res) => {
+  const { id_chuyen_khoa, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email } = req.body; // Thêm email
+  const anh = req.file ? req.file.originalname : null; // Lấy tên file ảnh
+
+  // Thêm dữ liệu vào bảng bac_si
+  req.db.query(
+    'INSERT INTO bac_si (id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', // Cập nhật câu lệnh SQL
+    [id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email], // Cập nhật giá trị
+    (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+      res.status(201).json({ id: results.insertId, message: 'Bác sĩ đã được thêm thành công' });
+    }
+  );
+});
+
+// Cập nhật thông tin bác sĩ
+router.put('/:id', upload.single('anh'), async (req, res) => {
+  const { id } = req.params; // Lấy id của bác sĩ từ URL
+  const { id_chuyen_khoa, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email } = req.body; // Lấy thông tin cập nhật từ body
+  const anh = req.file ? req.file.filename : null; // Lấy tên file ảnh nếu có file mới
+
+  // Tạo câu lệnh SQL cho việc cập nhật
+  const sql = `
+    UPDATE bac_si 
+    SET id_chuyen_khoa = ?, ten = ?, ngay_sinh = ?, gioi_tinh = ?, dia_chi = ?, so_dien_thoai = ?, email = ?, anh = COALESCE(?, anh) 
+    WHERE id = ?`;
+
+  // Thực thi câu lệnh SQL
+  req.db.query(
+    sql,
+    [id_chuyen_khoa, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, anh, id],
+    (error, results) => {
+      if (error) {
+        console.error('Error executing query:', error); // Log lỗi nếu có
+        return res.status(500).json({ error: error.message });
+      }
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
+      }
+      res.status(200).json({ message: 'Thông tin bác sĩ đã được cập nhật thành công' });
+    }
+  );
+});
+// Xóa bác sĩ
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  req.db.query('DELETE FROM bac_si WHERE id = ?', [id], (error, results) => {
+    if (error) return res.status(500).json({ error: error.message });
+    if (results.affectedRows === 0) return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
+    res.json({ message: 'Bác sĩ đã được xóa' });
+  });
+});
 
 // Lấy danh sách bác sĩ
 router.get('/', (req, res) => {
-  req.db.query('SELECT bs.*, ck.* FROM `bac_si` bs JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id', (error, results) => {
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(results);
-  });
+  req.db.query(
+    `SELECT 
+      bs.id, 
+      bs.id_chuyen_khoa, 
+      bs.anh, 
+      bs.ten, 
+      bs.ngay_sinh, 
+      bs.gioi_tinh, 
+      bs.email, 
+      bs.dia_chi, 
+      bs.so_dien_thoai,
+      ck.ten_chuyen_khoa
+     FROM bac_si bs
+     JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id
+     ORDER BY bs.id ASC`, // Sắp xếp theo id tăng dần
+    (error, results) => {
+      if (error) {
+        return res.status(500).json({ error: error.message });
+      }
+      // Trả về danh sách bác sĩ
+      res.json(results);
+    }
+  );
 });
+
 
 // Lấy thông tin bác sĩ theo ID
 router.get('/:id', (req, res) => {
@@ -19,49 +116,23 @@ router.get('/:id', (req, res) => {
   });
 });
 
-// Thêm bác sĩ mới
-router.post('/', (req, res) => {
-  const { id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai } = req.body;
+router.get('/chuyen-khoa/:idChuyenKhoa', (req, res) => {
+  const idChuyenKhoa = req.params.idChuyenKhoa;
+
   req.db.query(
-    'INSERT INTO bac_si (id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-    [id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai], 
+    'SELECT bs.*, ck.* FROM `bac_si` bs JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id WHERE bs.id_chuyen_khoa = ?',
+    [idChuyenKhoa],
     (error, results) => {
       if (error) return res.status(500).json({ error: error.message });
-      res.status(201).json({ id: results.insertId, message: 'Bác sĩ đã được thêm thành công' });
+      res.json(results);
     }
   );
-});
-
-// Cập nhật thông tin bác sĩ
-router.put('/:id', (req, res) => {
-  const { id } = req.params;
-  const { id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai } = req.body;
-  
-  req.db.query(
-    'UPDATE bac_si SET id_chuyen_khoa = ?, anh = ?, ten = ?, ngay_sinh = ?, gioi_tinh = ?, dia_chi = ?, so_dien_thoai = ? WHERE id = ?',
-    [id_chuyen_khoa, anh, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, id], 
-    (error, results) => {
-      if (error) return res.status(500).json({ error: error.message });
-      if (results.affectedRows === 0) return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
-      res.json({ message: 'Thông tin bác sĩ đã được cập nhật' });
-    }
-  );
-});
-
-// Xóa bác sĩ
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  req.db.query('DELETE FROM bac_si WHERE id = ?', [id], (error, results) => {
-    if (error) return res.status(500).json({ error: error.message });
-    if (results.affectedRows === 0) return res.status(404).json({ message: 'Bác sĩ không tồn tại' });
-    res.json({ message: 'Bác sĩ đã được xóa' });
-  });
 });
 
 // Lấy lịch sử khám của bác sĩ
 router.get('/:id/lich-su-kham', (req, res) => {
   const { id } = req.params;
-  
+
   req.db.query(`
     SELECT 
       LichSuKhams.id_lich_su_kham,
@@ -102,8 +173,8 @@ router.get('/:id/lich-su-kham', (req, res) => {
 router.get('/:id/lich-su-benh-nhan', (req, res) => {
   const { id } = req.params;
   req.db.query(
-    'SELECT DISTINCT bn.* FROM ThongTinBenhNhan bn JOIN LichSuKhams lh ON bn.id_benh_nhan = lh.id_benh_nhan WHERE lh.id_bac_si = ?', 
-    [id], 
+    'SELECT DISTINCT bn.* FROM ThongTinBenhNhan bn JOIN LichSuKhams lh ON bn.id_benh_nhan = lh.id_benh_nhan WHERE lh.id_bac_si = ?',
+    [id],
     (error, results) => {
       if (error) return res.status(500).json({ error: error.message });
       res.json(results);
@@ -126,6 +197,51 @@ router.put('/lich-su-kham/:id', (req, res) => {
       return res.status(404).json({ error: 'Lịch hẹn không tìm thấy' });
     }
     res.json({ message: 'Cập nhật lịch hẹn thành công' });
+  });
+});
+
+// tìm kiếm bác sĩ
+router.get('/search-doctor/:keyword', (req, res) => {
+  const keyword = req.params.keyword.trim(); // Loại bỏ khoảng trắng thừa
+  const lowerKeyword = keyword.toLowerCase(); // Chuyển từ khóa về chữ thường
+
+  console.log("Keyword:", keyword); // Kiểm tra giá trị của keyword
+
+  // Truy vấn MySQL chỉ tìm kiếm theo tên của bác sĩ
+  const query = `
+      SELECT 
+          bac_si.id, 
+          bac_si.id_chuyen_khoa, 
+          bac_si.anh, 
+          bac_si.ten, 
+          bac_si.ngay_sinh, 
+          chuyen_khoa.mo_ta, 
+          chuyen_khoa.ten_chuyen_khoa, 
+          bac_si.gioi_tinh, 
+          bac_si.dia_chi, 
+          bac_si.so_dien_thoai, 
+          bac_si.email
+      FROM bac_si 
+      LEFT JOIN chuyen_khoa ON bac_si.id_chuyen_khoa = chuyen_khoa.id
+      WHERE LOWER(bac_si.ten) LIKE ?
+  `;
+  const values = [`%${lowerKeyword}%`]; // Sử dụng từ khóa chỉ cho tên bác sĩ
+
+  console.log("Query:", query); // Kiểm tra truy vấn
+  console.log("Values:", values); // Kiểm tra giá trị
+
+  // Thực hiện truy vấn
+  req.db.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Lỗi truy vấn cơ sở dữ liệu:', error);
+      return res.status(500).json({ error: 'Đã xảy ra lỗi khi lấy dữ liệu.' });
+    }
+
+    if (results.length > 0) {
+      res.status(200).json(results);
+    } else {
+      res.status(404).json({ message: "Không tìm thấy bác sĩ" });
+    }
   });
 });
 

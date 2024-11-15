@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import Link from "next/link";
 import Head from "next/head";
+import "../../../public/bootstrap/css/bootstrap.min.css";
 
 import "../../../public/vendor/bootstrap/css/bootstrap.min.css";
 import "../../../public/vendor/font-awesome/css/font-awesome.min.css";
@@ -54,8 +55,7 @@ export default function RootLayout({ children }) {
         <script src="/vendor/flot-charts/jquery.flot.selection.js"></script>
         <script src="/vendor/fullcalendar/fullcalendar.js"></script>
         <script
-          src="https://kit.fontawesome.com/bcd15b30db.js"
-          crossorigin="anonymous"
+          src="https://kit.fontawesome.com/bcd15b30db.js" crossorigin="anonymous"
         ></script>
         //js
         {/* <script scr="/bootstrap/js/bootstrap.bundle.js"> </script>
@@ -74,6 +74,8 @@ export default function RootLayout({ children }) {
         <script scr="/bootstrap/js/style.js"> </script> */}
         
         <script src="/js/pages/calendar.js"></script>
+        <script src="/bootstrap/js/style.js"></script>
+        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
       </body>
     </html>
   );
