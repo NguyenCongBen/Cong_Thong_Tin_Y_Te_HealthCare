@@ -11,18 +11,6 @@
       "static/css/app/(users)/layout.css",
       "static/chunks/app/(users)/layout.js"
     ],
-    "/(users)/datlich/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/datlich/page.css",
-      "static/chunks/app/(users)/datlich/page.js"
-    ],
-    "/(users)/dltc/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(users)/dltc/page.css",
-      "static/chunks/app/(users)/dltc/page.js"
-    ],
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -34,20 +22,15 @@
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
-    "/admin/Appointment/page": [
+    "/admin/Doctors/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/Appointment/page.js"
+      "static/chunks/app/admin/Doctors/page.js"
     ],
-    "/admin/BenhNhan/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/BenhNhan/page.js"
-    ],
-    "/admin/BenhNhan/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/BenhNhan/[id]/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
