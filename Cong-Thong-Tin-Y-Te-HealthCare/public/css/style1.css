@@ -117,10 +117,8 @@
 }
 
 .doctors_main {
-    overflow: hidden;
-    position: relative;
-    height: auto;
-    transition: .5s ease;
+
+    border: 1px solid black;
 }
 
 .name_doctors_admin {
@@ -252,6 +250,9 @@
 }
 
 .chuyen_khoa_admin_doctor {
+    position: absolute;
+    top: 10px;
+    right: 20px;
     padding: 8px 10px;
     border-radius: 5px;
     text-transform: uppercase;
@@ -379,10 +380,12 @@ tbody tr td a {
 .text_thongke_main_gioitinh_2 {
     margin-right: 10px;
 }
-.khung_2ben_doanhthu{
+
+.khung_2ben_doanhthu {
     display: flex;
     width: 100%;
     gap: 20px;
+
 }
 #navbar-menu {
     width: 50%;
@@ -390,28 +393,41 @@ tbody tr td a {
     justify-content: flex-end;
 }
 
-#navbar-nav {
-    display: flex;
-    width: 40%;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-}
 
-.navbar-nav .icon-menu {
-    padding: 0;
-}
+    #navbar-menu {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
 
-.navbar-nav .icon-menu .notification-dot {
-    top: 0;
-    right: -3px;
-}
+    #navbar-nav {
+        display: flex;
+        width: 40%;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
 
-#navbar-fixed-top {
-    display: flex;
-    justify-content: space-between;
-}
+    .navbar-nav .icon-menu {
+        padding: 0;
+    }
+
+    .navbar-nav .icon-menu .notification-dot {
+        top: 0;
+        right: -3px;
+    }
+
 
 .navbar>.container,
 .navbar>.container-fluid {
     width: 50%;
+
+    #navbar-fixed-top {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar>.container,
+    .navbar>.container-fluid {
+        width: 50%;
+    }
 }

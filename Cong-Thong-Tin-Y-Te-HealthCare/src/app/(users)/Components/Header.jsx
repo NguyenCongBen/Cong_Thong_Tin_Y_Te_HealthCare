@@ -86,6 +86,12 @@ export default function Header() {
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="d-flex align-items-center">
+                                        <Link href="/thongtintaikhoan" class="text-decoration-none d-flex align-items-center">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <p class="mb-0">Thông Tin cá nhân</p>
+                                        </Link>
+                                    </div>
                                     <div className="tt-boder-1"></div>
                                     <div className="tt-menu-icon">
                                         <button

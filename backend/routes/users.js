@@ -5,14 +5,14 @@ const jwt = require('jsonwebtoken');
 
 /* GET users listing. */
 //http://localhost:3000/users
-router.get('/', function (req, res, next) {
-  req.db.query('SELECT * FROM nguoidung', function (error, results, fields) {
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-    res.json(results);
-  });
-});
+router.get('/', function (req, res, next) {  
+  req.db.query('SELECT * FROM users', function (error, results, fields) {  
+    if (error) {  
+      return res.status(500).json({ error: error.message });  
+    }  
+    res.json(results);  
+  });  
+});  
 
 /* API cập nhật trạng thái người dùng. */
 //http://localhost:3000/users/status/id
