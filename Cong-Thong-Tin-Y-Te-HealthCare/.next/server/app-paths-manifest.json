@@ -1,6 +1,0 @@
-{
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/datlich/page": "app/(users)/datlich/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js"
-}

@@ -11,11 +11,41 @@ router.get('/', (req, res) => {
 });
 
 
-
-// show ra chi tiết chi số sức khỏe 
 router.get('/ttngay/:id_benh_nhan', (req, res) => {
   const { id_benh_nhan } = req.params;
   req.db.query('SELECT * FROM thong_tin_chi_so_suc_khoe WHERE id_benh_nhan = ?', [id_benh_nhan], (error, results) => {
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
+  });
+});
+router.get('/ttbenhly/:id_benh_nhan', (req, res) => {
+  const { id_benh_nhan } = req.params;
+  req.db.query('SELECT * FROM thong_tin_benh_ly WHERE id_benh_nhan = ?', [id_benh_nhan], (error, results) => {
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(results);
+  });
+});
+// lọc 
+router.get('/filter_benhnhan', (req, res) => {
+  const filterType = req.query.filterType || '';
+  const gender = req.query.gender || '';
+  let query = 'SELECT * FROM benh_nhan';
+
+  if (filterType === 'oldest') {
+    query += ' ORDER BY ngay_sinh ASC ';
+  } else if (filterType === 'newest') {
+    query += ' ORDER BY id DESC ';
+  }
+
+
+  if (gender === 'male') {
+    query = `SELECT * FROM benh_nhan WHERE gioi_tinh = "Nam" `;
+  } else if (gender === 'female') {
+    query = `SELECT * FROM benh_nhan WHERE gioi_tinh = "Nữ" `;
+  }
+
+  // Execute query
+  req.db.query(query, (error, results) => {
     if (error) return res.status(500).json({ error: error.message });
     res.json(results);
   });
@@ -24,7 +54,8 @@ router.get('/ttngay/:id_benh_nhan', (req, res) => {
 
 
 
-// Lấy thông tin bệnh nhân theo ID
+
+
 router.get('/:id', (req, res) => {
   const { id } = req.params;
   const query = `
@@ -135,6 +166,32 @@ router.get('/thong_tin_chi_so_suc_khoe/:id_benh_nhan', (req, res) => {
   });
 });
 
+
+router.post('/search-drug', (req, res) => {
+  const { ten_duoc_pham } = req.body;
+
+  // Kiểm tra xem tên thuốc có trống không
+  if (!ten_duoc_pham) {
+    return res.status(400).json({ message: 'Tên thuốc không được bỏ trống' });
+  }
+
+  // Sử dụng LIKE để tìm kiếm tên thuốc theo tên chứa từ khóa
+  req.db.query(
+    'SELECT * FROM thong_tin_duoc_pham WHERE ten_duoc_pham LIKE ?',
+    [`%${ten_duoc_pham}%`],
+    (error, results) => {
+      if (error) return res.status(500).json({ error: error.message });
+
+      // Kiểm tra nếu không tìm thấy kết quả nào
+      if (results.length === 0) {
+        return res.status(404).json({ message: 'Không tìm thấy thuốc nào' });
+      }
+
+      // Trả về danh sách thuốc tìm thấy
+      res.json(results);
+    }
+  );
+});
 
 
 
