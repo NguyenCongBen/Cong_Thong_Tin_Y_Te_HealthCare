@@ -571,7 +571,6 @@ export default function BenhNhanDetail({ params }) {
                                                             </tr>
                                                         )}
 
-                                                      
 
                                                     </tbody>
                                                 </table>

@@ -54,7 +54,7 @@ app.use('/chuyenkhoa', chuyenkhoaRouter);
 app.use('/baiviet', BaivietRouter);
 app.use('/users', usersRouter);
 app.use('/doctor', bacsiRouter);
-app.use('/patient', benhnhanRouter);
+app.use('/benhnhan', benhnhanRouter);
 app.use('/benhvien', benhvienRouter);
 app.use('/thuoc', thuocRouter);
 app.use('/dichvu', dichvuRouter);
