@@ -94,7 +94,7 @@ router.get('/', (req, res) => {
       ck.ten_chuyen_khoa
      FROM bac_si bs
      JOIN chuyen_khoa ck ON bs.id_chuyen_khoa = ck.id
-     ORDER BY bs.id ASC`, // Sắp xếp theo id tăng dần
+     ORDER BY bs.id DESC`, // Sắp xếp theo id tăng dần
     (error, results) => {
       if (error) {
         return res.status(500).json({ error: error.message });

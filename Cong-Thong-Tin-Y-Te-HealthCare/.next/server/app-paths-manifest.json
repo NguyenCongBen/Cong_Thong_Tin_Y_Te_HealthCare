@@ -1,8 +1,10 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/(users)/datlich/page": "app/(users)/datlich/page.js",
-  "/(users)/dltc/page": "app/(users)/dltc/page.js",
-  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
+  "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/(users)/timkiem/page": "app/(users)/timkiem/page.js",
   "/admin/Appointment/page": "app/admin/Appointment/page.js",
-  "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js",
-  "/admin/page": "app/admin/page.js"
+  "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
+  "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js"
 }
