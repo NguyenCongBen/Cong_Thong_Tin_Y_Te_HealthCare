@@ -1,5 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+<<<<<<< HEAD
   "/(users)/datlich/page": "app/(users)/datlich/page.js",
   "/(users)/tracuuthuoc/page": "app/(users)/tracuuthuoc/page.js",
   "/admin/page": "app/admin/page.js",
@@ -7,4 +8,13 @@
   "/admin/Appointment/page": "app/admin/Appointment/page.js",
   "/admin/BenhNhan/page": "app/admin/BenhNhan/page.js",
   "/admin/BenhNhan/[id]/page": "app/admin/BenhNhan/[id]/page.js"
+=======
+  "/(users)/page": "app/(users)/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/(users)/timkiembacsi/page": "app/(users)/timkiembacsi/page.js",
+  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
+  "/admin/Appointment/page": "app/admin/Appointment/page.js",
+  "/(users)/dltc/page": "app/(users)/dltc/page.js",
+  "/(users)/datlich/page": "app/(users)/datlich/page.js"
+>>>>>>> f450037e752a0b84c34b7a4316d87afdfb56eb26
 }
