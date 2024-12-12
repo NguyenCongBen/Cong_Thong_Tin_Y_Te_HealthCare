@@ -1,8 +1,0 @@
-{
-  "/(users)/page": "app/(users)/page.js",
-  "/(users)/tamnhinvasumenh/page": "app/(users)/tamnhinvasumenh/page.js",
-  "/(users)/timbacsi/page": "app/(users)/timbacsi/page.js",
-  "/(users)/datlich/page": "app/(users)/datlich/page.js",
-  "/(users)/dangky/page": "app/(users)/dangky/page.js",
-  "/(users)/dangnhap/page": "app/(users)/dangnhap/page.js"
-}
